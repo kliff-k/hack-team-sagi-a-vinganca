@@ -154,7 +154,16 @@ class API
                 switch ($this->method)
                 {
                     case 'GET':
-                        $return = json_decode(file_get_contents("http://hs2019st.com:8983/solr/servicos/select?q=*%3A*"),TRUE);
+                        $return = json_decode(file_get_contents("http://hs2019st.com:8983/solr/servicos/select?q=*:*&views_i desc&rows=4"),TRUE);
+                        break;
+                }
+                break;
+            case 'cards':
+                switch ($this->method)
+                {
+                    case 'GET':
+                        $area = $this->path[2];
+                        $return = json_decode(file_get_contents("http://hs2019st.com:8983/solr/servicos/select?q=*:*&views_i desc&fq=areas_de_interesse_ss:'$area'"),TRUE);
                         break;
                 }
                 break;
