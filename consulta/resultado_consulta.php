@@ -145,7 +145,7 @@ body {
         });
         function consulta(valor){
             $.ajax({
-                url: "http://hs2019st.com:8983/solr/servicos/select?q="+valor
+                url: "https://hs2019st.com/govbr/solr-select.php?q="+valor
             }).done(function() {
                 alert(msg);
             });
