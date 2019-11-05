@@ -1,0 +1,5 @@
+
+/* - ++resource++govbr.portal/js/galeria-de-aplicativos.js - */
+// https://www.gov.br/portal_javascripts/++resource++govbr.portal/js/galeria-de-aplicativos.js?original=1
+function govbr_galeria_de_aplicativos_formwidget_autocomplete_ready(event,data,formatted){(function($){var input_box=$(event.target);input_box.attr("value",data[1]);$('#galeria_de_aplicativos').submit()}(jQuery))}(function($){$(document).ready(function(){if($('form#galeria_de_aplicativos').length){$('input[name="pesquisar_em_aplicativos"]').focus(function(){if($(this).attr("placeholder")==$(this).attr("value")){$(this).attr("value","")}});$('input[name="pesquisar_em_aplicativos"]').blur(function(){if($(this).attr("value")==""){if($(this).attr("placeholder")!=$(this).attr("data-placeholder")){$('#galeria_de_aplicativos').submit()}}
+else{if($(this).attr("placeholder")!=$(this).attr("value")&&$(this).attr("data-placeholder")!=$(this).attr("value")){$('#galeria_de_aplicativos').submit()}}});$('select[name="loja"]').change(function(){$('#galeria_de_aplicativos').submit()});$('select[name="categoria_path"]').change(function(){$('#galeria_de_aplicativos').submit()})}})})(jQuery);
