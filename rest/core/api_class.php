@@ -148,7 +148,7 @@ class API
     {
         $return = '';
         // Endpoints
-        switch ($this->path[0])
+        switch ($this->path[1])
         {
             case 'banner':
                 switch ($this->method)
