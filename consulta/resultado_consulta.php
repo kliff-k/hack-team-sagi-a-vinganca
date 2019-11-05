@@ -205,6 +205,15 @@ body {
 </style><style>[vw] html,[vw] body,[vw] div,[vw] span,[vw] applet,[vw] object,[vw] iframe,[vw] h1,[vw] h2,[vw] h3,[vw] h4,[vw] h5,[vw] h6,[vw] p,[vw] blockquote,[vw] pre,[vw] a,[vw] abbr,[vw] acronym,[vw] address,[vw] big,[vw] cite,[vw] code,[vw] del,[vw] dfn,[vw] em,[vw] img,[vw] ins,[vw] kbd,[vw] q,[vw] s,[vw] samp,[vw] small,[vw] strike,[vw] strong,[vw] sub,[vw] sup,[vw] tt,[vw] var,[vw] b,[vw] u,[vw] i,[vw] center,[vw] dl,[vw] dt,[vw] dd,[vw] ol,[vw] ul,[vw] li,[vw] fieldset,[vw] form,[vw] label,[vw] legend,[vw] table,[vw] caption,[vw] tbody,[vw] tfoot,[vw] thead,[vw] tr,[vw] th,[vw] td,[vw] article,[vw] aside,[vw] canvas,[vw] details,[vw] embed,[vw] figure,[vw] figcaption,[vw] footer,[vw] header,[vw] hgroup,[vw] menu,[vw] nav,[vw] output,[vw] ruby,[vw] section,[vw] summary,[vw] time,[vw] mark,[vw] audio,[vw] video{margin:0;padding:0;border:0;font-size:100%;font:inherit;vertical-align:baseline;display:block}[vw] article,[vw] aside,[vw] details,[vw] figcaption,[vw] figure,[vw] footer,[vw] header,[vw] hgroup,[vw] menu,[vw] nav,[vw] section{display:block}[vw] body{line-height:1}[vw] ol,[vw] ul{list-style:none}[vw] blockquote,[vw] q{quotes:none}[vw] blockquote:before,[vw] blockquote:after,[vw] q:before,[vw] q:after{content:'';content:none}[vw] table{border-collapse:collapse;border-spacing:0}
 </style><style>@media (max-width: 450px){div[vw] canvas{min-height:unset !important;min-width:unset !important;-webkit-filter:blur(0px);-moz-filter:blur(0px);-ms-filter:blur(0px);-o-filter:blur(0px);filter:blur(0px);min-height:calc(0.35 * 680px) !important;min-width:calc(0.35 * 420px) !important}div[vw] [vw-plugin-wrapper].active{height:358px !important;width:210px !important}#gameContainer{display:flex !important;justify-content:center !important;top:-75px !important;left:-90px !important;width:100% !important;height:70% !important}[vp] [vp-controls]{left:36% !important;bottom:20% !important;background:white}[vp] .vpw-controls-slider{width:27% !important}[vp] .vpw-box .vpw-mes{left:36% !important;font-size:12px !important}[vp] .vpw-settings-btn .vpw-settings-btn-close,[vp] .vpw-btn-close .vpw-img{right:100px}[vp] [vp-rate-box].vp-enabled .vp-container{margin-right:70px;margin-bottom:80px}[vp] [vp-rate-button] .vp-button{margin-right:110px;margin-bottom:130px}[vp] [vp-rate-button] .vp-button img{width:32px;margin-bottom:-37px;margin-right:-14px}[vp] .vpw-message-box{font-size:0.7em}[vp] .vpw-message-box .vpw-message{margin-left:10px;margin-right:93px;margin-bottom:3px}[vp] .vpw-settings .vpw-content .vpw-vlibras-logo{left:39%;bottom:125px}[vp] .vpw-settings .vpw-content>ul{margin-left:-20px}[vp] .vpw-settings .vpw-content>ul li .vpw-name{font-size:12px}[vp] .vpw-settings .vpw-content>ul .vpw-localism .vpw-flag{right:88px;height:24px}[vp] .vpw-switch{width:48px;height:15px;margin-top:-10px;right:64px}[vp] .vpw-slider-check.vpw-round:before{top:-3px}[vp] .vpw-slider-check:before{height:21px;width:20px;left:-20;bottom:4px}[vp] .vpw-settings .vpw-content .vpw-vlibras-logo .vpw-logo{width:51%;margin-left:32px}[vp] .vpw-settings .vpw-content .vpw-vlibras-logo .vpw-vlibras-span{left:44%;bottom:5%}[vp] .vpw-settings .vpw-content .vpw-vlibras-logo{left:39%;transform:translateX(-50%);bottom:125px}[vp] .vpw-settings .vpw-content>ul .vpw-localism .vpw-abbrev{right:65px}[vp] .vpw-controls-dictionary:not(.vpw-loading-dictionary):before{font-size:12px}[vp] .vpw-info-screen #vpw-info-tab-bullets{right:47px;bottom:100px}[vp] .vpw-info-screen .vpw-arrow-right.active{right:94px;position:absolute;top:137px;z-index:4}[vp] .vpw-info-screen .vpw-arrow-left.active{right:initial;position:absolute;top:137px;z-index:4}[vp] .vpw-info-screen #vpw-info-main.active{font-size:0.7125em;margin-right:99px;margin-bottom:136px}[vp] .vpw-info-screen .vpw-info-tab .vpw-info-tab-label{margin-top:-8px;font-size:14px}[vp] .vpw-info-screen .vpw-info-tab .vpw-info-tab-label-two{font-size:14px;margin-top:6px}[vp] .vpw-info-screen #vpw-info-realizadores .vpw-logo.ufpb{max-width:20%}[vp] .vpw-info-screen #vpw-info-realizadores .vpw-logo-group.text{display:block}[vp] .vpw-info-screen #vpw-info-realizadores .vpw-logo-group.logo1{max-width:70%}[vp] .vpw-info-screen #vpw-info-realizadores .vpw-logo-group.logo2{max-width:86%}[vp] .vpw-info-screen #vpw-info-realizadores.active{font-size:0.8125em;margin-right:81px;margin-bottom:113px}[vp] .vpw-settings .vpw-content .vpw-flag{height:18px}[vp] .vpw-settings .vpw-content>.vpw-localism .vpw-regions>.vpw-container-regions{margin-top:-1%;margin-bottom:-2px}[vp] .vpw-settings .vpw-content>.vpw-localism{width:71%}[vp] .vpw-settings .vpw-content>.vpw-localism .vpw-regions{left:-3px !important}[vp] .vpw-settings .vpw-content>ul .vpw-opacity{margin-right:56px}[vp] .vpw-dictionary .vpw-dict-container{width:64%;height:44%;left:44%}[vp] .vpw-bar .vpw-title{margin-right:40px}[vp] .vpw-dictionary .vpw-panel .vpw-search input{width:73%;left:39%}[vp] .vpw-dictionary .vpw-panel .vpw-search .vpw-icon img{right:70px}[vp] [vp-dictionary]{right:18px !important}[vp] .vpw-dictionary .vpw-dict-container ul li:not(.margin){padding:5px}[vp] [vp-suggestion-button].vp-enabled{right:40px;bottom:150px !important}[vp] [vp-suggestion-screen]{width:72%;height:60%;top:41px}[vp] [vp-change-avatar]{left:9px;top:265px}[vp] [vp-change-avatar] .vp-button-change-avatar{width:30px;height:30px}[vp] [vp-change-avatar] .vp-button-change-avatar .change-avatar-female{width:15px}[vp] [vp-change-avatar] .vp-button-change-avatar .change-avatar-male{width:15px}}div[vw]{position:fixed;max-width:95vw;right:0;top:60%;margin-top:-32vh;z-index:99999999;display:none;font-family:Arial;color:#000;line-height:1.3}div[vw].enabled{display:block}div[vw].active{margin-top:-285px}div[vw].maximize{top:6vh;left:6vh;right:6vh;bottom:6vh;max-width:initial;margin-top:0}div[vw].left{left:0;right:initial}div[vw] #gameContainer{position:absolute !important;top:-25px;left:0;right:0;bottom:0;margin:auto !important;min-height:calc(0.70 * 450px);min-width:calc(0.90 * 300px);width:100%;height:80%;overflow:hidden;-moz-border-radius:10px;-webkit-border-radius:10px;border-radius:0px;background:none !important}div[vw] #gameContainer canvas{min-height:calc(0.70 * 450px);min-width:calc(0.90 * 300px);height:100%;width:100%;-webkit-filter:blur(0px);-moz-filter:blur(0px);-ms-filter:blur(0px);-o-filter:blur(0px);filter:blur(0px)}div[vw] [vp]{position:relative;height:100%;width:100%;min-width:300px;min-height:450px;z-index:1;overflow:hidden}div[vw] [vp] [vp-message-box]{position:absolute;z-index:5}div[vw] [vp] [vp-info-screen]{z-index:3}div[vw] [vp] [vp-info-screen] #info-text{font-size:1em !important}div[vw] [vp] [vp-info-screen] #info-realizadores{font-size:11px !important}div[vw] [vp] [vp-controls]{position:absolute;display:flex;align-items:center;justify-content:center;left:50%;transform:translateX(-50%);bottom:0%;max-width:900px;z-index:2}div[vw] [vp] [vp-settings-btn]{z-index:2}div[vw] [vp] [vp-dictionary]{z-index:8}div[vw] [vp] [vp-rate-box]{bottom:58px}div[vw] [vp] [vp-suggestion-button].vp-enabled,div[vw] [vp] [vp-suggestion-button]{bottom:58px}div[vw] [vp] [vp-suggestion-screen]{top:41px}.vw-text:hover{background-color:rgba(0,63,134,0.2);color:#000;cursor:pointer}.vw-text-active{background-color:rgba(30,63,134,0.2);color:#000}
 </style></head>
+
+<?php
+var_dump($_GET['SearchableText']);
+$url='http://hs2019st.com:8983/solr/servicos/select?q='.urlencode($_GET['SearchableText']);
+$content=file_get_contents($url);
+$content=json_decode($content, TRUE);
+$numFound=$content['response']['numFound'];
+$docs=$content['response']['docs'];
+?>
   <body class="default-header-template template-search portaltype-lrf site-pt-br userrole-anonymous" data-base-url="https://www.gov.br/pt-br" data-portal-url="https://www.gov.br" dir="ltr"><div id="barra-identidade">
     <div id="barra-brasil"><div class="conteudo-escondido"> <a accesskey="1" href="https://www.gov.br/pt-br/@@search?SearchableText=cadastro#conteudo">Ir para o conteúdo</a> </div><div class="conteudo-barra-brasil"> <a href="https://gov.br/" class="pic-gov" title="GovBR">GovBR</a> <nav id="menu-barra-brasil" onscroll="checkScrollBarra(this);"> <ul class="lista-barra-brasil"> <li class="list-item"> <a href="http://www.acessoainformacao.gov.br/" class="link-barra link-externo-barra">Acesso à informação</a> </li> <li class="espacador"></li> <li class="list-item"> <a href="https://www.gov.br/pt-br/participacao-social/" class="link-barra link-externo-barra">Participe</a> </li> <li class="espacador"></li> <li class="list-item"> <a href="http://www4.planalto.gov.br/legislacao/" class="link-barra link-externo-barra">Legislação</a> </li> <li class="espacador"></li> <li class="list-item"> <a href="javascript:toggleOrgaosGoverno();" id="link-orgaos" class="link-barra link-interno-barra link-baixo-barra">Órgãos do Governo</a> </li> </ul> </nav> <a href="javascript:scrollBarra();" id="botao-seta-direita" class="botao-seta-direita"><i class="arrow right">Navegar para direita</i></a> </div><div class="orgaos-governo-barra" id="orgaos-governo-barra"> <div> <ul> <li class="orgao-barra"> <a href="http://www.casacivil.gov.br/">Casa Civil</a> </li> <li class="orgao-barra"> <a href="http://www.justica.gov.br/">Ministério da Justiça e Segurança Pública</a> </li> <li class="orgao-barra"> <a href="https://www.defesa.gov.br/">Ministério da Defesa</a> </li> <li class="orgao-barra"> <a href="http://www.itamaraty.gov.br/">Ministério das Relações Exteriores</a> </li> <li class="orgao-barra"> <a href="http://www.economia.gov.br/">Ministério da Economia</a> </li> <li class="orgao-barra"> <a href="http://www.infraestrutura.gov.br/">Ministério da Infraestrutura</a> </li> <li class="orgao-barra"> <a href="http://www.agricultura.gov.br/">Ministério da Agricultura, Pecuária e Abastecimento</a> </li> <li class="orgao-barra"> <a href="http://www.mec.gov.br/">Ministério da Educação</a> </li> <li class="orgao-barra"> <a href="http://cidadania.gov.br/">Ministério da Cidadania</a> </li> <li class="orgao-barra"> <a href="http://saude.gov.br/">Ministério da Saúde</a> </li> <li class="orgao-barra"> <a href="http://www.mme.gov.br/">Ministério de Minas e Energia</a> </li> <li class="orgao-barra"> <a href="http://www.mctic.gov.br/">Ministério da Ciência, Tecnologia, Inovações e Comunicações</a> </li> <li class="orgao-barra"> <a href="http://www.mma.gov.br/">Ministério do Meio Ambiente</a> </li> <li class="orgao-barra"> <a href="http://www.turismo.gov.br/">Ministério do Turismo</a> </li> <li class="orgao-barra"> <a href="http://www.integracao.gov.br/">Ministério do Desenvolvimento Regional</a> </li> <li class="orgao-barra"> <a href="http://www.cgu.gov.br/">Controladoria-Geral da União</a> </li> <li class="orgao-barra"> <a href="http://www.mdh.gov.br/">Ministério da Mulher, da Família e dos Direitos Humanos</a> </li> <li class="orgao-barra"> <a href="http://www.secretariageral.gov.br/">Secretaria-Geral</a> </li> <li class="orgao-barra"> <a href="http://www.secretariadegoverno.gov.br/">Secretaria de Governo</a> </li> <li class="orgao-barra"> <a href="http://www.gsi.gov.br/">Gabinete de Segurança Institucional</a> </li> <li class="orgao-barra"> <a href="http://www.agu.gov.br/">Advocacia-Geral da União</a> </li> <li class="orgao-barra"> <a href="http://www.bcb.gov.br/">Banco Central do Brasil</a> </li> <li class="orgao-barra"> <a href="http://www.gov.br/planalto">Planalto</a> </li></ul> </div></div></div>
 </div><ul id="skip-menu">
@@ -256,12 +265,12 @@ body {
           </div>
           <div id="portal-searchbox">
 
-    <form id="nolivesearchGadget_form" action="https://www.gov.br/pt-br/@@search">
+    <form id="nolivesearchGadget_form" action="#">
 
         <div class="LSBox">
         <label class="hiddenStructure" for="nolivesearchGadget">Busca</label>
 
-        <input name="SearchableText" type="text" size="18" value="cadastro" title="O que você procura?" placeholder="O que você procura?" accesskey="4" class="searchField" id="nolivesearchGadget">
+        <input name="SearchableText" type="text" size="18" value="<?=$_GET['SearchableText']?>" title="O que você procura?" placeholder="O que você procura?" accesskey="4" class="searchField" id="nolivesearchGadget">
 
         <input class="searchButton" type="submit" value="Buscar">
 
@@ -759,44 +768,27 @@ body {
                             
 
         <div id="buscaContainer">
-            <div id="search-results"><div class="row"><div class="col-md-12 col-sm-10"><h2>Resultados da Busca</h2></div></div> <div class="row"><div class="col-sm-12 num-resultado"><span>750</span>  Resultados</div></div> <div class="row abas"><div class="column col-md-12"><ul><li class="active"><a>Todos <span>(750)</span></a></li><li><a>Serviços <span>(263)</span></a></li><li><a>Serviços Estaduais <span>(102)</span></a></li><li><a>Notícias <span>(151)</span></a></li><li><a>Mídia <span>(30)</span></a></li><li><a>Apps <span>(2)</span></a></li></ul></div></div> <div class="row"><div class="column col-md-3 filtros"><div style="display: none;"></div></div> <div class="column col-md-9"><span>
+            <div id="search-results"><div class="row"><div class="col-md-12 col-sm-10"><h2>Resultados da Busca</h2></div></div> <div class="row"><div class="col-sm-12 num-resultado"><span><?=$numFound?></span>  Resultados</div></div> <div class="row abas"><div class="column col-md-12"><ul><li class="active"><a>Todos <span>(<?=$numFound?>)</span></a></li><li><a>Serviços <span>(263)</span></a></li><li><a>Serviços Estaduais <span>(102)</span></a></li><li><a>Notícias <span>(151)</span></a></li><li><a>Mídia <span>(30)</span></a></li><li><a>Apps <span>(2)</span></a></li></ul></div></div> <div class="row"><div class="column col-md-3 filtros"><div style="display: none;"></div></div> <div class="column col-md-9"><span>
             
             
             
             <ul class="searchResults noticias"><li>
                     <div class="row">
-                            <div class="column">
-                            <div class="card">
-                                    <div class="container">
-                                            <div class="container"><i aria-hidden="true" class="fas fa-university fa-2x"></i></div>
-                                                <a target="_blank" href="https://www.gov.br/pt-br/servicos/desmembrar-ou-fracionar-imovel-da-uniao">Desmembrar ou Fracionar Imóvel da União</a>
-                                    </div>
-                            </div>
-                            </div>
-                            <div class="column">
+                            <?php
+                            foreach ($docs as $d){
+                            ?>
+                                <div class="column">
                                     <div class="card">
                                             <div class="container">
                                                     <div class="container"><i aria-hidden="true" class="fas fa-university fa-2x"></i></div>
-                                                    <a target="_blank" href="https://www.gov.br/pt-br/servicos/consultar-dados-cadastrais-de-imovel-da-uniao">Consultar Dados Cadastrais de Imóvel da União</a>
+                                                        <a target="_blank" href="https://www.gov.br/pt-br/servicos/<?=$d['id']?>"><?=$d['nome_s']?></a>
+                                                        <?=$d['likes_i']?>
                                             </div>
                                     </div>
-                            </div>
-                            <div class="column">
-                                    <div class="card">
-                                            <div class="container">
-                                                    <div class="container"><i aria-hidden="true" class="fas fa-university fa-2x"></i></div>
-                                                    <a target="_blank" href="https://www.gov.br/pt-br/servicos/transferir-titular-de-imovel-da-uniao">Transferir o Responsável pelo Imóvel no Cadastro da SPU</a>
-                                            </div>
-                                    </div>
-                            </div>
-                            <div class="column">
-                                    <div class="card">
-                                            <div class="container">
-                                                    <div class="container"><i aria-hidden="true" class="fas fa-university fa-2x"></i></div>
-                                                    <a target="_blank" href="https://www.gov.br/pt-br/servicos/rever-area-e-valor-de-avaliacao-de-imovel-da-uniao">Rever Área e Valor de Avaliação de Imóvel da União</a>
-                                            </div>
-                                    </div>
-                            </div>
+                                </div>
+                            <?php    
+                            }
+                            ?>
                     </div>
                     
     </li><li><span><span class="titulo"><a target="_blank" href="https://www.gov.br/pt-br/servicos/consultar-dados-cadastrais-de-imovel-da-uniao">Consultar Dados Cadastrais de Imóvel da União</a></span>  <ul class="tags-noticias">Tags:
