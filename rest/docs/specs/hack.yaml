@@ -1,0 +1,101 @@
+openapi: 3.0.1
+info:
+  title: 51Gi! T5A3 (HackSERPRO)
+  description: 'API RESTful para a solução do 51Gi! T5A3 no Hackathon SERPRO 2019'
+  contact:
+    email: murilo.mascarenhas@cidadania.gov.br
+  license:
+    name: GPL-3.0
+    url: https://www.gnu.org/licenses/gpl-3.0.en.html
+  version: 1.0.0
+externalDocs:
+  description: Mais informações
+  url: https://www.hs2019st.com/conta/
+servers:
+  - url: https://www.hs2019st.com/rest/api/
+tags:
+  - name: consultas
+    description: Consultas diversas sobre o usuário logado
+  - name: login
+    description: Processo de login
+paths:
+  /login_usuario:
+    post:
+      tags:
+        - login
+      summary: Retorna os dados do usuário após login
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                cpf:
+                  type: string
+                  format: number
+                senha:
+                  type: string
+                  format: password
+      responses:
+        200:
+          description: Dados do usuário
+  /ultimos_acessos_externos/{cpf}:
+    get:
+      tags:
+        - consultas
+      summary: Histórico de acessos externos
+      parameters:
+        - name: cpf
+          in: path
+          description: CPF do usuário
+          required: true
+          schema:
+            type: string
+      responses:
+        200:
+          description: Histórico de acessos externos
+  /ultimos_acessos_internos/{cpf}:
+    get:
+      tags:
+        - consultas
+      summary: Histórico de acessos internos
+      parameters:
+        - name: cpf
+          in: path
+          description: CPF do usuário
+          required: true
+          schema:
+            type: string
+      responses:
+        200:
+          description: Histórico de acessos internos
+  /dados_usuario/{cpf}:
+    get:
+      tags:
+        - consultas
+      summary: Dados do usuário
+      parameters:
+        - name: cpf
+          in: path
+          description: CPF do usuário
+          required: true
+          schema:
+            type: string
+      responses:
+        200:
+          description: Dados do usuário
+  /notificacoes/{cpf}:
+    get:
+      tags:
+        - consultas
+      summary: Histórico de notificações
+      parameters:
+        - name: cpf
+          in: path
+          description: CPF do usuário
+          required: true
+          schema:
+            type: string
+      responses:
+        200:
+          description: Histórico de notificações

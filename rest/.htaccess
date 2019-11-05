@@ -1,0 +1,10 @@
+Options +FollowSymlinks
+RewriteEngine On
+RewriteBase /rest/
+
+Header set Access-Control-Allow-Origin "*"
+Header set Access-Control-Allow-Headers "origin, x-requested-with, content-type, authorization, http_if_none_match"
+Header set Access-Control-Allow-Methods "PUT, GET, POST, DELETE, OPTIONS, PATCH"
+RewriteCond %{HTTP:Authorization} ^(.*)
+RewriteRule .* - [e=HTTP_AUTHORIZATION:%1]
+RewriteRule api/(.*)$ api/api.php
