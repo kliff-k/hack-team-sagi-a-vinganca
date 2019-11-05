@@ -1,6 +1,6 @@
 Options +FollowSymlinks
 RewriteEngine On
-RewriteBase /rest/
+RewriteBase /govbr/rest/
 
 Header set Access-Control-Allow-Origin "*"
 Header set Access-Control-Allow-Headers "origin, x-requested-with, content-type, authorization, http_if_none_match"
