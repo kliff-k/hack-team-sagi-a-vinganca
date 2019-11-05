@@ -1,0 +1,108 @@
+
+/* - ++resource++collective.z3cform.datagridfield/datagridfield.css - */
+@media screen {
+/* https://www.gov.br/portal_css/++resource++collective.z3cform.datagridfield/datagridfield.css?original=1 */
+.datagridwidget-table-view {
+width: 100%;
+border: 1px solid #666;
+background: none repeat scroll 0 0 #EEE;
+}
+.datagridwidget-table-view .header {
+font-weight: bold;
+background: none repeat scroll 0 0 #DDD;
+color: #666;
+padding: 2px;
+font-size: 1.1em;
+text-align: left;
+}
+.datagridwidget-row {
+vertical-align: top;
+}
+.datagridwidget-cell input[type="text"] {
+padding: 1px;
+}
+.datagridwidget-cell input, .datagridwidget-cell select, .datagridwidget-cell textarea {
+border: 1px solid #CCC;
+}
+.datagridwidget-cell > input:only-child { width: 99%; }
+.datagridwidget-cell div.error {
+color:red;
+font-weight:bold;
+}
+.datagridwidget-empty-row {
+/* */
+display: none;
+}
+/* */
+.datagridwidget-cell {
+vertical-align: bottom;
+padding: 1px;
+}
+.datagridwidget-manipulator {
+width: 16px;
+text-align: center;
+padding-bottom: 4px;
+margin: 0;
+vertical-align: bottom;
+}
+.datagridwidget-manipulator img {
+cursor: pointer;
+}
+.datagridwidget-hidden-data {
+display: none;
+}
+/* */
+.auto-append  > .datagridwidget-manipulator.delete-row img,
+.auto-append  > .datagridwidget-manipulator.move-up img,
+.auto-append  > .datagridwidget-manipulator.move-down img,
+.auto-append  > .datagridwidget-manipulator.insert-row img {
+display: none;
+}
+/* */
+.minimum-row  > .datagridwidget-manipulator.insert-row img {
+display: block;
+}
+.datagridwidget-body-non-auto-append[data-many-rows = "true"] .datagridfield-last-filled-row > .datagridwidget-manipulator.move-down img,
+.datagridwidget-body-non-auto-append[data-many-rows = "true"] .datagridfield-first-filled-row > .datagridwidget-manipulator.move-up img {
+display: block;
+}
+/* */
+.datagridfield-first-filled-row > .datagridwidget-manipulator.move-up img {
+display: none !important;
+}
+/* */
+.datagridfield-last-filled-row > .datagridwidget-manipulator.move-down img {
+display: none !important;
+}
+.datagridwidget-cell input {
+background: white;
+background-image: none;
+}
+.datagridwidget-table-view-block {
+border-collapse: collapse;
+}
+.datagridwidget-table-view-block thead {
+display: none;
+}
+.datagridwidget-table-view-block .datagridwidget-row {
+border-bottom: 1px solid black;
+}
+.datagridwidget-table-view-block td {
+vertical-align: top;
+}
+.datagridwidget-block-edit-cell {
+width: auto;
+}
+.datagridwidget-table-view-block .datagridwidget-manipulator {
+width: 16px;
+}
+.datagridwidget-block {
+padding: 0.5em;
+}
+.datagridwidget-block-edit-cell .error {
+background-color: #FFDDCC;
+border: 1px solid red;
+margin: 1em 0;
+padding: 0.5em;
+}
+}

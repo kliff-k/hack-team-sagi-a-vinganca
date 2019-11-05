@@ -1,0 +1,65 @@
+body{
+}
+
+header{
+    background-image: url('../img/bg-hackathon.jpg');
+    background-position: center 55%;
+    background-repeat: no-repeat;
+    background-size: 50%;
+    background-color: black !important;
+}
+
+.navbar-brand img{
+    height: 2em;
+}
+
+.card-icon{
+    height: 10em;
+    padding: 1em;
+}
+
+.card-icon img{
+    height: 100%;
+    width: 100%;
+    object-fit: contain;
+}
+
+#messagens-menu{
+    width: 250px;
+}
+
+#barra-identidade{
+    display: flex;
+}
+
+#barra-brasil{
+    width: 100%;
+}
+
+
+.local-atividades div{
+    width: 100%;    
+    font-size: 0.9em !important;
+}
+
+.dvtabs h5{
+    text-transform: uppercase;
+    
+    font-size: 1.4em;
+}
+
+.btn-icone-hamburguer{
+    display:none;
+    cursor: pointer;
+}
+
+@media only screen and (max-width: 767px) {
+    /* For desktop: */
+    .btn-icone-hamburguer{
+        display: inline;
+    }
+
+    #menu-navegacao{
+        display: none;
+    }
+}
