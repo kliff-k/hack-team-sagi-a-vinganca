@@ -136,6 +136,23 @@ body {
 
 
 <script type="text/javascript">
+        $( document ).ready(function() {
+            // Get the input field
+            var input = document.getElementById("nolivesearchGadget");
+
+            // Execute a function when the user releases a key on the keyboard
+            input.addEventListener("keyup", function(event) {
+                // Number 13 is the "Enter" key on the keyboard
+                if (event.keyCode === 13) {
+                    // Cancel the default action, if needed
+                    event.preventDefault();
+                    // Trigger the button element with a click
+                    document.getElementById("searchButton").click();
+                }
+            });
+
+            consulta('*');
+        });
         jQuery(function($){
             if (typeof($.datepicker) != "undefined"){
               $.datepicker.setDefaults(
@@ -145,9 +162,35 @@ body {
         });
         function consulta(valor){
             $.ajax({
-                url: "http://hs2019st.com:8983/solr/servicos/select?q="+valor
-            }).done(function() {
-                alert(msg);
+                url: "http://hs2019st.com:8983/solr/servicos/select?rows=4&group=true&group.field=areas_de_interesse_s&group.limit=4&q="+encodeURIComponent(valor)
+            }).done(function(r) {
+                $('#numFound_todos').text('('+r.grouped.areas_de_interesse_s.matches+')');
+                $('#numFound_resultados').text(r.grouped.areas_de_interesse_s.matches);
+                html_resultado='';
+                html_group='';
+                r.grouped.areas_de_interesse_s.groups.forEach(g => {
+                    g.doclist.docs.forEach(d => {
+                        html_group +=
+                            '<div class="column"> ' +
+                            '   <div class="card">' +
+                            '       <div class="container">' +
+                            '           <div class="container">'+
+                            '                <i aria-hidden="true" class="fas fa-university fa-2x"></i>     ' +
+                            '           </div>                                                              ' +
+                            '           <a target="_blank" href="https://www.gov.br/pt-br/servicos/'+d.id+'" title="'+d.nome_s+'">'+d.nome_s.substring(0,40)+'</a>' +
+                            '        </div> '+
+                            ' <i aria-hidden="true" class="far fa-heart fa-1x">'+d.likes_i+'</i> '+
+                            ' <i aria-hidden="true" class="far fa-eye fa-1x">'+d.views_i+'</i> '+
+                            ' <a href="https://www.facebook.com/sharer/sharer.php?u=https://www.gov.br/pt-br/servicos/'+d.id+'" target="_blank"><i aria-hidden="true" class="fas fa-share-alt fa-1x"></i> </a>'+
+                            '   </div>' +
+                            '</div>'
+                    }); 
+                    html_resultado+='<hr><span class="titulo">'+g.groupValue+'</span><div class="row">'+html_group+'<div>';
+                    html_group='';   
+                });
+                
+                $('#div_resultado').html(html_resultado);
+                
             });
         }
         
@@ -170,7 +213,7 @@ body {
         
         
         
-      <link rel="stylesheet" type="text/css" media="screen" href="./resultado_consulta_files/bundle.css">
+      <link rel="stylesheet" type="text/css" media="screen" href="./resultado_consulta_files/bundld.css">
     
         
       <script type="text/javascript" src="./resultado_consulta_files/bundle.js"></script>
@@ -273,20 +316,18 @@ $docs=$content['response']['docs'];
           </div>
           <div id="portal-searchbox">
 
-    <form id="nolivesearchGadget_form" action="#">
 
         <div class="LSBox">
         <label class="hiddenStructure" for="nolivesearchGadget">Busca</label>
 
-        <input name="SearchableText" type="text" size="18" value="<?=$_GET['SearchableText']?>" title="O que você procura?" placeholder="O que você procura?" accesskey="4" class="searchField" id="nolivesearchGadget">
+        <input name="SearchableText" type="text" size="18" value="" title="O que você procura?" placeholder="O que você procura?" accesskey="4" class="searchField" id="nolivesearchGadget">
 
-        <input class="searchButton" type="button" value="Buscar" onClick="consulta($('#nolivesearchGadget').val);">
+        <input class="searchButton" id="searchButton" type="button" value="Buscar" onClick="consulta($('#nolivesearchGadget').val());">
 
         
 
         <div class="LSResult" id="LSResult"><div class="LSShadow" id="LSShadow"></div></div>
         </div>
-    </form>
 
     <div id="portal-advanced-search" class="hiddenStructure">
         <a href="https://www.gov.br/pt-br/@@search" accesskey="5">Busca Avançada…</a>
@@ -776,27 +817,12 @@ $docs=$content['response']['docs'];
                             
 
         <div id="buscaContainer">
-            <div id="search-results"><div class="row"><div class="col-md-12 col-sm-10"><h2>Resultados da Busca</h2></div></div> <div class="row"><div class="col-sm-12 num-resultado"><span><?=$numFound?></span>  Resultados</div></div> <div class="row abas"><div class="column col-md-12"><ul><li class="active"><a>Todos <span>(<?=$numFound?>)</span></a></li><li><a>Serviços <span>(263)</span></a></li><li><a>Serviços Estaduais <span>(102)</span></a></li><li><a>Notícias <span>(151)</span></a></li><li><a>Mídia <span>(30)</span></a></li><li><a>Apps <span>(2)</span></a></li></ul></div></div> <div class="row"><div class="column col-md-3 filtros"><div style="display: none;"></div></div> <div class="column col-md-9"><span>
+            <div id="search-results"><div class="row"><div class="col-md-12 col-sm-10"><h2>Resultados da Busca</h2></div></div> <div class="row"><div class="col-sm-12 num-resultado"><span id="numFound_resultados"></span>  Resultados</div></div> <div class="row abas"><div class="column col-md-12"><ul><li class="active"><a>Todos <span id="numFound_todos"></span></a></li><li><a>Serviços <span>(263)</span></a></li><li><a>Serviços Estaduais <span>(102)</span></a></li><li><a>Notícias <span>(151)</span></a></li><li><a>Mídia <span>(30)</span></a></li><li><a>Apps <span>(2)</span></a></li></ul></div></div> <div class="row"><div class="column col-md-3 filtros"><div style="display: none;"></div></div> <div class="column col-md-9"><span>
             
             
             
             <ul class="searchResults noticias"><li>
-                    <div class="row">
-                            <?php
-                            foreach ($docs as $d){
-                            ?>
-                                <div class="column">
-                                    <div class="card">
-                                            <div class="container">
-                                                    <div class="container"><i aria-hidden="true" class="fas fa-university fa-2x"></i></div>
-                                                        <a target="_blank" href="https://www.gov.br/pt-br/servicos/<?=$d['id']?>"><?=$d['nome_s']?></a>
-                                                        <?=$d['likes_i']?>
-                                            </div>
-                                    </div>
-                                </div>
-                            <?php    
-                            }
-                            ?>
+                    <div id="div_resultado">
                     </div>
                     
     </li><li><span><span class="titulo"><a target="_blank" href="https://www.gov.br/pt-br/servicos/consultar-dados-cadastrais-de-imovel-da-uniao">Consultar Dados Cadastrais de Imóvel da União</a></span>  <ul class="tags-noticias">Tags:
