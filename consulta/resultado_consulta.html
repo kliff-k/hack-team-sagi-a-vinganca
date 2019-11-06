@@ -162,10 +162,11 @@ body {
         });
         function consulta(valor){
             $.ajax({
-                url: "https://hs2019st.com/govbr/solr-select.php?rows=4&group=true&group.field=areas_de_interesse_s&group.limit=4&q="+encodeURIComponent(valor)
+                url: "https://hs2019st.com/govbr/solr-select.php?facet=true&facet.field=segmentos_da_sociedade_ss&rows=4&group=true&group.field=areas_de_interesse_s&group.limit=4&q="+encodeURIComponent(valor)
             }).done(function(r) {
-                $('#numFound_todos').text('('+r.grouped.areas_de_interesse_s.matches+')');
-                $('#numFound_resultados').text(r.grouped.areas_de_interesse_s.matches);
+                qtd_total=r.grouped.areas_de_interesse_s.matches;
+                $('#numFound_todos').text('('+qtd_total+')');
+                $('#numFound_resultados').text(qtd_total);
                 html_resultado='';
                 html_group='';
                 r.grouped.areas_de_interesse_s.groups.forEach(g => {
@@ -190,7 +191,23 @@ body {
                 });
                 
                 $('#div_resultado').html(html_resultado);
-                
+                html_cabecalho_resultado='';
+                itens=r.facet_counts.facet_fields.segmentos_da_sociedade_ss;
+                for(var i=0;i<itens.length;i+=2){
+                    html_cabecalho_resultado+='<li>'+
+                                '                <a>'+itens[i]+' <span>('+itens[i+1]+')</span></a>'+
+                                '            </li>';
+                }
+                    
+
+                $('#div_cabecalho_resultado').html(
+                '    <ul> '+
+                '            <li class="active">'+
+                '                <a>Todos <span id="numFound_todos">'+qtd_total+'</span></a>'+
+                '            </li>'+
+                html_cabecalho_resultado +
+                '        </ul>'
+                    );
             });
         }
         
@@ -199,9 +216,7 @@ body {
 
 
     <link rel="alternate" href="https://www.gov.br/pt-br/RSS" title="Português (Brasil) - RSS 1.0" type="application/rss+xml">
-
     <link rel="alternate" href="https://www.gov.br/pt-br/rss.xml" title="Português (Brasil) - RSS 2.0" type="application/rss+xml">
-
     <link rel="alternate" href="https://www.gov.br/pt-br/atom.xml" title="Português (Brasil) - Atom" type="application/rss+xml">
 
 
@@ -371,12 +386,11 @@ $docs=$content['response']['docs'];
       <div class="navigation-wrapper">
         <div class="navigation-content">
           <nav id="main-navigation" class="navigation-cell">
-            <ul class="list-navigation"><li id="portaltab-servicos" class="plain dropdown-submenu"><a href="https://www.gov.br/pt-br/servicos" title="" class="plain">Serviços</a>
+            <ul class="list-navigation">
+                <li id="portaltab-servicos" class="plain dropdown-submenu">
+                    <a href="https://www.gov.br/pt-br/servicos" title="" class="plain">Serviços</a>
                 <ul class="submenu">
                     <li class="dropdown-submenu">
-
-    
-
         <a href="https://www.gov.br/pt-br/servicos/buscar-servicos-por" title="" class="state-protected hasDropDown">
             
             Buscar serviços por
@@ -846,7 +860,15 @@ $docs=$content['response']['docs'];
                             
 
         <div id="buscaContainer">
-            <div id="search-results"><div class="row"><div class="col-md-12 col-sm-10"><h2>Resultados da Busca</h2></div></div> <div class="row"><div class="col-sm-12 num-resultado"><span id="numFound_resultados"></span>  Resultados</div></div> <div class="row abas"><div class="column col-md-12"><ul><li class="active"><a>Todos <span id="numFound_todos"></span></a></li><li><a>Serviços <span>(263)</span></a></li><li><a>Serviços Estaduais <span>(102)</span></a></li><li><a>Notícias <span>(151)</span></a></li><li><a>Mídia <span>(30)</span></a></li><li><a>Apps <span>(2)</span></a></li></ul></div></div> <div class="row"><div class="column col-md-3 filtros"><div style="display: none;"></div></div> <div class="column col-md-9"><span>
+            <div id="search-results"><div class="row"><div class="col-md-12 col-sm-10"><h2>Resultados da Busca</h2></div></div> <div class="row">
+                <div class="col-sm-12 num-resultado"><span id="numFound_resultados"></span>&nbsp;Resultados</div></div> 
+                <div class="col-sm-12">Refinar busca</div>
+                <div class="row abas">
+                    <div class="column col-md-12" id="div_cabecalho_resultado">
+                        
+                    </div>
+                </div> 
+                <div class="row"><div class="column col-md-3 filtros"><div style="display: none;"></div></div> <div class="column col-md-9"><span>
             
             
             
