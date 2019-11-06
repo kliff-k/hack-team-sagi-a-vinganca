@@ -527,3 +527,47 @@ function initSidenav() {
         $('#sidenav-overlay').addClass('active');
     });
 }
+
+$(()=>{
+    $('#search-wrapper').each((i,e)=>{
+        let $search_wrapper = $(e);
+        let $search_input = $search_wrapper.find('#search-input');
+        let $suggestion_wrapper = $search_wrapper.find('#search-suggestion-wrapper');
+        let $suggestion_list = $suggestion_wrapper.find('#search-suggestion-list');
+
+        // Função que testa se a lisat de sugestões deve ser exibida
+        function toggleSuggestions() {
+            if ($search_input.is(':focus') && $suggestion_list.children().length)
+                $search_wrapper.addClass('show-suggestions');
+            else
+                $search_wrapper.removeClass('show-suggestions');
+        }
+
+        $search_input
+            .on('input', ()=>{
+                let query = $search_input[0].value;
+
+                $.ajax({
+                    method: 'GET',
+                    url: 'https://hs2019st.com/govbr/solr-suggest.php?suggest=true&suggest.build=true&suggest.dictionary=nomeSuggester&wt=json&suggest.count=5',
+                    data: {
+                        'suggest.q': query
+                    },
+                    dataType: 'json',
+                    success: (response)=>{
+                        let suggestions = response.suggest.nomeSuggester[query].suggestions;
+                        $suggestion_list.empty();
+                        suggestions.forEach((element,index)=>{
+                            let $new = $suggestion_list.append(
+                                '<li>' +
+                                element.term +
+                                '</li>'
+                            );
+                        });
+                        toggleSuggestions();
+                    }
+                });
+            })
+            .on('focus blur', toggleSuggestions);
+    });
+});

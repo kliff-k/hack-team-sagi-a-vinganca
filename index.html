@@ -774,27 +774,16 @@
 
                         <div class="container-fluid conteudo-destaque">
                             <div class="conteudo-busca">
-                                <div class="row">
-                                    <div class="col-md-3">
-                                        <img src="img/logo-govbr-old-white_alter.png" style="width:140px">
+                                <div id="search-wrapper">
+                                    <div id="search-input-wrapper" class="d-flex">
+<!--                                        <form action="https://www.gov.br/pt-br/@@search">-->
+                                            <input type="search" value="" id="search-input" name="q" autocomplete="off" title="O que você está procurando?" alt="O que você está procurando?" placeholder="O que você está procurando?">
+                                            <input type="submit">
+<!--                                        </form>-->
                                     </div>
-                                    <div class="col-md-8 input-wrapper mr-2">
-                                        <!-- <form action="https://www.gov.br/pt-br/@@search">
-                                            <input name="SearchableText" type="text" value="" title="O que você está procurando?" placeholder="O que você está procurando?">                                            
-                                            <input type="submit">                    
-                                        </form> -->
-                                        <div class="gem-c-search__item-wrapper">
-                                        <input type="search" value="" id="search-main-5679a3c1" name="q" 
-                                        title="O que você está procurando?" alt="O que você está procurando?" 
-                                        placeholder="O que você está procurando?"
-                                        class="gem-c-search__item gem-c-search__input js-class-toggle"
-                                        >
-                                        <div class="gem-c-search__item gem-c-search__submit-wrapper">
-                                            <button type="submit" class="gem-c-search__submit">
-                                                <i class="fa fa-search"></i>
-                                            </button>
-                                        </div>
-                                        </div>
+                                    <div id="search-suggestion-wrapper">
+                                        <ul id="search-suggestion-list">
+                                        </ul>
                                     </div>
                                 </div>
                             </div>
