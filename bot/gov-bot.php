@@ -33,7 +33,7 @@ if($location)
 
     foreach ($result['response']['docs'] AS $value)
     {
-        $response = '<a href="https://www.google.com">'.$value['nome_s'].'</a>';
+        $response = '<a href="https://www.gov.br/pt-br/servicos/'.$value['id'].'">'.$value['nome_s'].'</a>';
         file_get_contents($bot."/sendmessage?chat_id=$chat_id&reply_markup=$remove_keyboard&parse_mode=HTML&text=$response");
     }
 
@@ -55,7 +55,7 @@ else
 
             foreach ($result['response']['docs'] AS $value)
             {
-                $response = '<a href="https://www.google.com">'.$value['nome_s'].'</a>';
+                $response = '<a href="https://www.gov.br/pt-br/servicos/'.$value['id'].'">'.$value['nome_s'].'</a>';
                 file_get_contents($bot."/sendmessage?chat_id=$chat_id&reply_markup=$remove_keyboard&parse_mode=HTML&text=$response");
             }
 
@@ -71,28 +71,28 @@ else
 
             if(!$total)
             {
-                $response = "Não foram encontrados resultados para a sua busca.";
+                $response = "Não foram encontrados resultados para a sua busca. Tente digitar /oi";
                 file_get_contents($bot."/sendmessage?chat_id=$chat_id&reply_markup=$remove_keyboard&text=$response");
             }
 
             if($total == 1)
             {
-                $response = '<a href="https://www.google.com">'.$result['response']['docs'][0]['nome_s'].'</a>';
+                $response = '<a href="https://www.gov.br/pt-br/servicos/'.$result['response']['docs'][0]['id'].'">'.$result['response']['docs'][0]['nome_s'].'</a>';
                 file_get_contents($bot."/sendmessage?chat_id=$chat_id&reply_markup=$remove_keyboard&parse_mode=HTML&text=$response");
             }
 
             if($total > 1 )
             {
-                $response = "Foram encontrados $total serviços.";
+                $response = "Foram encontrados $total serviços. Seguem os mais populares:";
                 file_get_contents($bot."/sendmessage?chat_id=$chat_id&reply_markup=$remove_keyboard&text=$response");
 
-                $response = '<a href="https://www.google.com">'.$result['response']['docs'][0]['nome_s'].'</a>';
+                $response = '<a href="https://www.gov.br/pt-br/servicos/'.$result['response']['docs'][0]['id'].'">'.$result['response']['docs'][0]['nome_s'].'</a>';
                 file_get_contents($bot."/sendmessage?chat_id=$chat_id&reply_markup=$remove_keyboard&parse_mode=HTML&text=$response");
-                $response = '<a href="https://www.google.com">'.$result['response']['docs'][1]['nome_s'].'</a>';
+                $response = '<a href="https://www.gov.br/pt-br/servicos/'.$result['response']['docs'][0]['id'].'">'.$result['response']['docs'][1]['nome_s'].'</a>';
                 file_get_contents($bot."/sendmessage?chat_id=$chat_id&reply_markup=$remove_keyboard&parse_mode=HTML&text=$response");
-                $response = '<a href="https://www.google.com">'.$result['response']['docs'][2]['nome_s'].'</a>';
+                $response = '<a href="https://www.gov.br/pt-br/servicos/'.$result['response']['docs'][0]['id'].'">'.$result['response']['docs'][2]['nome_s'].'</a>';
                 file_get_contents($bot."/sendmessage?chat_id=$chat_id&reply_markup=$remove_keyboard&parse_mode=HTML&text=$response");
-                $response = '<a href="https://www.google.com">'.$result['response']['docs'][3]['nome_s'].'</a>';
+                $response = '<a href="https://www.gov.br/pt-br/servicos/'.$result['response']['docs'][0]['id'].'">'.$result['response']['docs'][3]['nome_s'].'</a>';
                 file_get_contents($bot."/sendmessage?chat_id=$chat_id&reply_markup=$remove_keyboard&parse_mode=HTML&text=$response");
 
                 $result = json_decode(file_get_contents("https://hs2019st.com/govbr/solr-suggest.php?suggest=true&suggest.build=true&suggest.dictionary=nomeSuggester&wt=json&suggest.count=4&suggest.q=".urlencode($text)),TRUE);
@@ -113,9 +113,3 @@ else
             break;
     }
 }
-
-// Log
-file_put_contents(
-    '../../bot_logs/log',
-    $text.' -> '.$bot."/sendmessage?chat_id=$chat_id&reply_markup=".json_encode($reply_keyboard)."&text=$response"."\n-----\n",
-    FILE_APPEND);
