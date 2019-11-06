@@ -30,8 +30,6 @@ if($location)
     file_get_contents($bot."/sendmessage?chat_id=$chat_id&reply_markup=$remove_keyboard&text=$response");
 
     $result = json_decode(file_get_contents("https://hs2019st.com/govbr/solr-select.php?q=*:*&fl=id,nome_s&rows=4"),TRUE);
-    $response = 'Esses são os serviços mais acessados ultimamente:';
-    file_get_contents($bot."/sendmessage?chat_id=$chat_id&reply_markup=$remove_keyboard&text=$response");
 
     foreach ($result['response']['docs'] AS $value)
     {
