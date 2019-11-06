@@ -163,11 +163,11 @@
                         <li>
                             <a href="#" class="link-contraste"><i class="fas fa-adjust"></i></a>
                         </li>
-
                         <li>
                             <a href="http://www.vlibras.gov.br/" class="link-vlibras"><i
                                     class="fas fa-assistive-listening-systems"></i></a>
                         </li>
+
                         <li class="language-selection">
                             <a href="//www.gov.br/@@multilingual-selector/1001ac8f3c4241339e0792e5c7830739/pt-br?set_language=pt-br"
                                 class="currentLanguage language-pt-br" style="padding-right:10px">
@@ -774,29 +774,19 @@
 
                         <div class="container-fluid conteudo-destaque">
                             <div class="conteudo-busca">
-                                <div class="row">
-                                    <div class="col-md-3">
-                                        <img src="img/logo-govbr-old-white_alter.png" style="width:140px">
-                                    </div>
-                                    <div class="col-md-8 input-wrapper mr-2">
-                                        <!-- <form action="https://www.gov.br/pt-br/@@search">
-                                            <input name="SearchableText" type="text" value="" title="O que você está procurando?" placeholder="O que você está procurando?">                                            
+                                <div id="search-wrapper">
+                                    <form id="search-form" action="consulta/resultado_consulta.html">
+                                        <div id="search-input-wrapper" class="d-flex">
+                                            <input type="search" value="" id="search-input" autocomplete="off" title="O que você está procurando?" alt="O que você está procurando?" placeholder="O que você está procurando?">
                                             <input type="submit">                    
-                                        </form> -->
-                                        <div class="gem-c-search__item-wrapper">
-                                            <input type="search" value="" id="search-main-5679a3c1" name="q"
-                                                title="O que você está procurando?" alt="O que você está procurando?"
-                                                placeholder="O que você está procurando?"
-                                                class="gem-c-search__item gem-c-search__input js-class-toggle">
-                                            <div class="gem-c-search__item gem-c-search__submit-wrapper">
-                                                <button type="submit" class="gem-c-search__submit">
-                                                    <i class="fa fa-search"></i>
-                                                </button>
                                             </div>
+                                    </form>
+                                    <div id="search-suggestion-wrapper">
+                                        <ul id="search-suggestion-list">
+                                        </ul>
                                         </div>
                                     </div>
                                 </div>
-                            </div>
                             <div class="row busca-destaque-home1">
                                 <div class="dv-local-usuario titulo-destaque">
                                     DESTAQUES PARA <strong id="nome-usuario-destaque">Você</strong>

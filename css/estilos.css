@@ -225,3 +225,108 @@ div.exampleborderradiusf {
     text-transform: uppercase !important;
 }
 
+#search-wrapper {
+    position: relative;
+    margin: 0 auto;
+    width: 100%;
+    max-width: 750px;
+}
+
+#search-input-wrapper {
+    position: relative;
+}
+
+#search-input {
+    width: 100%;
+    background-color: #fff;
+    border-radius: 9px;
+    height: 60px;
+    padding: 0 60px 0 30px;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    -webkit-box-shadow: 0 3px 6px 0 rgba(0,0,0,.16);
+    box-shadow: 0 3px 6px 0 rgba(0,0,0,.16);
+    font-size: 20px;
+    color: #555;
+    border: 2px solid #fff;
+    margin: 0;
+}
+#search-input:focus {
+    border-color: #aaa;
+    outline: none;
+}
+
+#search-input-wrapper input[type=submit] {
+    background-color: transparent;
+    border: none;
+    text-indent: -30000px;
+    position: absolute;
+    top: 0;
+    right: 10px;
+    width: 50px;
+    height: 60px;
+    cursor: pointer;
+    outline: none;
+}
+
+#search-input-wrapper:after {
+    font-family: Font Awesome\ 5 Free;
+    content: "\F002";
+    position: absolute;
+    top: 0;
+    right: 10px;
+    color: #1351b4;
+    font-weight: 900;
+    cursor: pointer;
+    width: 50px;
+    height: 60px;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    pointer-events: none;
+}
+
+#search-suggestion-wrapper {
+    display: none;
+    position: absolute;
+    top: 58px;
+    width: 100%;
+    background-color: white;
+    border-bottom-left-radius: 9px;
+    border-bottom-right-radius: 9px;
+    border: 2px solid #aaa;
+    border-top: 1px solid #aaa;
+    box-shadow: 0 3px 6px 0 rgba(0,0,0,.16);
+    z-index: 3;
+}
+
+#search-suggestion-list {
+    padding: 8px 0;
+    margin: 0 !important;
+}
+
+#search-suggestion-list>li {
+    list-style-type: none;
+    font-size: 20px;
+    padding: 0.25em 30px;
+    margin: 0 !important;
+}
+#search-suggestion-list>li:hover {
+    color: black;
+    background-color: #1351b480;
+}
+
+#search-wrapper.show-suggestions #search-input {
+    border-bottom-left-radius: 0;
+    border-bottom-right-radius: 0;
+    border-bottom-color: #fff;
+}
+#search-wrapper.show-suggestions #search-suggestion-wrapper {
+    display: block;
+}
