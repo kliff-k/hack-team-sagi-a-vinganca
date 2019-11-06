@@ -29,7 +29,7 @@ switch ($text)
         $response = 'Bem vindo à plataforma de serviços do governo brasileiro.';
         file_get_contents($bot."/sendmessage?chat_id=$chat_id&text=$response");
 
-        $result = json_decode(file_get_contents("https://hs2019st.com/govbr/solr-select.php?q=*:*&fl=id,nome_s&rows=4"),TRUE);
+        $result = json_decode(file_get_contents(urlencode("https://hs2019st.com/govbr/solr-select.php?q=*:*&fl=id,nome_s&rows=4")),TRUE);
         $response = 'Esses são os serviços mais acessados ultimamente:';
         file_get_contents($bot."/sendmessage?chat_id=$chat_id&text=$response");
 
@@ -47,7 +47,7 @@ switch ($text)
 
         break;
     default:
-        $result = json_decode(file_get_contents("https://hs2019st.com/govbr/solr-select.php?q='".$text."'&fl=id,nome_s&rows=4"),TRUE);
+        $result = json_decode(file_get_contents(urlencode("https://hs2019st.com/govbr/solr-select.php?q=".$text."&fl=id,nome_s&rows=4")),TRUE);
         $total = $result['response']['numFound'];
 
         if(!$total)
@@ -75,7 +75,7 @@ switch ($text)
             $response = '<a href="https://www.google.com">'.$result['response']['docs'][3]['nome_s'].'</a>';
             file_get_contents($bot."/sendmessage?chat_id=$chat_id&parse_mode=HTML&text=$response");
 
-            $result = json_decode(file_get_contents("https://hs2019st.com/govbr/solr-suggest.php?suggest=true&suggest.build=true&suggest.dictionary=nomeSuggester&wt=json&suggest.count=4&suggest.q='$text'"),TRUE);
+            $result = json_decode(file_get_contents(urlencode("https://hs2019st.com/govbr/solr-suggest.php?suggest=true&suggest.build=true&suggest.dictionary=nomeSuggester&wt=json&suggest.count=4&suggest.q=$text")),TRUE);
             $response = 'Deseja refinar a sua busca? Tente um dos termos sugeridos:';
             $keyboard = "[ [' ".$result['suggest']['nomeSuggester'][$text]['suggestions'][0]['term']." '],
                             [' ".$result['suggest']['nomeSuggester'][$text]['suggestions'][1]['term']." '],
