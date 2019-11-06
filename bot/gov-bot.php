@@ -11,7 +11,6 @@ $token = "1017664403:AAFv3yj797EAHdleCSecDDKZuRJxJVUc3kc";
 $bot = "https://api.telegram.org/bot".$token;
 
 // Get request contents and relevant data
-
 $content    = file_get_contents("php://input");
 $update     = json_decode($content, true);
 $update_id  = $update['update_id'];
@@ -23,16 +22,36 @@ $first_name = $update['message']['chat']['first_name'];
 $chat_type  = $update['message']['chat']['type'];
 
 // Main - Treats the input and returns answer plus keyboard layout
-
 switch ($text)
 {
     case '/start':
+        $response = 'Bem vindo à plataforma de serviços do governo brasileiro.';
+        file_get_contents($bot."/sendmessage?chat_id=$chat_id&text=$response");
+
+        $result = json_decode(file_get_contents("https://hs2019st.com/govbr/solr-select.php?q='".$text."'&fl=id,nome_s&rows=4"),TRUE);
+        $response = 'Esses são os serviços mais acessados ultimamente:\n
+                    <a href="'.$result['response']['docs'][0]['id'].'">'.$result['response']['docs'][0]['nome_s'].'</a>
+                    <a href="'.$result['response']['docs'][1]['id'].'">'.$result['response']['docs'][1]['nome_s'].'</a>
+                    <a href="'.$result['response']['docs'][2]['id'].'">'.$result['response']['docs'][2]['nome_s'].'</a>
+                    <a href="'.$result['response']['docs'][3]['id'].'">'.$result['response']['docs'][3]['nome_s'].'</a>
+                    ';
+        file_get_contents($bot."/sendmessage?chat_id=$chat_id&text=$response");
+
         $response = 'Como posso te ajudar? Digite o nome do serviço que deseja encontrar.';
+        file_get_contents($bot."/sendmessage?chat_id=$chat_id&text=$response");
+
         break;
     default:
-        $result = json_decode(file_get_contents("http://hs2019st.com:8983/solr/servicos/select?q=*:*&views_i%20desc&fq=palavra_chave_ss:'$text'"),TRUE);
+        $result = json_decode(file_get_contents("https://hs2019st.com/govbr/solr-select.php?q='".$text."'&fl=id,nome_s&rows=4"),TRUE);
         $response = $result['response']['docs'][0]['nome_s'];
         break;
 }
-file_put_contents('../../bot_logs/log',$text.' -> '.$response."\n"."http://hs2019st.com:8983/solr/servicos/select?q=*:*&views_i%20desc&fq=palavra_chave_ss:'$text'"."\n-----\n",FILE_APPEND);
+
+// Log
+file_put_contents(
+    '../../bot_logs/log',
+    $text.' -> '.$response."\n-----\n",
+    FILE_APPEND);
+
+// Response
 file_get_contents($bot."/sendmessage?chat_id=$chat_id&text=$response");
