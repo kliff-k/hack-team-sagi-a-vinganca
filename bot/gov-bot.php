@@ -49,7 +49,7 @@ if($location)
 
         foreach ($result['response']['docs'] AS $value)
         {
-            $response = urlencode("Nome: ".$value['nome']."\nEndereço: ".$value['endereco']."\nTelefone: ".$value['telefone']."\nDistância estimada: ".explode('.',$value['dist_estimada'])[0]);
+            $response = urlencode("Nome: ".$value['nome']."\nEndereço: ".$value['endereco']."\nTelefone: ".$value['telefone']."\nDistância estimada: ".explode('.',$value['dist_estimada'])[0]." KMs");
             $latitude = explode(',', $value['georef_location'])[0];
             $longitude = explode(',', $value['georef_location'])[1];
             file_get_contents($bot."/sendmessage?chat_id=$chat_id&reply_markup=$remove_keyboard&text=$response");
