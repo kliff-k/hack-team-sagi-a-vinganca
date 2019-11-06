@@ -25,19 +25,28 @@ $location   = $update['message']['location'];
 // Main - Treats the input and returns answer plus keyboard layout
 if($location)
 {
-    $response = 'Estes são os equipamentos mais próximos de você:';
-    $remove_keyboard = json_encode(["remove_keyboard" => TRUE]);
-    file_get_contents($bot."/sendmessage?chat_id=$chat_id&reply_markup=$remove_keyboard&text=$response");
+    $result = json_decode(file_get_contents("https://aplicacoes.mds.gov.br/sagi/servicos/equipamentos?q=tipo_equipamento:CRAS&wt=json&fl=nome,georef_location,dist_estimada:geodist()&rows=5&sfield=georef_location&fq={!geofilt}&pt=".urlencode($location['latitude']).",".urlencode($location['longitude'])."&d=20&sort=geodist()%20asc"),TRUE);
 
-    $result = json_decode(file_get_contents("https://aplicacoes.mds.gov.br/sagi/servicos/equipamentos?q=tipo_equipamento:CRAS&wt=json&fl=id_equipamento,ibge,uf,cidade,nome,responsavel,telefone,endereco,numero,complemento,referencia,bairro,cep,georef_location,data_atualizacao,dist_estimada:geodist()&rows=999999999&sfield=georef_location&fq={!geofilt}&pt=".$location['latitude'].",".$location['longitude']."&d=10&sort=geodist()%20asc&rows=5"),TRUE);
-
-    foreach ($result['response']['docs'] AS $value)
+    if(!$result)
     {
-        $response = $value['nome'];
-        $latitude = explode(',', $value['georef_location'])[0];
-        $longitude = explode(',', $value['georef_location'])[1];
+        $response = 'Nenhum equipamento foi encontrado em um raio de 20KMs da sua localização.';
+        $remove_keyboard = json_encode(["remove_keyboard" => TRUE]);
         file_get_contents($bot."/sendmessage?chat_id=$chat_id&reply_markup=$remove_keyboard&text=$response");
-        file_get_contents($bot."/sendLocation?chat_id=$chat_id&reply_markup=$remove_keyboard&latitude=$latitude&longitude=$longitude");
+    }
+    else
+    {
+        $response = 'Estes são os equipamentos mais próximos de você:';
+        $remove_keyboard = json_encode(["remove_keyboard" => TRUE]);
+        file_get_contents($bot."/sendmessage?chat_id=$chat_id&reply_markup=$remove_keyboard&text=$response");
+
+        foreach ($result['response']['docs'] AS $value)
+        {
+            $response = $value['nome'];
+            $latitude = explode(',', $value['georef_location'])[0];
+            $longitude = explode(',', $value['georef_location'])[1];
+            file_get_contents($bot."/sendmessage?chat_id=$chat_id&reply_markup=$remove_keyboard&text=$response");
+            file_get_contents($bot."/sendLocation?chat_id=$chat_id&reply_markup=$remove_keyboard&latitude=$latitude&longitude=$longitude");
+        }
     }
 
     file_put_contents(
