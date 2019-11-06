@@ -93,5 +93,5 @@ switch ($text)
 // Log
 file_put_contents(
     '../../bot_logs/log',
-    $text.' -> '.$response."\n-----\n",
+    $text.' -> '.$bot."/sendmessage?chat_id=$chat_id&reply_markup=$reply_keyboard&text=$response"."\n-----\n",
     FILE_APPEND);
