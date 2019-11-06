@@ -25,16 +25,19 @@ $location   = $update['message']['location'];
 // Main - Treats the input and returns answer plus keyboard layout
 if($location)
 {
-    $response = 'Os seguintes serviços são os mais populares em sua localização:';
+    $response = 'Estes são os equipamentos mais próximos de você:';
     $remove_keyboard = json_encode(["remove_keyboard" => TRUE]);
     file_get_contents($bot."/sendmessage?chat_id=$chat_id&reply_markup=$remove_keyboard&text=$response");
 
-    $result = json_decode(file_get_contents("https://hs2019st.com/govbr/solr-select.php?q=*:*&fl=id,nome_s&rows=4"),TRUE);
+    $result = json_decode(file_get_contents("https://aplicacoes.mds.gov.br/sagi/servicos/equipamentos?q=tipo_equipamento:CRAS&wt=json&fl=id_equipamento,ibge,uf,cidade,nome,responsavel,telefone,endereco,numero,complemento,referencia,bairro,cep,georef_location,data_atualizacao,dist_estimada:geodist()&rows=999999999&sfield=georef_location&fq={!geofilt}&pt=".$location['latitude'].",".$location['longitude']."&d=10&sort=geodist()%20asc&rows=5"),TRUE);
 
     foreach ($result['response']['docs'] AS $value)
     {
-        $response = '<a href="https://www.gov.br/pt-br/servicos/'.$value['id'].'">'.$value['nome_s'].'</a>';
-        file_get_contents($bot."/sendmessage?chat_id=$chat_id&reply_markup=$remove_keyboard&parse_mode=HTML&text=$response");
+        $response = $value['nome'];
+        $latitude = explode(',', $value['georef_location'])[0];
+        $longitude = explode(',', $value['georef_location'])[1];
+        file_get_contents($bot."/sendmessage?chat_id=$chat_id&reply_markup=$remove_keyboard&text=$response");
+        file_get_contents($bot."/sendLocation?chat_id=$chat_id&reply_markup=$remove_keyboard&latitude=$latitude&longitude=$longitude");
     }
 
 }
@@ -59,7 +62,7 @@ else
                 file_get_contents($bot."/sendmessage?chat_id=$chat_id&reply_markup=$remove_keyboard&parse_mode=HTML&text=$response");
             }
 
-            $response = urlencode("Como posso te ajudar?\nDigite o nome do serviço que deseja encontrar.\nOu envie uma localização para a lista de serviços mais populares na região.");
+            $response = urlencode("Como posso te ajudar?\nDigite o nome do serviço que deseja encontrar.\nOu envie uma localização para a lista de equipamentos mais próximos de você..");
             file_get_contents($bot."/sendmessage?chat_id=$chat_id&reply_markup=$remove_keyboard&text=$response");
 
             break;
