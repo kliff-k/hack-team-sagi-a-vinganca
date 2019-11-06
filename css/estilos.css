@@ -200,21 +200,28 @@ input[type="search" i] {
 }
 
 div.exampleborderradiusf {
-    float: left;
+    
     background-color: #db4800;
     /* margin-top: 20px;
     margin-right: 40px; */
-    width: 84px;
-    height: 84px;
+    margin-left: 10px;
+    width: 102px;
+    height: 102px;
     text-align: center;
-    -moz-border-radius: 42px;
-    border-radius: 42px;
+    -moz-border-radius: 51px;
+    border-radius: 51px;
 }
 
 .examplelabelborderradius {
     color: white;
-    font-size: 40px;
+    font-size: 51px;
     position: relative;
     top: 20px;
+}
+
+#lblNomeSegmento{
+    text-align: center;
+    font-size: 1.2em;
+    text-transform: uppercase !important;
 }
 
