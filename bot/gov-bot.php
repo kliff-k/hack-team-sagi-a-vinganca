@@ -33,7 +33,7 @@ if($location)
         ),
     );
 
-    $result = json_decode(file_get_contents("https://aplicacoes.mds.gov.br/sagi/servicos/equipamentos?q=tipo_equipamento:CRAS&wt=json&fl=nome,georef_location,dist_estimada:geodist()&rows=5&sfield=georef_location&fq={!geofilt}&pt=".urlencode($location['latitude']).",".urlencode($location['longitude'])."&d=20&sort=geodist()%20asc",false,stream_context_create($arrContextOptions)),TRUE);
+    $result = json_decode(file_get_contents("https://aplicacoes.mds.gov.br/sagi/servicos/equipamentos?q=tipo_equipamento:CRAS&wt=json&fl=nome,telefone,endereco,georef_location,dist_estimada:geodist()&rows=2&sfield=georef_location&fq={!geofilt}&pt=".urlencode($location['latitude']).",".urlencode($location['longitude'])."&d=20&sort=geodist()%20asc",false,stream_context_create($arrContextOptions)),TRUE);
 
     if(!$result)
     {
@@ -49,18 +49,13 @@ if($location)
 
         foreach ($result['response']['docs'] AS $value)
         {
-            $response = $value['nome'];
+            $response = urlencode("Nome: ".$value['nome']."\nEndereço: ".$value['endereco']."\nTelefone: ".$value['telefone']."\nDistância estimada: ".explode(',',$value['dist_estimada'])[0]);
             $latitude = explode(',', $value['georef_location'])[0];
             $longitude = explode(',', $value['georef_location'])[1];
             file_get_contents($bot."/sendmessage?chat_id=$chat_id&reply_markup=$remove_keyboard&text=$response");
             file_get_contents($bot."/sendLocation?chat_id=$chat_id&reply_markup=$remove_keyboard&latitude=$latitude&longitude=$longitude");
         }
     }
-
-    file_put_contents(
-        '../../bot_logs/log',
-        "https://aplicacoes.mds.gov.br/sagi/servicos/equipamentos?q=tipo_equipamento:CRAS&wt=json&fl=nome,georef_location,dist_estimada:geodist()&rows=5&sfield=georef_location&fq={!geofilt}&pt=".urlencode($location['latitude']).",".urlencode($location['longitude'])."&d=20&sort=geodist()%20asc"."\n-----\n",
-        FILE_APPEND);
 
 }
 else
