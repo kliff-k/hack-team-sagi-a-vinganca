@@ -25,17 +25,22 @@ $chat_type  = $update['message']['chat']['type'];
 switch ($text)
 {
     case '/start':
+    case '/inicio':
         $response = 'Bem vindo à plataforma de serviços do governo brasileiro.';
         file_get_contents($bot."/sendmessage?chat_id=$chat_id&text=$response");
 
         $result = json_decode(file_get_contents("https://hs2019st.com/govbr/solr-select.php?q='".$text."'&fl=id,nome_s&rows=4"),TRUE);
-        $response = 'Esses são os serviços mais acessados ultimamente:\n
-                    <a href="'.$result['response']['docs'][0]['id'].'">'.$result['response']['docs'][0]['nome_s'].'</a>
-                    <a href="'.$result['response']['docs'][1]['id'].'">'.$result['response']['docs'][1]['nome_s'].'</a>
-                    <a href="'.$result['response']['docs'][2]['id'].'">'.$result['response']['docs'][2]['nome_s'].'</a>
-                    <a href="'.$result['response']['docs'][3]['id'].'">'.$result['response']['docs'][3]['nome_s'].'</a>
-                    ';
+        $response = 'Esses são os serviços mais acessados ultimamente:';
         file_get_contents($bot."/sendmessage?chat_id=$chat_id&text=$response");
+
+        $response = '<a href="https://'.$result['response']['docs'][0]['id'].'">'.$result['response']['docs'][0]['nome_s'].'</a>';
+        file_get_contents($bot."/sendmessage?chat_id=$chat_id&parse_mode=HTML&text=$response");
+        $response = '<a href="https://'.$result['response']['docs'][1]['id'].'">'.$result['response']['docs'][1]['nome_s'].'</a>';
+        file_get_contents($bot."/sendmessage?chat_id=$chat_id&parse_mode=HTML&text=$response");
+        $response = '<a href="https://'.$result['response']['docs'][2]['id'].'">'.$result['response']['docs'][2]['nome_s'].'</a>';
+        file_get_contents($bot."/sendmessage?chat_id=$chat_id&parse_mode=HTML&text=$response");
+        $response = '<a href="https://'.$result['response']['docs'][3]['id'].'">'.$result['response']['docs'][3]['nome_s'].'</a>';
+        file_get_contents($bot."/sendmessage?chat_id=$chat_id&parse_mode=HTML&text=$response");
 
         $response = 'Como posso te ajudar? Digite o nome do serviço que deseja encontrar.';
         file_get_contents($bot."/sendmessage?chat_id=$chat_id&text=$response");
