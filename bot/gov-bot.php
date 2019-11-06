@@ -1,7 +1,7 @@
 <?php
 
 // Set webhook
-// https://api.telegram.org/bot91017664403:AAFv3yj797EAHdleCSecDDKZuRJxJVUc3kc/setWebhook?url=https://us-central1-sagi-bot.cloudfunctions.net/router
+// https://api.telegram.org/bot1017664403:AAFv3yj797EAHdleCSecDDKZuRJxJVUc3kc/setWebhook?url=https://hs2019st.com/govbr/bot/gov-bot.php
 
 // Query info
 // https://api.telegram.org/bot1017664403:AAFv3yj797EAHdleCSecDDKZuRJxJVUc3kc/getWebhookInfo
