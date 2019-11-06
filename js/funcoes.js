@@ -739,3 +739,251 @@ $(()=>{
         localStorage.setItem('termo_busca', $('#search-input')[0].value);
     });
 });
+
+
+
+function f_icon_fa(valor){
+    icon_fa=''
+    if(valor=='Saúde e Vigilância Sanitária'){
+        icon_fa='fas fa-heartbeat'
+    }
+    if(valor=='Educação e Pesquisa'){
+        icon_fa='fas fa-graduation-cap'
+    }
+    if(valor=='Cultura, Artes, História e Esportes'){
+        icon_fa='fas fa-theater-masks'
+    }
+    if(valor=='Meio Ambiente e Clima'){
+        icon_fa='fas fa-cloud-sun-rain'
+    }
+    if(valor=='Empresa, Indústria e Comércio'){
+        icon_fa='fas fa-store'
+    }
+    if(valor=='Meio Ambiente e Clima'){
+        icon_fa='fas fa-cloud-sun-rain'
+    }
+    if(valor=='Viagens e Turismo'){
+        icon_fa='fas fa-luggage-cart'
+    }
+    if(valor=='Trânsito e Transportes'){
+        icon_fa='fas fa-truck'
+    }
+    if(valor=='Assistência Social'){
+        icon_fa='fas fa-handing-holding-heart'
+    }
+    if(valor=='Trabalho e Previdência'){
+        icon_fa='fas fa-business-time'
+    }
+    if(valor=='Agricultura e Pecuária'){
+        icon_fa='fas fa-tractor'
+    }
+    if(valor=='Forças Armadas e Defesa Civil'){
+        icon_fa='fas fa-parachute-box'
+    }
+    if(valor=='Energia, Minerais e Combustíveis'){
+        icon_fa='fas fa-charging-station'
+    }
+
+
+    //Patrimônio Da União
+    //Ciência e Tecnologia
+    //Registros e Regimes Especiais
+    //Software
+    //Finanças, Impostos e Gestão Pública
+    //História e Arqueologia
+    //Outros Serviços
+    //Ciência e Tecnologia
+    //Finanças, Impostos e Gestão Pública
+
+
+    if(icon_fa==''){
+        console.log(valor);
+    }
+    return(icon_fa)
+}
+function consulta(valor,fq='',obj=null){
+    console.log('VALOR='+valor);
+    console.log('FQ='+fq);
+    console.log(obj);
+    if (obj){
+        $(obj).toggleClass("negrito");
+    }
+    $.ajax({
+        url: "https://hs2019st.com/govbr/solr-select.php?facet=true&facet.field=orgao_s&facet.field=gratuito_b&facet.field=servico_digital_b&facet.field=areas_de_interesse_ss&facet.limit=10&facet.field=segmentos_da_sociedade_ss&rows=4&group=true&group.field=areas_de_interesse_s&group.limit=4&q="+encodeURIComponent(valor)+fq,
+        async: false
+    }).done(function(r) {
+        qtd_total=r.grouped.areas_de_interesse_s.matches;
+        $('#numFound_todos').text('('+qtd_total+')');
+        $('#numFound_resultados').text(qtd_total);
+        html_resultado='';
+        html_group='';
+        r.grouped.areas_de_interesse_s.groups.forEach(g => {
+            g.doclist.docs.forEach(d => {
+                icon_fa=f_icon_fa(d.areas_de_interesse_s);
+
+                novo='';
+                if (Math.random()<0.05){
+                    novo=' <span class="novo">Novo</span> ';
+                }
+
+                html_group +=
+                                                ' 	<div class="column"> ' +
+                    '   	<div class="card">' +
+                    '        <div class="icones_superior"> '+
+                    '                <i aria-hidden="true" style="height:10px;" class="'+icon_fa+' fa-1x icones_sociais" style="padding:0px;"></i>     ' +
+                    novo+
+                    '        </div> '+
+                    '       	<div class="container" style="text-align:left;padding:5px;">' +
+                    '           <a target="_blank" href="https://www.gov.br/pt-br/servicos/'+d.id+'" title="'+d.nome_s+'" style="padding:5px 0px;">'+d.nome_s.substring(0,48)+'</a>' +
+                    '        </div> '+
+                                                '        <div class="icones_sociais"> '+
+                    ' 			<i id="home" aria-hidden="true" class="far fa-heart fa-1x">'+d.likes_i+'</i> '+  
+                    '			 <i aria-hidden="true" class="far fa-eye fa-1x">'+d.views_i+'</i> '+
+                    ' 			<a href="https://www.facebook.com/sharer/sharer.php?u=https://www.gov.br/pt-br/servicos/'+d.id+'" target="_blank"><i aria-hidden="true" class="fas fa-share-alt fa-1x"></i> </a>'+
+                                                '   </div>' +
+                                                '   </div>' +
+                    '</div>'
+            }); 
+            html_resultado+='<p><span class="titulo"><h4>'+g.groupValue+' ('+g.doclist.numFound+')</h4></span><div class="row">'+html_group+'</div></p>';
+            html_group='';   
+        });
+
+        $('#div_resultado').html(html_resultado);
+        html_cabecalho_resultado='';
+        itens=r.facet_counts.facet_fields.segmentos_da_sociedade_ss;
+        for(var i=0;i<itens.length;i+=2){
+            if (itens[i]!='NA'){
+                fq='&fq=segmentos_da_sociedade_ss:%22'+itens[i]+'%22';
+                pos=(itens[i]+'(').indexOf('(');
+                html_cabecalho_resultado+='<li id="'+itens[i]+'" style="float:left;padding: 0px 5px;list-style-type: none;font-weight:bold;">'+
+                        '                <a onclick="consulta(\''+valor+'\',\''+fq+'\',this);">'+itens[i].substring(0,pos)+' <span>('+itens[i+1]+')</span></a>'+
+                        '            </li>';
+            }
+        }
+        $('#div_cabecalho_resultado').html(
+        '    <ul style="margin:0px;"> '+
+        '            <li class="active" style="float:left;padding: 0px 5px;list-style-type: none;font-weight:bold;">'+
+        '                <a>Todos <span id="numFound_todos">('+qtd_total+')</span></a>'+
+        '            </li>'+
+        html_cabecalho_resultado +
+        '        </ul>'
+            );
+
+        itens=r.facet_counts.facet_fields.areas_de_interesse_ss;
+        html_corpo_facet=''
+        for(var i=0;i<itens.length;i+=2){
+            if (itens[i]!='NA'){
+                fq='&fq=areas_de_interesse_ss:%22'+itens[i]+'%22';
+                html_corpo_facet+='<br><a onclick="consulta(\''+valor+'\',\''+fq+'\',this);" style="cursor:pointer;">'+itens[i]+' <span>('+itens[i+1]+')</span></a>';
+            }
+        }
+        $('#div_facets').html(
+        '<br><div><b>Áreas de Interesse:</b>'+
+                html_corpo_facet +
+        '        </div>'
+            );
+
+        itens=r.facet_counts.facet_fields.orgao_s;
+        html_corpo_facet=''
+        for(var i=0;i<itens.length;i+=2){
+            if (itens[i]!='NA'){
+                fq='&fq=orgao_s :%22'+itens[i]+'%22';
+                html_corpo_facet+='<br><a onclick="consulta(\''+valor+'\',\''+fq+'\',this);" style="cursor:pointer;">'+itens[i]+' <span>('+itens[i+1]+')</span></a>';
+            }
+        }
+        $('#div_facets').html($('#div_facets').html()+
+        '<br><div><b>Órgão:</b>'+
+                html_corpo_facet +
+                '</div>'
+        );
+
+        itens=r.facet_counts.facet_fields.gratuito_b;
+        html_corpo_facet=''
+        for(var i=0;i<itens.length;i+=2){
+            if (itens[i]!='NA'){
+                fq='&fq=gratuito_b :'+itens[i];
+                html_corpo_facet+='<br><a onclick="consulta(\''+valor+'\',\''+fq+'\',this);" style="cursor:pointer;">'+itens[i].replace('true','Sim').replace('false','Não')+' <span>('+itens[i+1]+')</span></a>';
+            }
+        }
+        $('#div_facets').html($('#div_facets').html()+
+        '<br><div><b>Gratuito:</b>'+
+                html_corpo_facet +
+                '</div>'
+            );
+
+        itens=r.facet_counts.facet_fields.servico_digital_b;
+        html_corpo_facet=''
+        for(var i=0;i<itens.length;i+=2){
+            if (itens[i]!='NA'){
+                fq='&fq=servico_digital_b:'+itens[i];
+                html_corpo_facet+='<br><a onclick="consulta(\''+valor+'\',\''+fq+'\',this);" style="cursor:pointer;">'+itens[i].replace('true','Sim').replace('false','Não')+' <span>('+itens[i+1]+')</span></a>';
+            }
+        }
+        $('#div_facets').html($('#div_facets').html()+
+        '<br><div><b>Digital:</b>'+
+                html_corpo_facet +
+                '</div>'
+            );
+    });
+    $.ajax({
+        url: "https://hs2019st.com/govbr/solr-select.php?rows=4&sort=random_"+Math.random()+"%20asc&q="+encodeURIComponent(valor)+fq,
+        async: false
+    }).done(function(r) {
+        html_resultado='';
+        html_group='';
+        r.response.docs.forEach(d => {
+            icon_fa=f_icon_fa(d.areas_de_interesse_s);
+            html_group +=
+                '<div class="column"> ' +
+                '   <div class="card">' +
+                '        <div class="icones_superior"> '+
+                '                <i aria-hidden="true" style="height:10px;" class="'+icon_fa+' fa-1x icones_sociais" style="padding:0px;"></i>     ' +
+                novo+
+                '        </div> '+
+                '       <div class="container" style="text-align:left;padding:5px;">' +
+                '           <a target="_blank" href="https://www.gov.br/pt-br/servicos/'+d.id+'" title="'+d.nome_s+'" style="padding:5px 0px;">'+d.nome_s.substring(0,48)+'</a>' +
+                '        </div> '+						
+                                        '        <div class="icones_sociais"> '+
+                ' <i id="home" aria-hidden="true" class="far fa-heart fa-1x">'+d.likes_i+'</i> '+
+                ' <i aria-hidden="true" class="far fa-eye fa-1x">'+d.views_i+'</i> '+
+                ' <a href="https://www.facebook.com/sharer/sharer.php?u=https://www.gov.br/pt-br/servicos/'+d.id+'" target="_blank"><i aria-hidden="true" class="fas fa-share-alt fa-1x"></i> </a>'+
+                '   </div>' +
+                                        '   </div>' +
+                '</div>'
+        }); 
+
+        html_resultado='<p><span class="titulo"><h4>Destaques para você ('+r.response.numFound+') </h4></span><div class="row">'+html_group+'</div></p>';
+        html_group='';   
+
+        $('#div_resultado').html(html_resultado+$('#div_resultado').html());
+    });
+    $.ajax({
+        url: "https://hs2019st.com/govbr/solr-select.php?rows=4&sort=random_"+Math.random()+"%20asc&q="+encodeURIComponent(valor)+fq,
+        async: false
+    }).done(function(r) {
+        html_resultado='';
+        html_group='';
+        r.response.docs.forEach(d => {
+            icon_fa=f_icon_fa(d.areas_de_interesse_s);
+            html_group +=
+                '<div class="column"> ' +
+                '   <div class="card">' +
+                '       <div class="container" style="text-align:left;padding:5px;">' +
+                                        '                <i aria-hidden="true" style="height:10px;" class="'+icon_fa+' fa-1x icones_sociais"  style="padding:0px;"></i>     ' +
+                '           <a target="_blank" href="https://www.gov.br/pt-br/servicos/'+d.id+'" title="'+d.nome_s+'" style="padding:5px 0px;">'+d.nome_s.substring(0,48)+'</a>' +
+                '        </div> '+
+                                        '        <div class="icones_sociais"> '+
+                ' <i id="home" aria-hidden="true" class="far fa-heart fa-1x">'+d.likes_i+'</i> '+
+                ' <i aria-hidden="true" class="far fa-eye fa-1x">'+d.views_i+'</i> '+
+                ' <a href="https://www.facebook.com/sharer/sharer.php?u=https://www.gov.br/pt-br/servicos/'+d.id+'" target="_blank"><i aria-hidden="true" class="fas fa-share-alt fa-1x"></i> </a>'+
+                '   </div>' +
+                                        '   </div>' +
+                '</div>'
+        }); 
+
+        html_resultado='<p><span class="titulo"><h4>Acessados por você ('+r.response.numFound+')</h4></span><div class="row">'+html_group+'</div></p>';
+        html_group='';   
+
+        $('#div_resultado').html(html_resultado+$('#div_resultado').html());
+    });
+}

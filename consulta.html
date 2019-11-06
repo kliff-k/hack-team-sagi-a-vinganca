@@ -1,0 +1,1360 @@
+<!DOCTYPE html>
+<html lang="pt">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Gov.br do Futuro - Consulta</title>
+
+    <meta charset="utf-8">
+    <meta name="viewport"
+        content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-title" content="Gov.br">
+    <meta name="msapplication-TileColor" content="#071d41">
+    <meta name="msapplication-TileImage" content="./img/ms-icon-144x144.png">
+
+    <link rel="apple-touch-icon" sizes="57x57" href="./img/apple-icon-57x57.png">
+    <link rel="apple-touch-icon" sizes="60x60" href="./img/apple-icon-60x60.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="./img/apple-icon-72x72.png">
+    <link rel="apple-touch-icon" sizes="76x76" href="./img/apple-icon-76x76.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="./img/apple-icon-114x114.png">
+    <link rel="apple-touch-icon" sizes="120x120" href="./img/apple-icon-120x120.png">
+    <link rel="apple-touch-icon" sizes="144x144" href="./img/apple-icon-144x144.png">
+    <link rel="apple-touch-icon" sizes="152x152" href="./img/apple-icon-152x152.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="./img/apple-icon-180x180.png">
+    <link rel="icon" type="image/png" sizes="192x192" href="./img/android-icon-192x192.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="./img/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="96x96" href="./img/favicon-96x96.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="./img/favicon-16x16.png">
+
+
+
+
+    <!--Bootstrap CSS-->
+    <link rel="stylesheet" href="css/boostrap-4.3.1.css">
+
+    <!--Estilos CSS-->
+    <!-- <link rel="stylesheet" href="./css/estilos.css"> -->
+    <link rel="stylesheet" type="text/css" href="css/reset-cachekey-32594c0dfcb4f2fb7564c33b7aa5de24.css"
+        media="screen" />
+    <link rel="stylesheet" type="text/css" href="css/base-cachekey-d71c14b6de0c7eaeda71dc19f6cc0153.css" />
+    <style type="text/css" media="screen">
+        @import url(css/resourceplone.app.jquerytools.dateinput-cachekey-2fc4cee221c8e825268c93c89871e069.css);
+    </style>
+    <link rel="stylesheet" type="text/css"
+        href="css/resourceplone.formwidget.datetimestyles-cachekey-4c78bbb70d44ae7b8344ecbec9841656.css" />
+    <style type="text/css" media="screen">
+        @import url(css/resourcecollective.nitfnitf-cachekey-3f34c3ff2c269ab1b34d29dbb93dbf19.css);
+    </style>
+    <link rel="stylesheet" type="text/css" href="css/ploneCustom-cachekey-5279e876330c8dd83447d1a0ac1c2267.css" />
+    <!--[if lt IE 8]>    
+    
+    <link rel="stylesheet" type="text/css" href="css/IEFixes-cachekey-e28ea05b215e207f95768971e084d1e0.css" media="screen" />
+        <![endif]-->
+
+    <style type="text/css" media="screen">
+        @import url(css/resourcecollective.z3cform.datagridfielddatagridfield-cachekey-2dd7a1fc9450e6fa6e023778c3e70051.css);
+    </style>
+    <link rel="stylesheet" type="text/css"
+        href="css/resourcegovbr.policycanais-cachekey-d99a5d9fc7da1823d911e9728dd42c3a.css" media="screen" />
+
+
+
+
+
+
+    <link rel="http://purl.org/dc/terms/subject http://schema.org/about http://xmlns.com/foaf/0.1/primaryTopic"
+        href="http://vocab.e.gov.br/2011/03/vcge#esquema" />
+
+    <link rel="author" href="//www.gov.br/pt-br/author/padrao" title="Informações do Autor" />
+
+
+    <link rel="canonical" href="//www.gov.br/pt-br" />
+
+
+    <link rel="apple-touch-icon" sizes="180x180"
+        href="css/++theme++padrao_govbr/++theme++padrao_govbr/favicons/apple-touch-icon.png" />
+    <link rel="icon" type="image/png" sizes="32x32"
+        href="css/++theme++padrao_govbr/++theme++padrao_govbr/favicons/favicon-32x32.png" />
+    <link rel="icon" type="image/png" sizes="16x16"
+        href="css/++theme++padrao_govbr/++theme++padrao_govbr/favicons/favicon-16x16.png" />
+
+    <link rel="mask-icon" href="css/++theme++padrao_govbr/++theme++padrao_govbr/favicons/safari-pinned-tab.svg"
+        color="#00a300" />
+
+    <meta name="theme-color" content="#071d41" />
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css"
+        integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous" />
+
+    <link href="css/govbrtheme-8562fb3.css" rel="stylesheet" />
+
+
+    <!-- <script defer="defer" src="//www.gov.br/++resource++brasil.gov.tiles/brasilgovtiles-fadba58.js"></script> -->
+    <!-- <link rel="stylesheet" href="./css/estilos_gov.br.css"> -->
+    <link rel="stylesheet" href="./css/estilos_pen.gov.br.css">
+    <link rel="stylesheet" href="./css/estilos.css">
+    <!-- <link rel="stylesheet" href="./css/estilos_gov.br2.css"> -->
+
+    <link rel="stylesheet" href="js/OwlCarousel2-2.3.4/dist/assets/owl.carousel.min.css" />
+    <link rel="stylesheet" href="js/OwlCarousel2-2.3.4/dist/assets/owl.theme.default.min.css" />
+
+
+
+    <meta name="msapplication-config" content="++theme++padrao_govbr/favicons/browserconfig.xml" />
+    <meta name="msapplication-config" content="./css/browserconfig.xml" />
+    <meta name="theme-color" content="#071d41" />
+    <link rel="shortcut icon" href="./img/favicon.ico" />
+    <link rel="manifest" href="./manifest.json" />
+
+
+</head>
+
+<body body
+    class="default-header-template cover-layout-layout-vazio template-view portaltype-collective-cover-content site-pt-br section-pagina-inicial userrole-anonymous"
+    id="" data-base-url="//www.gov.br/pt-br/pagina-inicial" data-portal-url="//www.gov.br" dir="ltr">
+    <!--Barra Brasil-->
+    <div id="barra-identidade">
+        <div id="barra-brasil" style="background:#7F7F7F; height: 20px; padding:0 0 0 10px;display:block;">
+            <ul id="menu-barra-temp" style="list-style:none;">
+                <li
+                    style="display:inline; float:left;padding-right:10px; margin-right:10px; border-right:1px solid #EDEDED">
+                    <a href="http://brasil.gov.br"
+                        style="font-family:sans,sans-serif; text-decoration:none; color:white;">Portal do Governo
+                        Brasileiro</a>
+                </li>
+                <li>
+                    <a style="font-family:sans,sans-serif; text-decoration:none; color:white;"
+                        href="http://epwg.governoeletronico.gov.br/barra/atualize.html">Atualize sua Barra de
+                        Governo</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <!--END Barra Brasil-->
+    <ul id="skip-menu">
+        <li><a accesskey="1" href="#content">Ir para o conteúdo</a></li>
+        <li><a accesskey="2" href="#main-navigation">Ir para o menu</a></li>
+        <li><a accesskey="3" href="#portal-searchbox">Ir para a busca</a></li>
+        <li><a accesskey="4" href="#portal-footer">Ir para o rodapé</a></li>
+    </ul>
+
+    <header id="main-header">
+        <div class="sombra-menu-institucional">
+            <div class="header-wrapper">
+                <div class="header-icons">
+                    <a class="ico-navegacao">
+                        Navegação
+                        <i class="fa fa-bars" aria-hidden="true"></i>
+                        <i class="fa fa-times" aria-hidden="true"></i>
+                    </a>
+                </div>
+                <div id="logo">
+                    <a id="portal-logo" title="O portal do Brasil" href="//www.gov.br/pt-br">
+                        <span id="portal-title-1">Governo do</span>
+                        <div id="portal-title" class="corto"> Brasil</div>
+                    </a>
+
+                </div>
+
+                <div class="header-accessibility">
+                    <ul>
+                        <li>
+                            <a href="#" class="link-contraste"><i class="fas fa-adjust"></i></a>
+                        </li>
+                        <li>
+                            <a href="http://www.vlibras.gov.br/" class="link-vlibras"><i
+                                    class="fas fa-assistive-listening-systems"></i></a>
+                        </li>
+
+                        <li class="language-selection">
+                            <a href="//www.gov.br/@@multilingual-selector/1001ac8f3c4241339e0792e5c7830739/pt-br?set_language=pt-br"
+                                class="currentLanguage language-pt-br" style="padding-right:10px">
+                                <span class="sr-only">Português</span>
+                            </a>
+                            <ul>
+                                <li class="title">Idioma/Language</li>
+
+
+
+                                <li class="currentLanguage language-pt-br">
+                                    <a href="//www.gov.br/@@multilingual-selector/1001ac8f3c4241339e0792e5c7830739/pt-br?set_language=pt-br"
+                                        title="Português (Brasil)">Português (Brasil)</a>
+                                </li>
+                            </ul>
+                        </li>
+                        <li class="language-selection li-login">
+                            <a href="login.html" class=""><i class="fas fa-user-circle"></i> Acessar com o <strong>login
+                                    único</strong></a>
+                        </li>
+
+
+
+
+
+                    </ul>
+                </div>
+                <div id="portal-searchbox">
+
+                    <form id="nolivesearchGadget_form" action="//www.gov.br/pt-br/@@search">
+
+                        <div class="LSBox">
+                            <label class="hiddenStructure" for="nolivesearchGadget">Busca</label>
+
+                            <input name="SearchableText" type="text" size="18" title="O que você procura?"
+                                placeholder="O que você procura?" accesskey="4" class="searchField"
+                                id="nolivesearchGadget">
+
+                            <input class="searchButton" type="submit" value="Buscar">
+
+
+
+                            <div class="LSResult" id="LSResult">
+                                <div class="LSShadow" id="LSShadow"></div>
+                            </div>
+                        </div>
+                    </form>
+
+                    <div id="portal-advanced-search" class="hiddenStructure">
+                        <a href="//www.gov.br/pt-br/@@search" accesskey="5">Busca Avançada…</a>
+                    </div>
+
+                    <button class="close" aria-label="Fechar busca"><i class="fas fa-times"></i></button>
+                </div>
+            </div>
+        </div>
+
+
+        <!-- Main Menu -->
+        <div class="navigation-wrapper">
+            <div class="navigation-content">
+                <nav id="main-navigation" class="navigation-cell">
+                    <ul class="list-navigation">
+                        <li id="portaltab-servicos" class="plain dropdown-submenu"><a href="//www.gov.br/pt-br/servicos"
+                                title="" class="plain">Serviços</a>
+                            <ul class="submenu">
+                                <li class="dropdown-submenu">
+
+
+
+                                    <a href="//www.gov.br/pt-br/servicos/buscar-servicos-por" title=""
+                                        class="state-protected hasDropDown">
+
+                                        Buscar serviços por
+                                    </a>
+
+                                    <ul class="submenu navTree navTreeLevel1">
+
+
+
+
+
+                                        <li class="">
+
+
+
+                                            <a href="/clientes/portalgovbr/portalgovbr/pt-br/categorias" title=""
+                                                class="state-published">
+
+                                                Categorias
+                                            </a>
+
+
+
+                                        </li>
+
+                                        <li>
+
+
+
+                                            <a href="/clientes/portalgovbr/portalgovbr/pt-br/servicos/listar_orgaos"
+                                                title="" class="state-published">
+
+                                                Órgãos
+                                            </a>
+
+
+
+                                        </li>
+
+                                        <li>
+
+
+
+                                            <a href="/clientes/portalgovbr/portalgovbr/pt-br/servicos-estaduais"
+                                                title="" class="state-published">
+
+                                                Estados
+                                            </a>
+
+
+
+                                        </li>
+
+
+
+
+                                    </ul>
+
+                                </li>
+
+                                <li class="dropdown-submenu">
+
+
+
+                                    <a href="//www.gov.br/pt-br/servicos/servicos-por-publico-alvo" title=""
+                                        class="state-protected hasDropDown">
+
+                                        Serviços por público alvo
+                                    </a>
+
+                                    <ul class="submenu navTree navTreeLevel1">
+
+
+
+
+
+                                        <li>
+
+
+
+                                            <a href="/clientes/portalgovbr/portalgovbr/pt-br/servicos/listar_servicos_segmento?segmento=publico_alvo_cidadaos"
+                                                title="" class="state-published">
+
+                                                Cidadãos
+                                            </a>
+
+
+
+                                        </li>
+
+                                        <li>
+
+
+
+                                            <a href="/clientes/portalgovbr/portalgovbr/pt-br/servicos/listar_servicos_segmento?segmento=publico_alvo_empresas"
+                                                title="" class="state-published">
+
+                                                Empresas
+                                            </a>
+
+
+
+                                        </li>
+
+                                        <li>
+
+
+
+                                            <a href="/clientes/portalgovbr/portalgovbr/pt-br/servicos/listar_servicos_segmento?segmento=publico_alvo_orgaos"
+                                                title="" class="state-published">
+
+                                                Órgãos e Entidades Públicas
+                                            </a>
+
+
+
+                                        </li>
+
+                                        <li>
+
+
+
+                                            <a href="/clientes/portalgovbr/portalgovbr/pt-br/servicos/listar_servicos_segmento?segmento=publico_alvo_outros"
+                                                title="" class="state-published">
+
+                                                Demais segmentos (ONGs, organizações sociais, etc)
+                                            </a>
+
+
+
+                                        </li>
+
+
+
+
+                                    </ul>
+
+                                </li>
+                            </ul>
+                        </li>
+                        <li id="portaltab-galeria-de-aplicativos" class="plain"><a
+                                href="/clientes/portalgovbr/portalgovbr/pt-br/apps/@@galeria-de-aplicativos" title=""
+                                class="plain">Galeria de Aplicativos</a></li>
+                        <li id="portaltab-noticias" class="plain dropdown-submenu"><a href="//www.gov.br/pt-br/noticias"
+                                title="" class="plain">Notícias</a>
+                            <ul class="submenu">
+                                <li>
+
+
+
+                                    <a href="//www.gov.br/pt-br/noticias/ultimas-noticias" title=""
+                                        class="state-published">
+
+                                        Últimas notícias
+                                    </a>
+
+
+
+                                </li>
+
+                                <li>
+
+
+
+                                    <a href="//www.gov.br/pt-br/noticias/agricultura-e-pecuaria" title=""
+                                        class="state-published">
+
+                                        Agricultura e Pecuária
+                                    </a>
+
+
+
+                                </li>
+
+                                <li>
+
+
+
+                                    <a href="//www.gov.br/pt-br/noticias/assistencia-social" title=""
+                                        class="state-published">
+
+                                        Cidadania e Assistência Social
+                                    </a>
+
+
+
+                                </li>
+
+                                <li>
+
+
+
+                                    <a href="//www.gov.br/pt-br/noticias/cultura-artes-historia-e-esportes" title=""
+                                        class="state-published">
+
+                                        Cultura e Esporte
+                                    </a>
+
+
+
+                                </li>
+
+                                <li>
+
+
+
+                                    <a href="//www.gov.br/pt-br/noticias/financas-impostos-e-gestao-publica" title=""
+                                        class="state-published">
+
+                                        Economia e Gestão Pública
+                                    </a>
+
+
+
+                                </li>
+
+                                <li>
+
+
+
+                                    <a href="//www.gov.br/pt-br/noticias/educacao-e-pesquisa" title=""
+                                        class="state-published">
+
+                                        Educação e Pesquisa
+                                    </a>
+
+
+
+                                </li>
+
+                                <li>
+
+
+
+                                    <a href="//www.gov.br/pt-br/noticias/transito-e-transportes" title=""
+                                        class="state-published">
+
+                                        Infraestrutura
+                                    </a>
+
+
+
+                                </li>
+
+                                <li>
+
+
+
+                                    <a href="//www.gov.br/pt-br/noticias/justica-e-seguranca" title=""
+                                        class="state-published">
+
+                                        Justiça e Segurança
+                                    </a>
+
+
+
+                                </li>
+
+                                <li class="dropdown-submenu">
+
+
+
+                                    <a href="//www.gov.br/pt-br/noticias/meio-ambiente-e-clima" title=""
+                                        class="state-published hasDropDown">
+
+                                        Meio Ambiente
+                                    </a>
+
+                                    <ul class="submenu navTree navTreeLevel1">
+
+
+
+
+
+                                        <li>
+
+
+
+                                            <a href="//www.gov.br/pt-br/noticias/meio-ambiente-e-clima/operacao-verde-brasil"
+                                                title="" class="state-published">
+
+                                                Operação Verde Brasil
+                                            </a>
+
+
+
+                                        </li>
+
+
+
+
+                                    </ul>
+
+                                </li>
+
+                                <li>
+
+
+
+                                    <a href="//www.gov.br/pt-br/noticias/saude-e-vigilancia-sanitaria" title=""
+                                        class="state-published">
+
+                                        Saúde
+                                    </a>
+
+
+
+                                </li>
+
+                                <li>
+
+
+
+                                    <a href="//www.gov.br/pt-br/noticias/trabalho-e-previdencia" title=""
+                                        class="state-published">
+
+                                        Trabalho e Previdência
+                                    </a>
+
+
+
+                                </li>
+
+                                <li>
+
+
+
+                                    <a href="//www.gov.br/pt-br/noticias/viagens-e-turismo" title=""
+                                        class="state-published">
+
+                                        Turismo
+                                    </a>
+
+
+
+                                </li>
+                            </ul>
+                        </li>
+                        <li id="portaltab-planalto" class="plain"><a href="/planalto"
+                                title="Notícias da Presidência da República" class="plain">Acompanhe o Planalto</a></li>
+                        <li id="portaltab-canais-do-executivo-federal" class="plain"><a
+                                href="//www.gov.br/pt-br/canais-do-executivo-federal"
+                                title="Acompanhe os principais canais do governo federal e fique por dentro do que está sendo feito para melhorar a vida dos brasileiros"
+                                class="plain">Canais do Poder Executivo Federal</a></li>
+                        <li id="portaltab-navegacao" class="plain dropdown-submenu"><a
+                                href="//www.gov.br/pt-br/navegacao" title="" class="plain">Navegação</a>
+                            <ul class="submenu">
+                                <li>
+
+
+
+                                    <a href="/clientes/portalgovbr/portalgovbr/pt-br/accessibility-info" title=""
+                                        class="state-published">
+
+                                        Acessibilidade
+                                    </a>
+
+
+
+                                </li>
+
+                                <li>
+
+
+
+                                    <a href="/clientes/portalgovbr/portalgovbr/pt-br/sitemap" title=""
+                                        class="state-published">
+
+                                        Mapa do Site
+                                    </a>
+
+
+
+                                </li>
+
+                                <li>
+
+
+
+                                    <a href="/pt-br/termos-de-uso" title="" class="state-published">
+
+                                        Termos de Uso
+                                    </a>
+
+
+
+                                </li>
+
+                                <li>
+
+
+
+                                    <a href="https://gov.br/sobre" title="" class="state-published">
+
+                                        Sobre o gov.br
+                                    </a>
+
+
+
+                                </li>
+                            </ul>
+                        </li>
+                        <li id="portaltab-rss" class="plain"><a href="//www.gov.br/pt-br/rss" title=""
+                                class="plain">RSS</a></li>
+                        <li id="portaltab-acesse-sua-conta-gov.br" class="plain"><a
+                                href="http://solicitacao.servicos.gov.br/" title="" class="plain">Acesse sua conta
+                                gov.br</a></li>
+                    </ul>
+
+                    <div class="header-accessibility">
+                        <ul>
+                            <li>
+                                <a href="#" class="link-contraste"><i class="fas fa-adjust"></i></a>
+                            </li>
+                            <li>
+                                <a href="http://www.vlibras.gov.br/" class="link-vlibras"><i
+                                        class="fas fa-assistive-listening-systems"></i></a>
+                            </li>
+
+                            <li class="language-selection">
+                                <a href="//www.gov.br/@@multilingual-selector/1001ac8f3c4241339e0792e5c7830739/pt-br?set_language=pt-br"
+                                    class="currentLanguage language-pt-br">
+                                    <span class="sr-only">Português</span>
+                                </a>
+                                <ul style="">
+                                    <li class="title">Idioma/Language</li>
+
+
+
+                                    <li class="currentLanguage language-pt-br">
+                                        <a href="//www.gov.br/@@multilingual-selector/1001ac8f3c4241339e0792e5c7830739/pt-br?set_language=pt-br"
+                                            title="Português (Brasil)">Português (Brasil)</a>
+                                    </li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="redes-sociais">
+                        <h3>Redes sociais</h3>
+                        <ul class="portal-redes">
+
+                            <li class="portalredes-twitter portalredes-item">
+                                <a href="https://www.twitter.com/govbr">Twitter</a>
+                            </li>
+
+                            <li class="portalredes-youtube portalredes-item">
+                                <a href="https://www.youtube.com/user/CanalPortalBrasil">YouTube</a>
+                            </li>
+
+                            <li class="portalredes-facebook portalredes-item">
+                                <a href="https://www.facebook.com/governodobrasil">Facebook</a>
+                            </li>
+
+                            <li class="portalredes-flickr portalredes-item">
+                                <a href="https://www.flickr.com/palaciodoplanalto">Flickr</a>
+                            </li>
+
+                        </ul>
+                    </div>
+                </nav>
+            </div>
+        </div>
+        <!-- <div id="beta"><a href="/sobre">Hackathon Gov.br</a></div> -->
+    </header>
+
+
+
+
+
+
+    <div id="portal-breadcrumbs">
+
+        <span id="breadcrumbs-you-are-here">Você está aqui:</span>
+        <span id="breadcrumbs-home">
+            <a href="//www.gov.br/pt-br">Página Inicial</a>
+
+        </span>
+
+
+    </div>
+
+
+
+    <div id="wrapper">
+        <!-- Columns -->
+
+        <div id="main">
+
+
+            <main id="main-content" role="main">
+
+                <div id="viewlet-above-content">
+
+
+
+                    <div id="viewlet-tileshare" data-title-fb="Compartilhar no Facebook (abre em nova janela)"
+                        data-title-twitter="Tweet (abre em nova janela)"
+                        data-title-linkedin="Compartilhar no Linkedin  (abre em nova janela)"
+                        data-title-gplus="Compartilhar no Google+  (abre em nova janela)"
+                        data-title-link="Copiar para área de transferência" data-title-more="Mais opções">
+                    </div>
+                </div>
+
+
+                <div class="">
+
+
+
+
+
+                    <dl class="portalMessage info" id="kssPortalMessage" style="display:none">
+                        <dt>Info</dt>
+                        <dd></dd>
+                    </dl>
+
+
+
+
+
+                    <div id="content">
+
+                        <div id="wrapper" style="padding:10px;">
+                            <!-- Columns -->
+                            <div id="main">
+                              <main id="main-content" role="main">        
+                          <div class="col-sm-12"><a onclick="$('#div_facets').toggle();" style="cursor:pointer;">Refinar Busca >></a></div>
+                      <div id="div_facets">
+                          Carregando facets...
+                      </div>  
+                      <br> 
+                          <div>
+                              <div class="col-md-12" id="div_cabecalho_resultado">
+                              </div>
+                          </div> 
+                          <div id="content">
+                              <div id="buscaContainer">
+                                  <div id="search-results">
+                                      <div class="row">
+                                      <div class="column col-md-12">
+                                      <span>
+                                      <div id="div_resultado">
+                                      </div>
+                           </span></div></div></div></div>
+
+                                              </div>
+
+
+
+                                      </div>
+                          </div>
+
+
+
+                        <footer id="portal-footer">
+                            <div class="footer-wrapper">
+                                <div class="govbr-logo"></div>
+                                <div class="colunas-rodape">
+                                    <div class="coluna-menu">
+                                        <ul class="rodape-navigation">
+                                            <li id="portaltab-servicos" class="plain dropdown-submenu"><a
+                                                    href="//www.gov.br/pt-br/servicos" title=""
+                                                    class="plain">Serviços</a>
+                                                <ul class="submenu">
+                                                    <li class="dropdown-submenu">
+
+
+
+                                                        <a href="//www.gov.br/pt-br/servicos/buscar-servicos-por"
+                                                            title="" class="state-protected hasDropDown">
+
+                                                            Buscar serviços por
+                                                        </a>
+
+                                                        <ul class="submenu navTree navTreeLevel1"
+                                                            style="display: block;">
+
+
+
+
+
+                                                            <li>
+
+
+
+                                                                <a href="/clientes/portalgovbr/portalgovbr/pt-br/categorias"
+                                                                    title="" class="state-published">
+
+                                                                    Categorias
+                                                                </a>
+
+
+
+                                                            </li>
+
+                                                            <li>
+
+
+
+                                                                <a href="/clientes/portalgovbr/portalgovbr/pt-br/servicos/listar_orgaos"
+                                                                    title="" class="state-published">
+
+                                                                    Órgãos
+                                                                </a>
+
+
+
+                                                            </li>
+
+                                                            <li>
+
+
+
+                                                                <a href="/clientes/portalgovbr/portalgovbr/pt-br/servicos-estaduais"
+                                                                    title="" class="state-published">
+
+                                                                    Estados
+                                                                </a>
+
+
+
+                                                            </li>
+
+
+
+
+                                                        </ul>
+
+                                                    </li>
+
+                                                    <li class="dropdown-submenu">
+
+
+
+                                                        <a href="//www.gov.br/pt-br/servicos/servicos-por-publico-alvo"
+                                                            title="" class="state-protected hasDropDown">
+
+                                                            Serviços por público alvo
+                                                        </a>
+
+                                                        <ul class="submenu navTree navTreeLevel1"
+                                                            style="display: block;">
+
+
+
+
+
+                                                            <li>
+
+
+
+                                                                <a href="/clientes/portalgovbr/portalgovbr/pt-br/servicos/listar_servicos_segmento?segmento=publico_alvo_cidadaos"
+                                                                    title="" class="state-published">
+
+                                                                    Cidadãos
+                                                                </a>
+
+
+
+                                                            </li>
+
+                                                            <li>
+
+
+
+                                                                <a href="/clientes/portalgovbr/portalgovbr/pt-br/servicos/listar_servicos_segmento?segmento=publico_alvo_empresas"
+                                                                    title="" class="state-published">
+
+                                                                    Empresas
+                                                                </a>
+
+
+
+                                                            </li>
+
+                                                            <li>
+
+
+
+                                                                <a href="/clientes/portalgovbr/portalgovbr/pt-br/servicos/listar_servicos_segmento?segmento=publico_alvo_orgaos"
+                                                                    title="" class="state-published">
+
+                                                                    Órgãos e Entidades Públicas
+                                                                </a>
+
+
+
+                                                            </li>
+
+                                                            <li>
+
+
+
+                                                                <a href="/clientes/portalgovbr/portalgovbr/pt-br/servicos/listar_servicos_segmento?segmento=publico_alvo_outros"
+                                                                    title="" class="state-published">
+
+                                                                    Demais segmentos (ONGs, organizações sociais, etc)
+                                                                </a>
+
+
+
+                                                            </li>
+
+
+
+
+                                                        </ul>
+
+                                                    </li>
+                                                </ul>
+                                            </li>
+                                            <li id="portaltab-galeria-de-aplicativos" class="plain"><a
+                                                    href="/clientes/portalgovbr/portalgovbr/pt-br/apps/@@galeria-de-aplicativos"
+                                                    title="" class="plain">Galeria de Aplicativos</a></li>
+                                            <li id="portaltab-noticias" class="plain dropdown-submenu"><a
+                                                    href="//www.gov.br/pt-br/noticias" title=""
+                                                    class="plain">Notícias</a>
+                                                <ul class="submenu">
+                                                    <li>
+
+
+
+                                                        <a href="//www.gov.br/pt-br/noticias/ultimas-noticias" title=""
+                                                            class="state-published">
+
+                                                            Últimas notícias
+                                                        </a>
+
+
+
+                                                    </li>
+
+                                                    <li>
+
+
+
+                                                        <a href="//www.gov.br/pt-br/noticias/agricultura-e-pecuaria"
+                                                            title="" class="state-published">
+
+                                                            Agricultura e Pecuária
+                                                        </a>
+
+
+
+                                                    </li>
+
+                                                    <li>
+
+
+
+                                                        <a href="//www.gov.br/pt-br/noticias/assistencia-social"
+                                                            title="" class="state-published">
+
+                                                            Cidadania e Assistência Social
+                                                        </a>
+
+
+
+                                                    </li>
+
+                                                    <li>
+
+
+
+                                                        <a href="//www.gov.br/pt-br/noticias/cultura-artes-historia-e-esportes"
+                                                            title="" class="state-published">
+
+                                                            Cultura e Esporte
+                                                        </a>
+
+
+
+                                                    </li>
+
+                                                    <li>
+
+
+
+                                                        <a href="//www.gov.br/pt-br/noticias/financas-impostos-e-gestao-publica"
+                                                            title="" class="state-published">
+
+                                                            Economia e Gestão Pública
+                                                        </a>
+
+
+
+                                                    </li>
+
+                                                    <li>
+
+
+
+                                                        <a href="//www.gov.br/pt-br/noticias/educacao-e-pesquisa"
+                                                            title="" class="state-published">
+
+                                                            Educação e Pesquisa
+                                                        </a>
+
+
+
+                                                    </li>
+
+                                                    <li>
+
+
+
+                                                        <a href="//www.gov.br/pt-br/noticias/transito-e-transportes"
+                                                            title="" class="state-published">
+
+                                                            Infraestrutura
+                                                        </a>
+
+
+
+                                                    </li>
+
+                                                    <li>
+
+
+
+                                                        <a href="//www.gov.br/pt-br/noticias/justica-e-seguranca"
+                                                            title="" class="state-published">
+
+                                                            Justiça e Segurança
+                                                        </a>
+
+
+
+                                                    </li>
+
+                                                    <li class="dropdown-submenu">
+
+
+
+                                                        <a href="//www.gov.br/pt-br/noticias/meio-ambiente-e-clima"
+                                                            title="" class="state-published hasDropDown">
+
+                                                            Meio Ambiente
+                                                        </a>
+
+                                                        <ul class="submenu navTree navTreeLevel1"
+                                                            style="display: block;">
+
+
+
+
+
+                                                            <li>
+
+
+
+                                                                <a href="//www.gov.br/pt-br/noticias/meio-ambiente-e-clima/operacao-verde-brasil"
+                                                                    title="" class="state-published">
+
+                                                                    Operação Verde Brasil
+                                                                </a>
+
+
+
+                                                            </li>
+
+
+
+
+                                                        </ul>
+
+                                                    </li>
+
+                                                    <li>
+
+
+
+                                                        <a href="//www.gov.br/pt-br/noticias/saude-e-vigilancia-sanitaria"
+                                                            title="" class="state-published">
+
+                                                            Saúde
+                                                        </a>
+
+
+
+                                                    </li>
+
+                                                    <li>
+
+
+
+                                                        <a href="//www.gov.br/pt-br/noticias/trabalho-e-previdencia"
+                                                            title="" class="state-published">
+
+                                                            Trabalho e Previdência
+                                                        </a>
+
+
+
+                                                    </li>
+
+                                                    <li>
+
+
+
+                                                        <a href="//www.gov.br/pt-br/noticias/viagens-e-turismo" title=""
+                                                            class="state-published">
+
+                                                            Turismo
+                                                        </a>
+
+
+
+                                                    </li>
+                                                </ul>
+                                            </li>
+                                            <li id="portaltab-planalto" class="plain"><a href="/planalto"
+                                                    title="Notícias da Presidência da República" class="plain">Acompanhe
+                                                    o Planalto</a>
+                                            </li>
+                                            <li id="portaltab-canais-do-executivo-federal" class="plain"><a
+                                                    href="//www.gov.br/pt-br/canais-do-executivo-federal"
+                                                    title="Acompanhe os principais canais do governo federal e fique por dentro do que está sendo feito para melhorar a vida dos brasileiros"
+                                                    class="plain">Canais do Poder Executivo Federal</a></li>
+                                            <li id="portaltab-navegacao" class="plain dropdown-submenu"><a
+                                                    href="//www.gov.br/pt-br/navegacao" title=""
+                                                    class="plain">Navegação</a>
+                                                <ul class="submenu">
+                                                    <li>
+
+
+
+                                                        <a href="/clientes/portalgovbr/portalgovbr/pt-br/accessibility-info"
+                                                            title="" class="state-published">
+
+                                                            Acessibilidade
+                                                        </a>
+
+
+
+                                                    </li>
+
+                                                    <li>
+
+
+
+                                                        <a href="/clientes/portalgovbr/portalgovbr/pt-br/sitemap"
+                                                            title="" class="state-published">
+
+                                                            Mapa do Site
+                                                        </a>
+
+
+
+                                                    </li>
+
+                                                    <li>
+
+
+
+                                                        <a href="/pt-br/termos-de-uso" title="" class="state-published">
+
+                                                            Termos de Uso
+                                                        </a>
+
+
+
+                                                    </li>
+
+                                                    <li>
+
+
+
+                                                        <a href="https://gov.br/sobre" title="" class="state-published">
+
+                                                            Sobre o gov.br
+                                                        </a>
+
+
+
+                                                    </li>
+                                                </ul>
+                                            </li>
+                                            <li id="portaltab-rss" class="plain"><a href="//www.gov.br/pt-br/rss"
+                                                    title="" class="plain">RSS</a></li>
+                                            <li id="portaltab-acesse-sua-conta-gov.br" class="plain"><a
+                                                    href="http://solicitacao.servicos.gov.br/" title=""
+                                                    class="plain">Acesse sua conta
+                                                    gov.br</a></li>
+                                        </ul>
+                                    </div>
+                                </div>
+
+                                <div class="redes-e-logos">
+                                    <div class="redes-sociais">
+                                        <h3>Redes sociais</h3>
+                                        <ul class="portal-redes">
+
+                                            <li class="portalredes-twitter portalredes-item">
+                                                <a href="https://www.twitter.com/govbr">Twitter</a>
+                                            </li>
+
+                                            <li class="portalredes-youtube portalredes-item">
+                                                <a href="https://www.youtube.com/user/CanalPortalBrasil">YouTube</a>
+                                            </li>
+
+                                            <li class="portalredes-facebook portalredes-item">
+                                                <a href="https://www.facebook.com/governodobrasil">Facebook</a>
+                                            </li>
+
+                                            <li class="portalredes-flickr portalredes-item">
+                                                <a href="https://www.flickr.com/palaciodoplanalto">Flickr</a>
+                                            </li>
+
+                                        </ul>
+                                    </div>
+                                    <div id="footer-brasil">
+                                        <div id="wrapper-footer-brasil"><a class="logo-acesso-footer"
+                                                href="http://www.acessoainformacao.gov.br/" alt="Acesso à informação"
+                                                title="Acesso à informação"></a><a class="logo-governo-federal"
+                                                href="http://www.brasil.gov.br/" alt="Governo Federal"
+                                                title="Governo Federal"></a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </footer>
+                    </div>
+
+
+
+
+
+
+
+                    <!--JAVASCRIPT-->
+
+                    <!--jQuery JS-->
+                    <script src="//code.jquery.com/jquery-1.8.3.min.js"
+                        integrity="sha256-YcbK69I5IXQftf/mYD8WY0/KmEDCv1asggHpJk1trM8="
+                        crossorigin="anonymous"></script>
+                    <script src="js/OwlCarousel2-2.3.4/dist/owl.carousel.min.js"></script>
+
+                    <script type="text/javascript" src="js/govbrtheme.js"></script>
+                    <div id="plone-analytics">Google Tag Manager
+
+
+                        <!--Popper JS-->
+                        <script src="//cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+                            integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+                            crossorigin="anonymous"></script>
+
+
+
+
+                        <!--Barra Brasil JS-->
+                        <script defer="defer" src="//barra.brasil.gov.br/barra_2.0.js"></script>
+
+
+                        <script src="./js/funcoes.js"></script>
+
+
+
+                        <script src="./js/promise.js"></script>
+                        <script src="./js/fetch.js"></script>
+                        <script src="./js/app.js"></script>
+                        <script src="./js/plataform_.js"></script>
+
+
+                        <script type="text/javascript">
+                            $(document).ready(function () {
+                                
+                                let nome = '';
+                                let cpf = '';
+                                let photo = '';
+                                if (sessionStorage) {
+                                    nome = sessionStorage.getItem("nome");
+                                    cpf = sessionStorage.getItem("cpf");
+                                    photo = sessionStorage.getItem("photo");
+                                }
+                                if (nome != '' && cpf != '') {
+                                    txt = '<a href="login.html">';
+                                    if (photo == '')
+                                        txt += '<i class="fas fa-user-circle" style="margin-left:5px"></i>&nbsp;';
+                                    else
+                                        txt += '<img src="img/' + photo + '" alt="Avatar" class="photo-perfil">&nbsp;';
+                                    txt += nome + ' (' + cpf + ')</a>';
+                                    $(".li-login").html(txt);
+                                    $("#nome-usuario-destaque").html(nome);
+                                }
+                                $("#div_facets").hide();
+                                // Get the input field
+                                var input = document.getElementById("nolivesearchGadget");
+
+                                // Execute a function when the user releases a key on the keyboard
+                                input.addEventListener("keyup", function(event) {
+                                    // Number 13 is the "Enter" key on the keyboard
+                                    if (event.keyCode === 13) {
+                                        // Cancel the default action, if needed
+                                        event.preventDefault();
+                                        // Trigger the button element with a click
+                                        document.getElementById("searchButton").click();
+                                    }
+                                });
+                                var x = localStorage.getItem("termo_busca");
+                                localStorage.removeItem("termo_busca");
+                                if (x!=null && x!=''){
+                                    consulta(encodeURI(x));
+                                    $('#nolivesearchGadget').val(x);
+                                }else{
+                                    consulta('*');
+                                }
+
+                                            $(".fa-heart").click(function () {
+                                    $(this).toggleClass("red");
+                                            });
+                                
+                                
+
+                                
+                            });
+                        </script>
+</body>
+
+</html>
