@@ -59,7 +59,7 @@ else
                 file_get_contents($bot."/sendmessage?chat_id=$chat_id&reply_markup=$remove_keyboard&parse_mode=HTML&text=$response");
             }
 
-            $response = 'Como posso te ajudar? Digite o nome do serviço que deseja encontrar. Ou envie uma localização para a lista de serviços mais populares na região.';
+            $response = urlencode('Como posso te ajudar?\nDigite o nome do serviço que deseja encontrar.\nOu envie uma localização para a lista de serviços mais populares na região.');
             file_get_contents($bot."/sendmessage?chat_id=$chat_id&reply_markup=$remove_keyboard&text=$response");
 
             break;
@@ -71,7 +71,7 @@ else
 
             if(!$total)
             {
-                $response = "Não foram encontrados resultados para a sua busca. Tente digitar /oi";
+                $response = urlencode("Não foram encontrados resultados para a sua busca.\nTente digitar /oi");
                 file_get_contents($bot."/sendmessage?chat_id=$chat_id&reply_markup=$remove_keyboard&text=$response");
             }
 
@@ -83,7 +83,7 @@ else
 
             if($total > 1 )
             {
-                $response = "Foram encontrados $total serviços. Seguem os mais populares:";
+                $response = urlencode("Foram encontrados $total serviços.\nSeguem os mais populares:");
                 file_get_contents($bot."/sendmessage?chat_id=$chat_id&reply_markup=$remove_keyboard&text=$response");
 
                 $response = '<a href="https://www.gov.br/pt-br/servicos/'.$result['response']['docs'][0]['id'].'">'.$result['response']['docs'][0]['nome_s'].'</a>';
