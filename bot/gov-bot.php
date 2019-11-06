@@ -59,7 +59,7 @@ else
                 file_get_contents($bot."/sendmessage?chat_id=$chat_id&reply_markup=$remove_keyboard&parse_mode=HTML&text=$response");
             }
 
-            $response = urlencode('Como posso te ajudar?\nDigite o nome do serviço que deseja encontrar.\nOu envie uma localização para a lista de serviços mais populares na região.');
+            $response = urlencode("Como posso te ajudar?\nDigite o nome do serviço que deseja encontrar.\nOu envie uma localização para a lista de serviços mais populares na região.");
             file_get_contents($bot."/sendmessage?chat_id=$chat_id&reply_markup=$remove_keyboard&text=$response");
 
             break;
