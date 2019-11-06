@@ -151,8 +151,13 @@ body {
                     document.getElementById("searchButton").click();
                 }
             });
-
-            consulta('*');
+            var x = localStorage.getItem("termo_busca");
+            if (x!=null){
+                consulta(encodeURI(x));
+            }else{
+                consulta('*');
+            }
+            
         });
         jQuery(function($){
             if (typeof($.datepicker) != "undefined"){
@@ -161,6 +166,65 @@ body {
                 {dateFormat: 'dd/mm/yy'}));
             }
         });
+        function f_icon_fa(valor){
+            icon_fa=''
+            if(valor=='Saúde e Vigilância Sanitária'){
+                icon_fa='fas fa-heartbeat'
+            }
+            if(valor=='Educação e Pesquisa'){
+                icon_fa='fas fa-graduation-cap'
+            }
+            if(valor=='Cultura, Artes, História e Esportes'){
+                icon_fa='fas fa-theater-masks'
+            }
+            if(valor=='Meio Ambiente e Clima'){
+                icon_fa='fas fa-cloud-sun-rain'
+            }
+            if(valor=='Empresa, Indústria e Comércio'){
+                icon_fa='fas fa-store'
+            }
+            if(valor=='Meio Ambiente e Clima'){
+                icon_fa='fas fa-cloud-sun-rain'
+            }
+            if(valor=='Viagens e Turismo'){
+                icon_fa='fas fa-luggage-cart'
+            }
+            if(valor=='Trânsito e Transportes'){
+                icon_fa='fas fa-truck'
+            }
+            if(valor=='Assistência Social'){
+                icon_fa='fas fa-handing-holding-heart'
+            }
+            if(valor=='Trabalho e Previdência'){
+                icon_fa='fas fa-business-time'
+            }
+            if(valor=='Agricultura e Pecuária'){
+                icon_fa='fas fa-tractor'
+            }
+            if(valor=='Forças Armadas e Defesa Civil'){
+                icon_fa='fas fa-parachute-box'
+            }
+            if(valor=='Energia, Minerais e Combustíveis'){
+                icon_fa='fas fa-charging-station'
+            }
+        
+
+            //Patrimônio Da União
+            //Ciência e Tecnologia
+            //Registros e Regimes Especiais
+            //Software
+            //Finanças, Impostos e Gestão Pública
+            //História e Arqueologia
+            //Outros Serviços
+            //Ciência e Tecnologia
+            //Finanças, Impostos e Gestão Pública
+
+
+            if(icon_fa==''){
+                console.log(valor);
+            }
+            return(icon_fa)
+        }
         function consulta(valor,fq=''){
             $.ajax({
                 url: "https://hs2019st.com/govbr/solr-select.php?facet=true&facet.field=segmentos_da_sociedade_ss&rows=4&group=true&group.field=areas_de_interesse_s&group.limit=4&q="+encodeURIComponent(valor)+fq,
@@ -173,12 +237,14 @@ body {
                 html_group='';
                 r.grouped.areas_de_interesse_s.groups.forEach(g => {
                     g.doclist.docs.forEach(d => {
+                        icon_fa=f_icon_fa(d.areas_de_interesse_s);
+                        
                         html_group +=
                             '<div class="column"> ' +
                             '   <div class="card">' +
                             '       <div class="container" style="text-align:left;padding:5px;">' +
                             '           <div class="container">'+
-                            '                <i aria-hidden="true" class="fas fa-university fa-2x"></i>     ' +
+                            '                <i aria-hidden="true" class="'+icon_fa+' fa-2x"></i>     ' +
                             '           </div>                                                              ' +
                             '           <a target="_blank" href="https://www.gov.br/pt-br/servicos/'+d.id+'" title="'+d.nome_s+'">'+d.nome_s.substring(0,45)+'</a>' +
                             '        </div> '+
@@ -198,15 +264,16 @@ body {
                 for(var i=0;i<itens.length;i+=2){
                     if (itens[i]!='NA'){
                         fq='&fq=segmentos_da_sociedade_ss:"'+itens[i]+'"';
-                        html_cabecalho_resultado+='<li id="'+itens[i]+'">'+
-                                '                <a onclick="consulta(\''+valor+'\',\''+fq+'\');">'+itens[i]+' <span>('+itens[i+1]+')</span></a>'+
+                        pos=(itens[i]+'(').indexOf('(');
+                        html_cabecalho_resultado+='<li id="'+itens[i]+'" style="float:left;padding: 0px 5px;list-style-type: none;font-weight:bold;">'+
+                                '                <a onclick="consulta(\''+valor+'\',\''+fq+'\');">'+itens[i].substring(0,pos)+' <span>('+itens[i+1]+')</span></a>'+
                                 '            </li>';
                     }
                 }
                 $('#div_cabecalho_resultado').html(
-                '    <ul> '+
-                '            <li class="active">'+
-                '                <a>Todos <span id="numFound_todos">'+qtd_total+'</span></a>'+
+                '    <ul style="margin:0px;"> '+
+                '            <li class="active" style="float:left;padding: 0px 5px;list-style-type: none;font-weight:bold;">'+
+                '                <a>Todos <span id="numFound_todos">('+qtd_total+')</span></a>'+
                 '            </li>'+
                 html_cabecalho_resultado +
                 '        </ul>'
@@ -219,12 +286,13 @@ body {
                 html_resultado='';
                 html_group='';
                 r.response.docs.forEach(d => {
+                    icon_fa=f_icon_fa(d.areas_de_interesse_s);
                     html_group +=
                         '<div class="column"> ' +
                         '   <div class="card">' +
                         '       <div class="container" style="text-align:left;padding:5px;">' +
                         '           <div class="container">'+
-                        '                <i aria-hidden="true" class="fas fa-university fa-2x"></i>     ' +
+                        '                <i aria-hidden="true" class="'+icon_fa+' fa-2x"></i>     ' +
                         '           </div>                                                              ' +
                         '           <a target="_blank" href="https://www.gov.br/pt-br/servicos/'+d.id+'" title="'+d.nome_s+'">'+d.nome_s.substring(0,45)+'</a>' +
                         '        </div> '+
@@ -235,7 +303,7 @@ body {
                         '</div>'
                 }); 
 
-                html_resultado='<p><span class="titulo">Destaques para você ('+r.response.numFound+')</span><div class="row">'+html_group+'<div></p>';
+                html_resultado='<p><span class="titulo">Recomendados para você ('+r.response.numFound+')</span><div class="row">'+html_group+'<div></p>';
                 html_group='';   
                 
                 $('#div_resultado').html(html_resultado+$('#div_resultado').html());
@@ -247,12 +315,13 @@ body {
                 html_resultado='';
                 html_group='';
                 r.response.docs.forEach(d => {
+                    icon_fa=f_icon_fa(d.areas_de_interesse_s);
                     html_group +=
                         '<div class="column"> ' +
                         '   <div class="card">' +
                         '       <div class="container" style="text-align:left;padding:5px;">' +
                         '           <div class="container">'+
-                        '                <i aria-hidden="true" class="fas fa-university fa-2x"></i>     ' +
+                        '                <i aria-hidden="true" class="'+icon_fa+' fa-2x"></i>     ' +
                         '           </div>                                                              ' +
                         '           <a target="_blank" href="https://www.gov.br/pt-br/servicos/'+d.id+'" title="'+d.nome_s+'">'+d.nome_s.substring(0,45)+'</a>' +
                         '        </div> '+
@@ -866,26 +935,22 @@ $docs=$content['response']['docs'];
           </nav>
         </div>
       </div>
-    </header><div id="wrapper">
+    </header><div id="wrapper" style="padding:10px;">
       <!-- Columns -->
       <div id="main">
-        <main id="main-content" role="main">
-<div class="col-sm-12"><a onclick="$('#div_facets').toggle();" style="cursor:pointer;">Refinar Busca >></A></div>
+        <main id="main-content" role="main">        
+    <div class="col-sm-12"><a onclick="$('#div_facets').toggle();" style="cursor:pointer;">Refinar Busca >></a></div>
 <div class="col-sm-12" id="div_facets">
     Carregando facets...
-</div>          
+</div>  
+<br> 
+    <div>
+        <div class="col-md-12" id="div_cabecalho_resultado">
+        </div>
+    </div> 
     <div id="content">
         <div id="buscaContainer">
             <div id="search-results">
-                <div class="row">
-                    <div class="col-sm-12 num-resultado">
-                        <span id="numFound_resultados"></span>&nbsp;Resultados
-                    </div>
-                </div> 
-                <div class="row abas">
-                    <div class="column col-md-12" id="div_cabecalho_resultado">
-                    </div>
-                </div> 
                 <div class="row">
                 <div class="column col-md-12">
                 <span>
