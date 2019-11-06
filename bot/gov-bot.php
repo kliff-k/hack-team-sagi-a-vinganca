@@ -26,54 +26,58 @@ switch ($text)
 {
     case '/start':
     case '/inicio':
+    case '/oi':
         $response = 'Bem vindo à plataforma de serviços do governo brasileiro.';
-        file_get_contents($bot."/sendmessage?chat_id=$chat_id&text=$response");
+        $remove_keyboard = json_encode(["remove_keyboard" => TRUE]);
+        file_get_contents($bot."/sendmessage?chat_id=$chat_id&reply_markup=$remove_keyboard&text=$response");
 
         $result = json_decode(file_get_contents("https://hs2019st.com/govbr/solr-select.php?q=*:*&fl=id,nome_s&rows=4"),TRUE);
         $response = 'Esses são os serviços mais acessados ultimamente:';
-        file_get_contents($bot."/sendmessage?chat_id=$chat_id&text=$response");
+        file_get_contents($bot."/sendmessage?chat_id=$chat_id&reply_markup=$remove_keyboard&text=$response");
 
         $response = '<a href="https://www.google.com">'.$result['response']['docs'][0]['nome_s'].'</a>';
-        file_get_contents($bot."/sendmessage?chat_id=$chat_id&parse_mode=HTML&text=$response");
+        file_get_contents($bot."/sendmessage?chat_id=$chat_id&reply_markup=$remove_keyboard&parse_mode=HTML&text=$response");
         $response = '<a href="https://www.google.com">'.$result['response']['docs'][1]['nome_s'].'</a>';
-        file_get_contents($bot."/sendmessage?chat_id=$chat_id&parse_mode=HTML&text=$response");
+        file_get_contents($bot."/sendmessage?chat_id=$chat_id&reply_markup=$remove_keyboard&parse_mode=HTML&text=$response");
         $response = '<a href="https://www.google.com">'.$result['response']['docs'][2]['nome_s'].'</a>';
-        file_get_contents($bot."/sendmessage?chat_id=$chat_id&parse_mode=HTML&text=$response");
+        file_get_contents($bot."/sendmessage?chat_id=$chat_id&reply_markup=$remove_keyboard&parse_mode=HTML&text=$response");
         $response = '<a href="https://www.google.com">'.$result['response']['docs'][3]['nome_s'].'</a>';
-        file_get_contents($bot."/sendmessage?chat_id=$chat_id&parse_mode=HTML&text=$response");
+        file_get_contents($bot."/sendmessage?chat_id=$chat_id&reply_markup=$remove_keyboard&parse_mode=HTML&text=$response");
 
         $response = 'Como posso te ajudar? Digite o nome do serviço que deseja encontrar.';
-        file_get_contents($bot."/sendmessage?chat_id=$chat_id&text=$response");
+        file_get_contents($bot."/sendmessage?chat_id=$chat_id&reply_markup=$remove_keyboard&text=$response");
 
         break;
     default:
         $result = json_decode(file_get_contents("https://hs2019st.com/govbr/solr-select.php?q=".$text."&fl=id,nome_s&rows=4"),TRUE);
         $total = $result['response']['numFound'];
 
+        $remove_keyboard = json_encode(["remove_keyboard" => TRUE]);
+
         if(!$total)
         {
             $response = "Não foram encontrados resultados para a sua busca.";
-            file_get_contents($bot."/sendmessage?chat_id=$chat_id&text=$response");
+            file_get_contents($bot."/sendmessage?chat_id=$chat_id&reply_markup=$remove_keyboard&text=$response");
         }
 
         if($total == 1)
         {
             $response = '<a href="https://www.google.com">'.$result['response']['docs'][0]['nome_s'].'</a>';
-            file_get_contents($bot."/sendmessage?chat_id=$chat_id&parse_mode=HTML&text=$response");
+            file_get_contents($bot."/sendmessage?chat_id=$chat_id&reply_markup=$remove_keyboard&parse_mode=HTML&text=$response");
         }
 
         if($total > 1 )
         {
             $response = "Foram encontrados $total serviços.";
-            file_get_contents($bot."/sendmessage?chat_id=$chat_id&text=$response");
+            file_get_contents($bot."/sendmessage?chat_id=$chat_id&reply_markup=$remove_keyboard&text=$response");
             $response = '<a href="https://www.google.com">'.$result['response']['docs'][0]['nome_s'].'</a>';
-            file_get_contents($bot."/sendmessage?chat_id=$chat_id&parse_mode=HTML&text=$response");
+            file_get_contents($bot."/sendmessage?chat_id=$chat_id&reply_markup=$remove_keyboard&parse_mode=HTML&text=$response");
             $response = '<a href="https://www.google.com">'.$result['response']['docs'][1]['nome_s'].'</a>';
-            file_get_contents($bot."/sendmessage?chat_id=$chat_id&parse_mode=HTML&text=$response");
+            file_get_contents($bot."/sendmessage?chat_id=$chat_id&reply_markup=$remove_keyboard&parse_mode=HTML&text=$response");
             $response = '<a href="https://www.google.com">'.$result['response']['docs'][2]['nome_s'].'</a>';
-            file_get_contents($bot."/sendmessage?chat_id=$chat_id&parse_mode=HTML&text=$response");
+            file_get_contents($bot."/sendmessage?chat_id=$chat_id&reply_markup=$remove_keyboard&parse_mode=HTML&text=$response");
             $response = '<a href="https://www.google.com">'.$result['response']['docs'][3]['nome_s'].'</a>';
-            file_get_contents($bot."/sendmessage?chat_id=$chat_id&parse_mode=HTML&text=$response");
+            file_get_contents($bot."/sendmessage?chat_id=$chat_id&reply_markup=$remove_keyboard&parse_mode=HTML&text=$response");
 
             $result = json_decode(file_get_contents("https://hs2019st.com/govbr/solr-suggest.php?suggest=true&suggest.build=true&suggest.dictionary=nomeSuggester&wt=json&suggest.count=4&suggest.q=$text"),TRUE);
             $response = 'Deseja refinar a sua busca? Tente um dos termos sugeridos:';
@@ -85,7 +89,7 @@ switch ($text)
                 $keyboard[] = [$value['term']];
             }
 
-            $reply_keyboard = ['keyboard' => $keyboard, 'one_time_keyboard' => True, 'resize_keyboard' => True];
+            $reply_keyboard = ['keyboard' => $keyboard, 'one_time_keyboard' => TRUE, 'resize_keyboard' => TRUE];
 
             file_get_contents($bot."/sendmessage?chat_id=$chat_id&reply_markup=".json_encode($reply_keyboard)."&text=$response");
         }
