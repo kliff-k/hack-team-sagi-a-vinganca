@@ -40,6 +40,11 @@ if($location)
         file_get_contents($bot."/sendLocation?chat_id=$chat_id&reply_markup=$remove_keyboard&latitude=$latitude&longitude=$longitude");
     }
 
+    file_put_contents(
+        '../../bot_logs/log',
+        $result."\n****\n".$bot."/sendLocation?chat_id=$chat_id&reply_markup=$remove_keyboard&latitude=$latitude&longitude=$longitude"."\n-----\n",
+        FILE_APPEND);
+
 }
 else
 {
