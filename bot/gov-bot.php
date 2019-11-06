@@ -33,10 +33,13 @@ switch ($text)
         $response = 'Esses são os serviços mais acessados ultimamente:';
         file_get_contents($bot."/sendmessage?chat_id=$chat_id&text=$response");
 
-        $response = '<a href="https://www.example.com">'.$result['response']['docs'][0]['nome_s'].'</a>';
-        $response = '<a href="https://www.example.com">'.$result['response']['docs'][1]['nome_s'].'</a>';
-        $response = '<a href="https://www.example.com">'.$result['response']['docs'][2]['nome_s'].'</a>';
-        $response = '<a href="https://www.example.com">'.$result['response']['docs'][3]['nome_s'].'</a>';
+        $response = '<a href="https://www.google.com">'.$result['response']['docs'][0]['nome_s'].'</a>';
+        file_get_contents($bot."/sendmessage?chat_id=$chat_id&parse_mode=HTML&text=$response");
+        $response = '<a href="https://www.google.com">'.$result['response']['docs'][1]['nome_s'].'</a>';
+        file_get_contents($bot."/sendmessage?chat_id=$chat_id&parse_mode=HTML&text=$response");
+        $response = '<a href="https://www.google.com">'.$result['response']['docs'][2]['nome_s'].'</a>';
+        file_get_contents($bot."/sendmessage?chat_id=$chat_id&parse_mode=HTML&text=$response");
+        $response = '<a href="https://www.google.com">'.$result['response']['docs'][3]['nome_s'].'</a>';
         file_get_contents($bot."/sendmessage?chat_id=$chat_id&parse_mode=HTML&text=$response");
 
         $response = 'Como posso te ajudar? Digite o nome do serviço que deseja encontrar.';
@@ -46,6 +49,7 @@ switch ($text)
     default:
         $result = json_decode(file_get_contents("https://hs2019st.com/govbr/solr-select.php?q='".$text."'&fl=id,nome_s&rows=4"),TRUE);
         $response = $result['response']['docs'][0]['nome_s'];
+        file_get_contents($bot."/sendmessage?chat_id=$chat_id&text=$response");
         break;
 }
 
@@ -54,6 +58,3 @@ file_put_contents(
     '../../bot_logs/log',
     $text.' -> '.$response."\n-----\n",
     FILE_APPEND);
-
-// Response
-file_get_contents($bot."/sendmessage?chat_id=$chat_id&text=$response");
