@@ -137,6 +137,7 @@ body {
 
 <script type="text/javascript">
         $( document ).ready(function() {
+            $("#div_facets").hide();
             // Get the input field
             var input = document.getElementById("nolivesearchGadget");
 
@@ -160,9 +161,9 @@ body {
                 {dateFormat: 'dd/mm/yy'}));
             }
         });
-        function consulta(valor){
+        function consulta(valor,fq=''){
             $.ajax({
-                url: "https://hs2019st.com/govbr/solr-select.php?facet=true&facet.field=segmentos_da_sociedade_ss&rows=4&group=true&group.field=areas_de_interesse_s&group.limit=4&q="+encodeURIComponent(valor)
+                url: "https://hs2019st.com/govbr/solr-select.php?facet=true&facet.field=segmentos_da_sociedade_ss&rows=4&group=true&group.field=areas_de_interesse_s&group.limit=4&q="+encodeURIComponent(valor)+fq
             }).done(function(r) {
                 qtd_total=r.grouped.areas_de_interesse_s.matches;
                 $('#numFound_todos').text('('+qtd_total+')');
@@ -174,11 +175,11 @@ body {
                         html_group +=
                             '<div class="column"> ' +
                             '   <div class="card">' +
-                            '       <div class="container">' +
+                            '       <div class="container" style="text-align:left;padding:5px;">' +
                             '           <div class="container">'+
                             '                <i aria-hidden="true" class="fas fa-university fa-2x"></i>     ' +
                             '           </div>                                                              ' +
-                            '           <a target="_blank" href="https://www.gov.br/pt-br/servicos/'+d.id+'" title="'+d.nome_s+'">'+d.nome_s.substring(0,40)+'</a>' +
+                            '           <a target="_blank" href="https://www.gov.br/pt-br/servicos/'+d.id+'" title="'+d.nome_s+'">'+d.nome_s.substring(0,45)+'</a>' +
                             '        </div> '+
                             ' <i aria-hidden="true" class="far fa-heart fa-1x">'+d.likes_i+'</i> '+
                             ' <i aria-hidden="true" class="far fa-eye fa-1x">'+d.views_i+'</i> '+
@@ -186,7 +187,7 @@ body {
                             '   </div>' +
                             '</div>'
                     }); 
-                    html_resultado+='<hr><span class="titulo">'+g.groupValue+'</span><div class="row">'+html_group+'<div>';
+                    html_resultado+='<p><span class="titulo">'+g.groupValue+'</span><div class="row">'+html_group+'<div></p>';
                     html_group='';   
                 });
                 
@@ -195,8 +196,9 @@ body {
                 itens=r.facet_counts.facet_fields.segmentos_da_sociedade_ss;
                 for(var i=0;i<itens.length;i+=2){
                     if (itens[i]!='NA'){
-                        html_cabecalho_resultado+='<li>'+
-                                '                <a>'+itens[i]+' <span>('+itens[i+1]+')</span></a>'+
+                        fq='&fq=segmentos_da_sociedade_ss:"'+itens[i]+'davi"';
+                        html_cabecalho_resultado+='<li id="'+itens[i]+'">'+
+                                '                <a onclick="consulta(\''+valor+'\',\''+fq+'\');">'+itens[i]+' <span>('+itens[i+1]+')</span></a>'+
                                 '            </li>';
                     }
                 }
@@ -821,11 +823,7 @@ $docs=$content['response']['docs'];
         </span>
     </span>
     <span dir="ltr" id="breadcrumbs-1">
-        
-            
-            
             <span id="breadcrumbs-current">Busca</span>
-         
     </span>
 
 </div><div id="wrapper">
@@ -840,137 +838,37 @@ $docs=$content['response']['docs'];
 </div>
 
             
-                <div class="">
+<div class="col-sm-12"><a onclick="$('#div_facets').toggle();" style="cursor:pointer;">Refinar Busca >></A></div>
+<div class="col-sm-12" id="div_facets">
+    Carregando facets...
+</div>    
 
-                    
-
-                    
-
-    <dl class="portalMessage info" id="kssPortalMessage" style="display:none">
-        <dt>Info</dt>
-        <dd></dd>
-    </dl>
-
-    
-
-
-                    
-                        <div id="content">
-
-                            
-
+                
+    <div id="content">
                             
 
         <div id="buscaContainer">
-            <div id="search-results"><div class="row"><div class="col-md-12 col-sm-10"><h2>Resultados da Busca</h2></div></div> <div class="row">
-                <div class="col-sm-12 num-resultado"><span id="numFound_resultados"></span>&nbsp;Resultados</div></div> 
-                <div class="col-sm-12">Refinar busca</div>
-                <div class="row abas">
-                    <div class="column col-md-12" id="div_cabecalho_resultado">
-                        
+            <div id="search-results">
+                <div class="row">
+                    <div class="col-md-12 col-sm-10">
+                        <h2>Resultados da Busca</h2>
                     </div>
                 </div> 
-                <div class="row"><div class="column col-md-3 filtros"><div style="display: none;"></div></div> <div class="column col-md-9"><span>
-            
-            
-            
-            <ul class="searchResults noticias"><li>
-                    <div id="div_resultado">
+                <div class="row">
+                    <div class="col-sm-12 num-resultado">
+                        <span id="numFound_resultados"></span>&nbsp;Resultados
                     </div>
-                    
-    </li></ul>
+                </div> 
+                <div class="row abas">
+                    <div class="column col-md-12" id="div_cabecalho_resultado">
+                    </div>
+                </div> 
+                <div class="row">
+                <div class="column col-md-12">
+                <span>
+                <div id="div_resultado">
+                </div>
      </span></div></div></div></div>
-         
-         <script type="text/javascript">
-
-           function getParameterByName(name, url) {
-              if (!url) url = window.location.href;
-              name = name.replace(/[\[\]]/g, '\\$&');
-              var regex = new RegExp('[?&]' + name + '(=([^&#]*)|&|#|$)'),
-                  results = regex.exec(url);
-              if (!results) return null;
-              if (!results[2]) return '';
-              return decodeURIComponent(results[2].replace(/\+/g, ' '));
-           }
-           searchableText = getParameterByName("SearchableText");
-           if (!searchableText) {
-              searchableText = getParameterByName("Subject%3Alist");
-           }
-           if (!searchableText) {
-              searchableText = getParameterByName("Subject:list");
-           }
-
-           document.addEventListener("DOMContentLoaded", function(event) {
-             let urlBase = document.getElementById("url").value;
-             if (!urlBase.endsWith("/")) {
-               urlBase += "/";
-             }
-
-             let busca = new govBrBusca.Busca({
-               target: document.getElementById("buscaContainer"),
-               props: {
-                 urlBase: urlBase,
-                 urlPortal: document.getElementById("portal_url").value,
-                 categoriasFiltro: JSON.parse(document.getElementById("categorias_filtro").value),
-                 orgaosFiltro: JSON.parse(document.getElementById("orgaos_filtro").value),
-                 textoBusca: searchableText,
-                 gruposTipos: {
-                   "Midia": [
-                     {
-                       "descricao": "Arquivo",
-                       "tipos": ["File"]
-                     },
-                     {
-                       "descricao": "Áudio",
-                       "tipos": ["Audio", "MPEG Audio File", "OGG Audio File"]
-                     },
-                     {
-                       "descricao": "Conteúdo Externo",
-                       "tipos": ["External Content"]
-                     },
-                     {
-                       "descricao": "Imagem",
-                       "tipos": ["Image"]
-                     },
-                     {
-                       "descricao": "Multimídia",
-                       "tipos": ["sc.embedder"]
-                     },
-                   ]
-                 },
-                 categorias: [
-                   {
-                     "descricao": "Todos",
-                     "tipos": document.getElementById("aba_todos").value.split(",")
-                   },
-                   {
-                     "descricao": "Serviços",
-                     "tipos": document.getElementById("aba_servicos").value.split(",")
-                   },
-                   {
-                     "descricao": "Serviços Estaduais",
-                     "tipos": document.getElementById("aba_servicos_estaduais").value.split(",")
-                   },
-                   {
-                     "descricao": "Notícias",
-                     "tipos": document.getElementById("aba_noticias").value.split(",")
-                   },
-                   {
-                     "descricao": "Mídia",
-                     "tipos": document.getElementById("aba_midia").value.split(",")
-                   },
-                   {
-                     "descricao": "Apps",
-                     "tipos": document.getElementById("aba_apps").value.split(",")
-                   }
-                 ],
-                 ordenacao: '-data|nome',
-                 tamanhoPagina: 30
-               }
-             });
-           });
-
-         </script>
     
                         </div>
                     
