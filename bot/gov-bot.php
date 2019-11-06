@@ -29,6 +29,10 @@ switch ($text)
     case '/start':
         $response = 'Como posso te ajudar? Digite o nome do serviço que deseja encontrar.';
         break;
+    default:
+        $result = json_decode(file_get_contents("http://hs2019st.com:8983/solr/servicos/select?q=*:*&views_i%20desc&fq=palavra_chave_ss:'$text'"),TRUE);
+        $response = $result;
+        break;
 }
 
 file_get_contents($bot."/sendmessage?chat_id=$chat_id&text=$response");
