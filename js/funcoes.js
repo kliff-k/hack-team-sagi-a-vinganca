@@ -549,7 +549,7 @@ $(()=>{
 
                 $.ajax({
                     method: 'GET',
-                    url: 'https://hs2019st.com/govbr/solr-suggest.php?suggest=true&suggest.build=true&suggest.dictionary=nomeSuggester&wt=json&suggest.count=5',
+                    url: 'https://hs2019st.com/govbr/solr-suggest.php?suggest=true&suggest.build=true&suggest.dictionary=nomeSuggester&wt=json&suggest.count=10',
                     data: {
                         'suggest.q': query
                     },
@@ -557,17 +557,28 @@ $(()=>{
                     success: (response)=>{
                         let suggestions = response.suggest.nomeSuggester[query].suggestions;
                         $suggestion_list.empty();
-                        suggestions.forEach((element,index)=>{
-                            let $new = $suggestion_list.append(
+                        suggestions.forEach((element)=>{
+                            $suggestion_list.append(
                                 '<li>' +
                                 element.term +
                                 '</li>'
                             );
                         });
+
+                        $suggestion_list.children().each((i, e)=> {
+                            let $e = $(e);
+                            $e.on('mousedown', ()=>{
+                                $search_input.val($e.text());
+                            });
+                        });
+
                         toggleSuggestions();
                     }
                 });
             })
-            .on('focus blur', toggleSuggestions);
+            .on('focus', toggleSuggestions)
+            .on('blur', ()=>{
+                setTimeout(toggleSuggestions, 1);
+            });
     });
 });

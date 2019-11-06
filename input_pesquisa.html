@@ -20,14 +20,14 @@
                 console.log(query);
                 $.ajax({
                     method: 'GET',
-                    url: 'https://hs2019st.com/govbr/solr-suggest.php?suggest=true&suggest.build=true&suggest.dictionary=mySuggester&wt=json&suggest.count=10',
+                    url: 'https://hs2019st.com/govbr/solr-suggest.php?suggest=true&suggest.build=true&suggest.dictionary=nomeSuggester&wt=json&suggest.count=4',
                     data: {
                         'suggest.q' : query
                     },
                     dataType: 'json',
                     success: (response)=>{
                         // console.log(response);
-                        let suggestions = response.suggest.mySuggester[query].suggestions;
+                        let suggestions = response.suggest.nomeSuggester[query].suggestions;
                         console.log(suggestions);
                         let $suggestions = $('#suggestions');
                         $suggestions.empty();
