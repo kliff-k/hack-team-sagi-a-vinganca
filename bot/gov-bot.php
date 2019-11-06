@@ -65,12 +65,12 @@ else
         case '/start':
         case '/inicio':
         case '/oi':
-            $response = 'Bem vindo à plataforma de serviços do governo brasileiro.';
+            $response = '<b>Bem vindo à plataforma de serviços do governo brasileiro.</b>';
             $remove_keyboard = json_encode(["remove_keyboard" => TRUE]);
-            file_get_contents($bot."/sendmessage?chat_id=$chat_id&reply_markup=$remove_keyboard&text=$response");
+            file_get_contents($bot."/sendmessage?chat_id=$chat_id&parse_mode=HTML&reply_markup=$remove_keyboard&text=$response");
 
             $result = json_decode(file_get_contents("https://hs2019st.com/govbr/solr-select.php?q=*:*&fl=id,nome_s&rows=4"),TRUE);
-            $response = 'Esses são os serviços mais acessados ultimamente:';
+            $response = 'Esses são alguns dos serviços que tenho disponíveis que talvez possam te interessar:';
             file_get_contents($bot."/sendmessage?chat_id=$chat_id&reply_markup=$remove_keyboard&text=$response");
 
             foreach ($result['response']['docs'] AS $value)
@@ -79,8 +79,8 @@ else
                 file_get_contents($bot."/sendmessage?chat_id=$chat_id&reply_markup=$remove_keyboard&parse_mode=HTML&text=$response");
             }
 
-            $response = urlencode("Como posso te ajudar?\nDigite o nome do serviço que deseja encontrar.\nOu envie uma localização para a lista de equipamentos mais próximos de você..");
-            file_get_contents($bot."/sendmessage?chat_id=$chat_id&reply_markup=$remove_keyboard&text=$response");
+            $response = urlencode("<b>Como posso te ajudar?</b>\n\nSelecione um item acima ou digite o nome do serviço que você está procurando.\n\nCaso prefira, você pode enviar sua localização para que eu possa verificar os equipamentos públicos próximos à você.");
+            file_get_contents($bot."/sendmessage?chat_id=$chat_id&parse_mode=HTML&reply_markup=$remove_keyboard&text=$response");
 
             break;
         default:
