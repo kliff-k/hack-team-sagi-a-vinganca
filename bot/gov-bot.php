@@ -34,5 +34,5 @@ switch ($text)
         $response = $result['response']['docs'][0]['nome_s'];
         break;
 }
-
+file_put_contents('../../bot_logs/log',$text.' -> '.$response);
 file_get_contents($bot."/sendmessage?chat_id=$chat_id&text=$response");
