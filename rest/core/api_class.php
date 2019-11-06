@@ -154,7 +154,7 @@ class API
                 switch ($this->method)
                 {
                     case 'GET':
-                        $return = json_decode(file_get_contents("http://hs2019st.com:8983/solr/servicos/select?q=*:*&views_i%20desc&rows=100"),TRUE);
+                        $return = json_decode(file_get_contents("http://hs2019st.com:8983/solr/servicos/select?q=*:*&views_i%20desc&rows=15"),TRUE);
                         break;
                 }
                 break;
