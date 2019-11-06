@@ -163,7 +163,8 @@ body {
         });
         function consulta(valor,fq=''){
             $.ajax({
-                url: "https://hs2019st.com/govbr/solr-select.php?facet=true&facet.field=segmentos_da_sociedade_ss&rows=4&group=true&group.field=areas_de_interesse_s&group.limit=4&q="+encodeURIComponent(valor)+fq
+                url: "https://hs2019st.com/govbr/solr-select.php?facet=true&facet.field=segmentos_da_sociedade_ss&rows=4&group=true&group.field=areas_de_interesse_s&group.limit=4&q="+encodeURIComponent(valor)+fq,
+                async: false
             }).done(function(r) {
                 qtd_total=r.grouped.areas_de_interesse_s.matches;
                 $('#numFound_todos').text('('+qtd_total+')');
@@ -187,7 +188,7 @@ body {
                             '   </div>' +
                             '</div>'
                     }); 
-                    html_resultado+='<p><span class="titulo">'+g.groupValue+'</span><div class="row">'+html_group+'<div></p>';
+                    html_resultado+='<p><span class="titulo">'+g.groupValue+' ('+g.doclist.numFound+')</span><div class="row">'+html_group+'<div></p>';
                     html_group='';   
                 });
                 
@@ -196,14 +197,12 @@ body {
                 itens=r.facet_counts.facet_fields.segmentos_da_sociedade_ss;
                 for(var i=0;i<itens.length;i+=2){
                     if (itens[i]!='NA'){
-                        fq='&fq=segmentos_da_sociedade_ss:"'+itens[i]+'davi"';
+                        fq='&fq=segmentos_da_sociedade_ss:"'+itens[i]+'"';
                         html_cabecalho_resultado+='<li id="'+itens[i]+'">'+
                                 '                <a onclick="consulta(\''+valor+'\',\''+fq+'\');">'+itens[i]+' <span>('+itens[i+1]+')</span></a>'+
                                 '            </li>';
                     }
                 }
-                    
-
                 $('#div_cabecalho_resultado').html(
                 '    <ul> '+
                 '            <li class="active">'+
@@ -212,6 +211,62 @@ body {
                 html_cabecalho_resultado +
                 '        </ul>'
                     );
+            });
+            $.ajax({
+                url: "https://hs2019st.com/govbr/solr-select.php?rows=4&sort=random_"+Math.random()+"%20asc&q="+encodeURIComponent(valor)+fq,
+                async: false
+            }).done(function(r) {
+                html_resultado='';
+                html_group='';
+                r.response.docs.forEach(d => {
+                    html_group +=
+                        '<div class="column"> ' +
+                        '   <div class="card">' +
+                        '       <div class="container" style="text-align:left;padding:5px;">' +
+                        '           <div class="container">'+
+                        '                <i aria-hidden="true" class="fas fa-university fa-2x"></i>     ' +
+                        '           </div>                                                              ' +
+                        '           <a target="_blank" href="https://www.gov.br/pt-br/servicos/'+d.id+'" title="'+d.nome_s+'">'+d.nome_s.substring(0,45)+'</a>' +
+                        '        </div> '+
+                        ' <i aria-hidden="true" class="far fa-heart fa-1x">'+d.likes_i+'</i> '+
+                        ' <i aria-hidden="true" class="far fa-eye fa-1x">'+d.views_i+'</i> '+
+                        ' <a href="https://www.facebook.com/sharer/sharer.php?u=https://www.gov.br/pt-br/servicos/'+d.id+'" target="_blank"><i aria-hidden="true" class="fas fa-share-alt fa-1x"></i> </a>'+
+                        '   </div>' +
+                        '</div>'
+                }); 
+
+                html_resultado='<p><span class="titulo">Destaques para você ('+r.response.numFound+')</span><div class="row">'+html_group+'<div></p>';
+                html_group='';   
+                
+                $('#div_resultado').html(html_resultado+$('#div_resultado').html());
+            });
+            $.ajax({
+                url: "https://hs2019st.com/govbr/solr-select.php?rows=2&sort=random_"+Math.random()+"%20asc&q="+encodeURIComponent(valor)+fq,
+                async: false
+            }).done(function(r) {
+                html_resultado='';
+                html_group='';
+                r.response.docs.forEach(d => {
+                    html_group +=
+                        '<div class="column"> ' +
+                        '   <div class="card">' +
+                        '       <div class="container" style="text-align:left;padding:5px;">' +
+                        '           <div class="container">'+
+                        '                <i aria-hidden="true" class="fas fa-university fa-2x"></i>     ' +
+                        '           </div>                                                              ' +
+                        '           <a target="_blank" href="https://www.gov.br/pt-br/servicos/'+d.id+'" title="'+d.nome_s+'">'+d.nome_s.substring(0,45)+'</a>' +
+                        '        </div> '+
+                        ' <i aria-hidden="true" class="far fa-heart fa-1x">'+d.likes_i+'</i> '+
+                        ' <i aria-hidden="true" class="far fa-eye fa-1x">'+d.views_i+'</i> '+
+                        ' <a href="https://www.facebook.com/sharer/sharer.php?u=https://www.gov.br/pt-br/servicos/'+d.id+'" target="_blank"><i aria-hidden="true" class="fas fa-share-alt fa-1x"></i> </a>'+
+                        '   </div>' +
+                        '</div>'
+                }); 
+
+                html_resultado='<p><span class="titulo">Acessados por você ('+r.response.numFound+')</span><div class="row">'+html_group+'<div></p>';
+                html_group='';   
+                
+                $('#div_resultado').html(html_resultado+$('#div_resultado').html());
             });
         }
         
