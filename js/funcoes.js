@@ -581,4 +581,7 @@ $(()=>{
                 setTimeout(toggleSuggestions, 1);
             });
     });
+    $('#search-form').on('submit', ()=>{
+        localStorage.setItem('termo_busca', $('#search-input')[0].value);
+    });
 });
