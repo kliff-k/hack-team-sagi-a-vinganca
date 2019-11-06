@@ -569,6 +569,7 @@ $(()=>{
                             let $e = $(e);
                             $e.on('mousedown', ()=>{
                                 $search_input.val($e.text());
+                                $('#search-form').submit();
                             });
                         });
 
