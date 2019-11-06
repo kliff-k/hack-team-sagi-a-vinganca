@@ -241,7 +241,7 @@ body {
                 $('#div_resultado').html(html_resultado+$('#div_resultado').html());
             });
             $.ajax({
-                url: "https://hs2019st.com/govbr/solr-select.php?rows=2&sort=random_"+Math.random()+"%20asc&q="+encodeURIComponent(valor)+fq,
+                url: "https://hs2019st.com/govbr/solr-select.php?rows=4&sort=random_"+Math.random()+"%20asc&q="+encodeURIComponent(valor)+fq,
                 async: false
             }).done(function(r) {
                 html_resultado='';
@@ -866,49 +866,17 @@ $docs=$content['response']['docs'];
           </nav>
         </div>
       </div>
-      <div id="beta"><a href="https://www.gov.br/sobre">Versão Beta</a></div>
-    </header><div id="portal-breadcrumbs">
-
-    <span id="breadcrumbs-you-are-here">Você está aqui:</span>
-    <span id="breadcrumbs-home">
-        <a href="https://www.gov.br/pt-br">Página Inicial</a>
-        <span class="breadcrumbSeparator">
-            /
-            
-        </span>
-    </span>
-    <span dir="ltr" id="breadcrumbs-1">
-            <span id="breadcrumbs-current">Busca</span>
-    </span>
-
-</div><div id="wrapper">
+    </header><div id="wrapper">
       <!-- Columns -->
-
       <div id="main">
-        
-
         <main id="main-content" role="main">
-
-            <div id="viewlet-above-content">
-</div>
-
-            
 <div class="col-sm-12"><a onclick="$('#div_facets').toggle();" style="cursor:pointer;">Refinar Busca >></A></div>
 <div class="col-sm-12" id="div_facets">
     Carregando facets...
-</div>    
-
-                
+</div>          
     <div id="content">
-                            
-
         <div id="buscaContainer">
             <div id="search-results">
-                <div class="row">
-                    <div class="col-md-12 col-sm-10">
-                        <h2>Resultados da Busca</h2>
-                    </div>
-                </div> 
                 <div class="row">
                     <div class="col-sm-12 num-resultado">
                         <span id="numFound_resultados"></span>&nbsp;Resultados
