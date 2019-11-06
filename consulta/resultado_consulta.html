@@ -162,7 +162,7 @@ body {
         });
         function consulta(valor){
             $.ajax({
-                url: "http://hs2019st.com:8983/solr/servicos/select?rows=4&group=true&group.field=areas_de_interesse_s&group.limit=4&q="+encodeURIComponent(valor)
+                url: "https://hs2019st.com/govbr/solr-select.php?rows=4&group=true&group.field=areas_de_interesse_s&group.limit=4&q="+encodeURIComponent(valor)
             }).done(function(r) {
                 $('#numFound_todos').text('('+r.grouped.areas_de_interesse_s.matches+')');
                 $('#numFound_resultados').text(r.grouped.areas_de_interesse_s.matches);
