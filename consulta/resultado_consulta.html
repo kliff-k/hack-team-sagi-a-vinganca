@@ -194,9 +194,11 @@ body {
                 html_cabecalho_resultado='';
                 itens=r.facet_counts.facet_fields.segmentos_da_sociedade_ss;
                 for(var i=0;i<itens.length;i+=2){
-                    html_cabecalho_resultado+='<li>'+
+                    if (itens[i]!='NA'){
+                        html_cabecalho_resultado+='<li>'+
                                 '                <a>'+itens[i]+' <span>('+itens[i+1]+')</span></a>'+
                                 '            </li>';
+                    }
                 }
                     
 
