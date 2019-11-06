@@ -1,0 +1,332 @@
+.owl-carousel .card-img-overlay{
+    margin-top: 55%;
+} 
+
+.owl-carousel .card-text{
+    margin-bottom: 15px;
+    min-height: 72px;
+    height: 72px;
+} 
+
+
+.conteudo-destaque{
+    background-color: #0c45a0;
+}
+
+.titulo-destaqueX{
+    color: #0c45a0;
+}
+.titulo-destaqueY{
+    color: #fff;
+}
+
+.titulo-destaque{
+    font-size: 1.6em !important;
+    margin-top: 15px;
+    margin-bottom: 15px;
+    text-transform: uppercase;
+}
+
+.titulo-destaque_item{
+    font-size: 1.1em !important;
+    margin-top: 15px;
+    margin-bottom: 15px;
+    text-transform: uppercase;
+    
+    min-height: 48px;
+}
+
+.dv-local-usuario{
+    color: #fff !important;
+}
+
+.conteudo-busca{
+    margin-top: 15px;
+}
+
+.gem-c-search__item-wrapper {
+    display: table;
+    width: 100%;
+    /* background: #ffffff; */
+}
+
+.gem-c-search--on-govuk-blue .gem-c-search__input {
+    border-width: 0;
+}
+
+@media (min-width: 40.0625em){
+    .gem-c-search__input[type="search"] {
+        font-size: 19px;
+        line-height: 1.4736842105;
+    }
+}
+
+.gem-c-search__input[type="search"] {
+    font-family: rawline,sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 1.4736842105;
+    padding: 6px;
+    margin: 0;
+    width: 100%;
+    height: 40px;
+    /* border: 2px solid #0b0c0c; */
+    background: #ffffff;
+    border-radius: 0;
+    box-sizing: border-box;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+}
+@media (min-width: 641px) {
+    input[type="text"], input[type="search"] {
+        font-size: 16px;
+        line-height: 1.25;
+    }
+}
+
+input[type="text"], input[type="search"] {
+    font-family: "nta", Arial, sans-serif;
+    font-weight: 400;
+    text-transform: none;
+    font-size: 14px;
+    line-height: 1.1428571429;
+    border: 1px solid #bbb;
+    min-width: 8em;
+    margin: 0 0.5em;
+    padding: 0.25em;
+}
+input[type="search"] {
+    -webkit-appearance: textfield;
+    -moz-box-sizing: content-box;
+    -webkit-box-sizing: content-box;
+    box-sizing: content-box;
+}
+.gem-c-search__item {
+    position: relative;
+    display: table-cell;
+    vertical-align: top;
+}
+html, body, button, input, table, td, th {
+    font-family: "nta", Arial, sans-serif;
+}
+
+input[type="search" i] {
+    -webkit-appearance: searchfield;
+    box-sizing: border-box;
+    padding: 1px;
+}
+
+.gem-c-search--on-govuk-blue .gem-c-search__submit {
+    background-color: #0b0c0c;
+    color: #ffffff;
+}
+.gem-c-search__submit {
+    border: 1px solid #0b0c0c;
+    cursor: pointer;
+    border-radius: 0;
+    /* position: relative; */
+    padding: 0;
+    width: 40px;
+    height: 41px;
+    
+    overflow: hidden;
+    background-color: #0b0c0c;
+    color: #ffffff;
+}
+
+.item-carregando{
+    text-align: center;
+    font-size: 1.6em;
+    margin-top:20px;
+    margin-bottom: 20px;
+}
+#owl-items-cards .item-carregando{
+    color: #fff !important;
+}
+.owl-carousel{
+    display: inline !important;
+    margin-bottom: 15px;
+}
+
+.photo-perfil{
+    border-radius: 50%;
+    width: 30px !important;
+}
+
+
+.card-items {
+    /* Add shadows to create the "card" effect */
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2) !important;
+    transition: 0.3s;
+  }
+  
+  /* On mouse-over, add a deeper shadow */
+.card-items:hover {
+    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2) !important;
+  }
+  
+.card-items .card-subtitle a{
+    color: #333 !important;
+    font-size: 1.1em;
+    height: 48px;
+    min-height: 48px;
+    margin-bottom: 18px;
+    font-weight: 400 !important;
+}
+
+.card-items_i{
+    margin-bottom: 15px;
+}
+
+.card-items_i .card-subtitle{
+    min-height: 96px !important;
+    margin-bottom: 15px !important;
+}
+
+.icon-2x-circle {
+    text-align: center;
+    padding: 3px;
+    display: inline-block;
+    -moz-border-radius: 100px;
+    -webkit-border-radius: 100px;
+    border-radius: 100px;
+    -moz-box-shadow: 0px 0px 2px #888;
+    -webkit-box-shadow: 0px 0px 2px #888;
+    box-shadow: 0px 0px 2px #888;
+    background-color: #0c45a0
+}
+
+div.exampleborderradiusf {
+    
+    background-color: #db4800;
+    /* margin-top: 20px;
+    margin-right: 40px; */
+    margin-left: 10px;
+    width: 102px;
+    height: 102px;
+    text-align: center;
+    -moz-border-radius: 51px;
+    border-radius: 51px;
+}
+
+.examplelabelborderradius {
+    color: white;
+    font-size: 51px;
+    position: relative;
+    top: 20px;
+}
+
+#lblNomeSegmento{
+    text-align: center;
+    font-size: 1.2em;
+    text-transform: uppercase !important;
+}
+
+#search-wrapper {
+    position: relative;
+    margin: 0 auto;
+    width: 100%;
+    max-width: 750px;
+}
+
+#search-input-wrapper {
+    position: relative;
+}
+
+#search-input {
+    width: 100%;
+    background-color: #fff;
+    border-radius: 9px;
+    height: 60px;
+    padding: 0 60px 0 30px;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    -webkit-box-shadow: 0 3px 6px 0 rgba(0,0,0,.16);
+    box-shadow: 0 3px 6px 0 rgba(0,0,0,.16);
+    font-size: 20px;
+    color: #555;
+    border: 2px solid #fff;
+    margin: 0;
+}
+#search-input:focus {
+    border-color: #aaa;
+    outline: none;
+}
+
+#search-input-wrapper input[type=submit] {
+    background-color: transparent;
+    border: none;
+    text-indent: -30000px;
+    position: absolute;
+    top: 0;
+    right: 10px;
+    width: 50px;
+    height: 60px;
+    cursor: pointer;
+    outline: none;
+}
+
+#search-input-wrapper:after {
+    font-family: Font Awesome\ 5 Free;
+    content: "\F002";
+    position: absolute;
+    top: 0;
+    right: 10px;
+    color: #1351b4;
+    font-weight: 900;
+    cursor: pointer;
+    width: 50px;
+    height: 60px;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    pointer-events: none;
+}
+
+#search-suggestion-wrapper {
+    display: none;
+    position: absolute;
+    top: 58px;
+    width: 100%;
+    background-color: white;
+    border-bottom-left-radius: 9px;
+    border-bottom-right-radius: 9px;
+    border: 2px solid #aaa;
+    border-top: 1px solid #aaa;
+    box-shadow: 0 3px 6px 0 rgba(0,0,0,.16);
+    z-index: 3;
+}
+
+#search-suggestion-list {
+    padding: 8px 0;
+    margin: 0 !important;
+}
+
+#search-suggestion-list>li {
+    list-style-type: none;
+    font-size: 20px;
+    padding: 0.25em 30px;
+    margin: 0 !important;
+}
+#search-suggestion-list>li:hover {
+    color: black;
+    background-color: #1351b480;
+}
+
+#search-wrapper.show-suggestions #search-input {
+    border-bottom-left-radius: 0;
+    border-bottom-right-radius: 0;
+    border-bottom-color: #fff;
+}
+#search-wrapper.show-suggestions #search-suggestion-wrapper {
+    display: block;
+}

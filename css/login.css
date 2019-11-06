@@ -1,0 +1,801 @@
+/*/////////////////////////// FONTES /////////////////////////////*/
+
+@font-face {
+    font-family: RalewayRegular;
+    src: url(++theme++padrao_govbr/fonts/Raleway-Regular.ttf);
+}
+
+@font-face {
+    font-family: RalewaySemiBold;
+    src: url(++theme++padrao_govbr/fonts/Raleway-SemiBold.ttf);
+}
+
+@font-face {
+    font-family: RalewayBold;
+    src: url(++theme++padrao_govbr/fonts/Raleway-Bold.ttf);
+}
+@font-face {
+    font-family: RalewayExtraBold;
+    src: url(++theme++padrao_govbr/fonts/Raleway-ExtraBold.ttf);
+}
+
+/*///////////////////// BARRA BRASIL GOV ///////////////////////*/
+#barra-brasil a{
+    font-family: 'RalewayRegular', Arial, sans-serif !important;
+    font-size: 11.2px !important;
+}
+
+/*///////////////////// TELA DE LOGIN ///////////////////////*/
+#Content{
+    flex:1;
+    /*min-height: 750px;*/
+    background: transparent url('../img/bg-body2.jpg') no-repeat center top;
+}
+.page-wrapper{
+    display: flex;  
+    flex-direction: column;
+    height: 100vh;
+}
+.container-wrap{
+    min-height: 480px;
+    margin: 0 10%;
+}
+.nav-bar{
+    height: 60px;
+    padding: 10px 10%;
+    background: #06ACFF;
+}
+
+/*///////////////////// BODY ///////////////////////*/
+
+body{
+    background: transparent;
+    font-family: 'RalewayRegular', Arial, sans-serif;
+}
+p{
+    margin: 0 0 20px;
+}
+/*///////////////////// PASSWORD COMPONENT ///////////////////////*/
+.level{
+    width: 100%;
+    height: 10px;
+}
+.level-weak{
+    width: 32%;
+    height: 10px;
+    display: inline-block;
+    background: #cc0000;
+}
+.level-average{
+    width: 32%;
+    height: 10px;
+    display: inline-block;
+    background: orange;
+}
+.level-strong{
+    width: 32%;
+    height: 10px;
+    display: inline-block;
+    background: #68ca6e;
+}
+/*///////////////////// GRID ///////////////////////*/
+
+body.login .container-wrap{
+    margin-top: 35px;
+}
+body.pag-interna .container-wrap{
+    margin-top: 30px;
+}
+
+.painel-login-senha,
+.painel-cadastro{
+    padding: 35px;
+}
+
+
+
+.painel-certificado{
+    padding: 25px 35px 15px 35px;
+    background: rgba(247,247,247,0.9);
+    overflow: auto;
+}
+.painel-vazio{
+    min-height: 70px;
+    padding: 25px;
+    background: #fff;
+}
+.painel-login-texto{
+    min-height: 120px;
+    padding: 25px 10%;
+    background: #fff;
+}
+/*.painel-login-password{
+    display: none;
+}*/
+.painel-rodape img{
+    margin: 20px 10px 20px 0;
+}
+.painel-login-container{
+    width: 55%;
+    margin-left: auto;
+    margin-right: auto;
+}
+.painel-login{
+    background: #fff;
+    border-radius: 24px;
+}
+.panel-certificado{
+    border-radius: 4px;
+    padding: 45px;
+    background: #f7f7f7;
+    margin-bottom: 20px;
+}
+.base-botoes{
+    padding: 40px 0;
+}
+footer{
+    height: 110px;
+    padding: 35px 10%;
+    background: #f5f5f5;
+}
+.questions{
+    margin-bottom: 30px;
+}
+.text-certificado{
+    padding-left: 0px;
+    padding-right: 0px;
+}
+.painel-login-texto h4{
+    margin-bottom: 10px;
+}
+.painel-login-texto p{
+    margin-bottom: 0;
+    font-size: 13px;
+}
+
+
+
+
+/*///////////////////// SUPORTE - CHATBOT ///////////////////////*/
+.suporte{
+    width: 100%;
+    height: 35px;
+    position: fixed;
+    bottom: 0;
+    text-align: right;
+    padding: 0 10px;
+}
+.suporte a{
+    font-weight: bold;
+    font-size: 16px;
+    text-decoration: none;
+    color: #06ACFF;
+}
+.suporte img{
+    margin-left: 10px;
+}
+/*///////////////////// NAV BAR ///////////////////////*/
+.nav-bar ul{
+    float: right;
+}
+.nav-bar ul li{
+    margin-top: 10px;
+    line-height: 20px;
+    padding: 0 20px;
+    display: inline-block;
+    border-right: 1px dotted #fff;
+}
+.nav-bar ul li.last{
+    border: none;
+}
+.nav-bar ul li a{
+    color: #fff;
+    text-transform: uppercase;
+    font-size: 11px;
+    text-decoration: none;
+}
+.nav-bar ul li a i{
+    font-size: 15px;
+    margin-right: 5px;
+}
+.fa.fa-deaf{
+    margin-top: -2px;
+}
+
+/*///////////////////// LINKS ///////////////////////*/
+a{
+    color: #06ACFF;
+    text-decoration: underline;
+    font-weight: bold;
+}
+.painel-login-password a{
+    display: block;
+    margin: 20px 0;
+}
+
+/*///////////////////// TITLES ///////////////////////*/
+h1, h2, h3, h4, h5{
+    color: #06ACFF;
+    margin: 0;
+    margin-bottom: 20px;
+    font-family: 'RalewayExtraBold', Arial, sans-serif;    
+}
+
+
+h1{
+    color: #000;
+    font-size: 48px;
+    margin-bottom: 30px;
+}
+h3, h4{
+	color: black;
+	margin-top: 10px; 
+	margin-bottom: 20px; 
+}
+
+h5, h5 a, h5 a:hover{
+	color: #92817f;
+	margin: 8px 0 5px 0;
+	text-decoration: none;
+}
+
+/*///////////////////// BOTĆ•ES ///////////////////////*/
+
+.btn{
+    padding: 13px 45px;
+    font-size: 12px;
+    font-weight: bold;
+    border: none;
+    border-radius: 24px;
+    text-transform: uppercase;
+    background: #06ACFF;
+}
+a.btn{
+    text-decoration: none;
+}
+.btn.btn-primary{
+    color: #fff;
+}
+.btn.btn-primary:hover{
+    background: #0896df;
+}
+
+.btn.btn-default{
+    padding: 11px 43px;
+    border: 2px solid #000;
+    color: #000;
+    background: transparent;
+}
+.btn.btn-default.btn-sm{
+    padding: 7px 12px;
+}
+.panel-certificado .btn{
+    width: 100%;
+}
+.btn-group .btn.btn-default{
+    border: 2px solid #777;
+    color: #000;
+    border-radius: 10px;
+    padding: 10px 15px;
+}
+.btn-group .btn.btn-default:hover{
+    background: #f7f7f7;
+}
+.btn-group .btn.btn-default.active{
+    color: #fff;
+    background: #0896df;
+    box-shadow: none;
+}
+.painel-login .btn.btn-primary,
+.painel-cadastro .btn.btn-primary{
+    width: auto;
+}
+
+
+
+.painel-login-password .btn.btn-primary{
+    width: 80%;
+}
+
+ 
+
+/*///////////////////// PAINEL LOGIN ///////////////////////*/
+
+.painel-login input[type="text"],
+.painel-login input[type="password"]{
+	width: 80%;
+}
+
+.painel-login input[type="text"], .painel-login input[type="tel"],
+.painel-login input[type="password"]{
+    color: #666666;
+    padding: 12px 20px;
+    border-radius: 4px;
+    margin-bottom: 10px;
+    border: 1px solid #ddd;
+    background: #fff;
+}
+
+/*///////////////////////  ICON EYE PASSWORD   ///////////////////////*/
+.field-icon,
+.field-icon-cadastro{
+    margin-top: 13px;
+    margin-left: -36px;
+    cursor: pointer;
+    color: #777;
+    font-size: 18px;
+}
+.field-icon-cadastro {
+    margin-top: -35px;
+    right: 28px;
+}
+/*///////////////////////  BREADCRUMBS   ///////////////////////*/
+.breadcrumbs{
+    height: 50px;
+    padding: 10px 10%;
+    background: #f5f5f5;
+}
+.breadcrumbs ul,
+.breadcrumbs ul li{
+    list-style: none;
+    list-style-type: none;
+}
+.breadcrumbs ul li{
+    line-height: 28px;
+    padding: 0;
+    display: inline-block;
+}
+.breadcrumbs ul li a{
+    text-decoration: none;
+}
+.breadcrumbs ul li.active,
+.breadcrumbs ul li.active a{
+    color: #333;
+    font-weight: bold;
+}
+.breadcrumbs ul li .fa-chevron-right{
+    line-height: 20px;
+    font-size: 10px;
+    padding: 0 15px;
+    color: #999;
+}
+.breadcrumbs ul li .fa-home{
+    color: #06ACFF;
+}
+body.pag-interna #Content{
+    background: #fff;
+}
+
+.captcha-image{
+    width: 302px;
+    height: 75px;
+    margin-bottom: 20px;
+    background: transparent url('img/nocaptcha.gif') no-repeat -150px -38px;
+}
+/*///////////////////// FORMULARIOS ///////////////////////*/
+input[type="text"],
+input[type="tel"],
+input[type="password"]{
+    width: 100%;
+    color: #666666;
+    text-align: left;
+    padding: 8px 20px;
+    border-radius: 4px;
+    margin-bottom: 10px;
+    border: 1px solid #ddd;
+    background: #fff;
+}
+input[type="checkbox"]{
+    margin-right: 10px;
+}
+.painel-login input[type="text"],
+.painel-login input[type="tel"],
+.painel-login input[type="password"]{
+    margin: 0;
+}
+/*///////////////////// STEPS ///////////////////////*/
+.steps {
+  margin: 10px 0 50px; 
+}
+
+.steps:after {
+    display: table;
+    content: " ";
+    clear: both; 
+}
+
+.steps .step {
+    float: left;
+    text-align: center;
+    padding: 10px 0 15px;
+    position: relative;
+    border-bottom: 4px solid #ccc;
+    color: #ccc; 
+    font-family: 'RalewayBold', Arial, sans-serif;
+}
+
+.steps .step:after {
+      content: "";
+      border: 2px solid #ccc;
+      background-color: #fff;
+      width: 20px;
+      height: 20px;
+      line-height: 16px;
+      border-radius: 11px;
+      text-align: center;
+      box-sizing: border-box;
+      position: absolute;
+      bottom: -12px;
+      left: 50%;
+      font-family: FontAwesome;
+      font-size: 12px; 
+}
+
+.steps .step.active {
+      border-bottom: 4px solid #06ACFF;
+      color: #06ACFF; 
+}
+.steps .step.active:after {
+        content: "";
+        border: 2px solid #06ACFF;
+        background-color: #fff; 
+}
+.steps .step.done {
+      border-bottom: 4px solid #06ACFF;
+      color: #06ACFF; 
+}
+.steps .step.done:after {
+        content: "\f00c";
+        border: 2px solid #06ACFF;
+        background-color: #06ACFF;
+        color: #fff; 
+}
+.block-bottom{
+    display: none;
+}
+
+.text-label-cpf{
+	text-align: right;
+	vertical-align: middle;
+	color: black;
+	font-weight: bold;
+	margin-top: 0px;
+}    
+
+.bt-seguinte-position{
+	text-align: right;
+}
+.label-direita{
+	text-align: right;
+	padding-right: 10px;
+}
+.label-esquerda{
+	text-align: left;
+	padding-left: 10px;
+}
+.label-direita-final{
+	text-align: right;
+	margin-right: 0px; 
+	margin-left: 0px; 
+	padding-right: 0px; 
+	padding-left: 0px;
+}
+
+.barra-vertical{
+	background-color: transparent;
+	background-image: url('img/barra-vertical.png');
+	background-repeat: no-repeat;
+	background-position: top right;
+	margin: 0px;
+}
+
+.icone-certificado{
+	width: 55px;
+}
+.icone-criar-conta{
+	height: 50px;
+	margin-bottom: 5px;
+}
+.box-botoes{
+	min-width: 160px;
+}
+
+@media (max-width: 3000px) {
+	.text-label-cpf{
+		margin-top: 13px;
+	}
+}
+@media (max-width: 1665px) {
+	.text-label-cpf{
+		margin-top: 0px;
+	}
+}
+/*///////////////////// MEDIA QUERIES ///////////////////////*/
+@media (max-width: 1450px) {
+	.painel-login-container{
+		width: 70%;
+	}
+	.bt-seguinte-position{
+		text-align: center;
+	}
+	.btn.btn-primary{
+		width: 100%;
+	}
+	.text-label-cpf{
+		margin-top: 0px;
+	}
+	
+}
+@media (max-width: 1449px) {
+	.text-label-cpf{
+		margin-top: 13px;
+	}
+}
+@media (max-width: 1318px) {
+	.text-label-cpf{
+		margin-top: 0px;
+	}
+}
+@media (max-width: 1150px) {
+    .crie-sua-conta,
+    .image-certificado,
+    .crie-sua-conta a{
+        width: 100%;
+        float: none;
+        text-align: center;
+        padding-right: 0px; padding-left: 0px;
+        margin-right: 0px; margin-left: 0px;
+    }
+    .image-certificado{
+        margin-top: 5px;
+        margin-bottom: 15px;
+        padding-right: 0px; padding-left: 0px;
+        margin-right: 0px; margin-left: 0px;
+    }
+    .crie-sua-conta{
+        margin-bottom: 15px;
+    }
+    .text-danger{
+		padding-left: 0px;
+		text-align: center;
+	}
+	.text-certificado{
+		vertical-align: bottom;
+	}
+    .text-label-cpf{
+		text-align: center;
+		margin-bottom: 10px;
+		vertical-align: middle;
+		margin-top: 0px;
+	}
+	.label-direita{
+		text-align: center;
+	}
+	.label-direita-final{
+		text-align: center;
+	}
+	.label-esquerda{
+		text-align: center;
+	}	
+	.barra-vertical{
+		background-image: none;
+	}	
+}
+@media (max-width: 990px) {
+   .steps .step{
+        width: 100% !important;
+        display: block;
+        float: none;
+        margin-bottom: 20px;
+    }
+    .block-top{
+        display: none;
+    }
+    .block-bottom{
+        display: block;
+    }
+    .panel-certificado{
+        margin-top: 40px;
+    }
+}
+@media (max-width: 700px) {
+    .painel-login-container{
+        width: 100%;
+    }
+}
+@media (max-width: 600px) {
+    .breadcrumbs{
+        height: auto;
+    }
+    .breadcrumbs ul{
+        padding: 0;
+    }
+    .breadcrumbs ul li{
+        display: block;
+        padding: 0;
+        margin-bottom: 10px;
+    }
+    
+    .btn{
+        width: 100%; 
+        margin-bottom: 10px;
+    }
+    .btn-group .btn{
+        width: auto;
+    }
+    .nav-bar ul li{
+        margin: 0;
+        padding: 0;
+        border: none;
+    }
+    .nav-bar ul li a {
+        text-align: center;
+        display: inline-block;
+        width: 40px;
+        overflow: hidden;
+        height: 40px;
+        word-wrap: normal;
+    }
+    .nav-bar ul li a i{
+        font-size: 25px;
+        margin-bottom: 20px;
+        line-height: 38px;
+    }
+    .painel-login-password a{
+        display: block;
+        margin-bottom: 20px;
+        text-align: center;
+        float: none !important;
+    }
+}
+
+@media (max-width: 640px){
+    .page-wrapper {
+        display: block;
+    }
+
+    #Content {
+        background: none;
+    }
+
+    .container-wrap {
+        margin: 0;
+    }
+
+    .painel-login-container {
+        width: 100%;
+    }
+
+    .suporte {
+        text-align: left;
+        left: 0;
+    }
+}
+
+/*///////////////////// ALTO CONTRASTE ///////////////////////*/
+
+
+body.alto-contraste{
+    background: #000;
+}
+
+body.alto-contraste .nav-bar{
+    background: #000;
+}
+
+body.alto-contraste .painel-login,
+body.alto-contraste .painel-login-texto,
+body.alto-contraste .painel-cadastro,
+body.alto-contraste .painel-certificado{
+    color: #fff;
+    background: #000;
+}
+
+body.alto-contraste .btn.btn-primary,
+body.alto-contraste .btn.btn-default{
+    color: #fff;
+    border: 2px solid #fff;
+    background: #000;
+}
+body.alto-contraste .text-label-cpf{
+	color: #fff;
+}
+
+body.alto-contraste h1,
+body.alto-contraste h2,
+body.alto-contraste h3,
+body.alto-contraste h4,
+body.alto-contraste h5{
+    color: #fff;
+}
+
+body.alto-contraste a{
+    color: #fff;
+}
+body.alto-contraste .painel-vazio a{
+    color: #000;
+}
+
+body.alto-contraste .painel-login input[type="text"],
+body.alto-contraste .painel-login input[type="text"]::placeholder,
+body.alto-contraste .painel-login input[type="tel"],
+body.alto-contraste .painel-login input[type="tel"]::placeholder,
+body.alto-contraste .painel-login input[type="password"],
+body.alto-contraste .painel-login input[type="password"]::placeholder{
+    color: #000;
+    font-weight: bold;
+}
+
+/*----- Alto contraste PĆ�gina Interna -----*/
+
+body.alto-contraste.pag-interna #Content{
+    color: #fff;
+    background: #000;
+}
+
+body.alto-contraste.pag-interna .panel-certificado{
+    color: #000;
+    background: #fff;
+}
+
+body.alto-contraste.pag-interna .panel-certificado p,
+body.alto-contraste.pag-interna .panel-certificado a,
+body.alto-contraste.pag-interna .panel-certificado h4{
+    color: #000;
+}
+body.alto-contraste.pag-interna .panel-certificado a.btn.btn-default{
+    color: #fff;
+}
+
+body.alto-contraste.pag-interna .steps .step.active::after,
+body.alto-contraste.pag-interna .steps .step.done::after{
+    color: #000;
+    border: 2px solid yellow;
+    background-color: yellow;
+}
+body.alto-contraste.pag-interna .steps .step.active,
+body.alto-contraste.pag-interna .steps .step.done{
+    border-bottom: 4px solid yellow;
+    color: yellow;
+}
+body.alto-contraste.pag-interna .btn-group .btn.btn-default.active {
+    color: #000;
+    background: yellow;
+    box-shadow: none;
+}
+body.alto-contraste.pag-interna .breadcrumbs ul li a,
+body.alto-contraste.pag-interna .breadcrumbs ul li i{
+    color: #000;
+}
+body.alto-contraste.pag-interna input[type="text"],
+body.alto-contraste.pag-interna input[type="tel"], 
+body.alto-contraste.pag-interna input[type="password"],
+body.alto-contraste.pag-interna input[type="text"]::placeholder, 
+body.alto-contraste.pag-interna input[type="tel"]::placeholder,
+body.alto-contraste.pag-interna input[type="password"]::placeholder{
+    color: #000;
+}
+
+.login-link-faq  {
+	background-image: url('../img/site-ext.gif');
+	
+	background-repeat: no-repeat;
+	background-position: right;
+	padding-right: 20px;
+	display: inline-block;
+	border-style: none;
+}
+
+.missing-scope-warning{
+	color: red;
+	text-align: center;
+}
+
+html, body {
+	max-width: 100%;
+	overflow-x: hidden;
+}
+
+textarea[readonly] {
+	background-color: white;
+}
