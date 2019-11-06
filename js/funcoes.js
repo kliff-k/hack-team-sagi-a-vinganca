@@ -1,3 +1,32 @@
+function simulaLoginGovBr(){
+    
+    var cpf = $("#j_username").val();
+    var nome = "";
+    
+    var arrnomes=["José Pereira","Maria da Silva", 
+    "Ione de Rezende", "Pedro Machado",
+    "Amarildo Nogueira"];
+    var arrphotos=["img1.png","img2.png", 
+    "img3.png", "img4.png",
+    "img5.png"];
+    numInicial = 0;
+    numFinal = (arrnomes.length);
+    numRandom = Math.floor((Math.random()*(numFinal-numInicial))+numInicial);
+    var nome = arrnomes[numRandom];
+    var photo = arrphotos[numRandom];
+
+    if(sessionStorage){
+        
+        sessionStorage.setItem("cpf",cpf);
+        sessionStorage.setItem("nome",nome);
+        sessionStorage.setItem("photo",photo);
+    }else{
+        console.log("Navegador não suporta session storage");
+        alert("Não foi possível realizar o login - navegador sem suporte a sessionStorage");
+    }
+    self.location.href = 'index.html';
+
+}
 function abreMensagemInstalacaoSistema(){ 
     setTimeout(function(){
         if (deferredPrompt) {
@@ -66,6 +95,122 @@ function formataData(dt){
     var new_data = arr0[2]+'/'+arr0[1]+'/'+arr0[0]+' '+arr[1];
     return new_data;
 }
+function getCardsTelaPrincipal(qtd){  
+    
+    $("#owl-items-cards").html('<div class="item-carregando"><i class="fa fa-spinner fa-spin"></i>&nbsp;carregando...</div>');
+    
+    var url = 'https://hs2019st.com/govbr/rest/api/banner';
+
+    fetch(url)
+    .then(function(result){
+        if(result)
+            res = result.json();
+        else
+            res = false;
+        return res;
+    })
+    .then(function(data){
+        console.log(data);
+        
+        var objs = data.response.docs;
+       
+        var numFound =0;
+        var txt = '';
+        if(objs && typeof objs!='undefined'){
+             numFound = objs.length;
+             if(numFound>0){
+                 for(var i=0;i<objs.length;i++){
+                     var ob = objs[i];
+                     var id = ob.id;
+                     var nome = ob.nome_s;
+                     var icone = '';
+                     var views = ob.views_i;
+                     var views = ob.palavras_chaves_s;
+                     var orgao = ob.orgao_s;
+                     var likes = ob.likes_i;
+                     var descricao = ob.descricao_s;
+                     if(typeof id=='undefined' || !id || id=='null'){
+                         continue;
+                     }
+
+                     var tam_string = nome.length;
+                     var maximo=80;
+                     if(tam_string>maximo){
+                        nome = nome.substr(0,maximo-3)+'...';
+                     }
+                     let strcard='<div id="">'+
+                                '    <div class="card" style="text-align: center">'+
+                                '        <img class="card-img" src="img/enem.png" alt="Card image">'+
+                                '        <div class="card-img-overlay" style="">'+
+                                '            <!-- <h4 class="card-title">'+nome+'</h4> -->'+
+                                '            <div class="card-text">'+nome+
+                                '            </div>'+
+                                '            <p><button class="btn br-button btn-outline-primary"'+
+                                '                    type="button">Acessar</button></p>'+
+                                '        </div>'+
+                                '    </div>'+
+                                '</div>';
+                    txt+=strcard;
+                 }
+             }
+        }
+       
+        
+
+        if(numFound<=0 && txt!=''){
+            $(".owl-carousel").html('<div style="margin-bottom:15px" class="br-alert is-warning is-inverted mt-3">'+
+            '<div class="icon">'+
+            '  <i class="fas fa-exclamation-triangle"></i>'+
+            '  <span class="sr-only">Atenção!</span>'+
+            '</div>'+
+            '<div class="content">'+
+            '  <span>Nenhum destaque encontrado para o perfil selecionado.</span>'+
+            '</div>'+
+            '<div class="close">'+
+            '  <button type="button">'+
+            '    <i class="fas fa-times"></i>'+
+            '    <span class="sr-only">Fechar</span>'+
+            '  </button>'+
+            '</div>'+
+          '</div>');
+        }else{
+            
+
+            $(".owl-carousel").html(txt);
+            setTimeout(function(){
+                $(".owl-carousel").owlCarousel({
+                    // stagePadding: 50,
+                    loop: true,
+                    margin: 10,
+                    nav: true,
+                    responsive: {
+                        0: {
+                            items: 1,
+                            nav: false
+                        },
+                        600: {
+                            items: 3,
+                            nav: false
+                        },
+                        1000: {
+                            items: 4,
+                            nav: true,
+                            loop: false
+                        }
+                    }
+                });
+            },130);
+        
+        }
+
+        
+    })
+    .catch(function(err){
+        $("#local-atividades").html('<div>Nenhum registro de acesso encontrado</div>');
+    });
+}
+
+
 function getUltimosAcessosJson(qtd){  
     $("#local-atividades").html('<div><i class="fa fa-spinner fa-spin"></i>&nbsp;carregando...</div>');
     var url = 'https://www.hs2019st.com/rest/api/ultimos_acessos_externos/'+cpfUsuario;

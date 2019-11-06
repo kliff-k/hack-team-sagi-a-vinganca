@@ -37,11 +37,9 @@
 
     <!--Estilos CSS-->
     <!-- <link rel="stylesheet" href="./css/estilos.css"> -->
-    <link rel="stylesheet" type="text/css"
-        href="css/reset-cachekey-32594c0dfcb4f2fb7564c33b7aa5de24.css"
+    <link rel="stylesheet" type="text/css" href="css/reset-cachekey-32594c0dfcb4f2fb7564c33b7aa5de24.css"
         media="screen" />
-    <link rel="stylesheet" type="text/css"
-        href="css/base-cachekey-d71c14b6de0c7eaeda71dc19f6cc0153.css" />
+    <link rel="stylesheet" type="text/css" href="css/base-cachekey-d71c14b6de0c7eaeda71dc19f6cc0153.css" />
     <style type="text/css" media="screen">
         @import url(css/resourceplone.app.jquerytools.dateinput-cachekey-2fc4cee221c8e825268c93c89871e069.css);
     </style>
@@ -50,8 +48,7 @@
     <style type="text/css" media="screen">
         @import url(css/resourcecollective.nitfnitf-cachekey-3f34c3ff2c269ab1b34d29dbb93dbf19.css);
     </style>
-    <link rel="stylesheet" type="text/css"
-        href="css/ploneCustom-cachekey-5279e876330c8dd83447d1a0ac1c2267.css" />
+    <link rel="stylesheet" type="text/css" href="css/ploneCustom-cachekey-5279e876330c8dd83447d1a0ac1c2267.css" />
     <!--[if lt IE 8]>    
     
     <link rel="stylesheet" type="text/css" href="css/IEFixes-cachekey-e28ea05b215e207f95768971e084d1e0.css" media="screen" />
@@ -61,8 +58,7 @@
         @import url(css/resourcecollective.z3cform.datagridfielddatagridfield-cachekey-2dd7a1fc9450e6fa6e023778c3e70051.css);
     </style>
     <link rel="stylesheet" type="text/css"
-        href="css/resourcegovbr.policycanais-cachekey-d99a5d9fc7da1823d911e9728dd42c3a.css"
-        media="screen" />
+        href="css/resourcegovbr.policycanais-cachekey-d99a5d9fc7da1823d911e9728dd42c3a.css" media="screen" />
 
 
 
@@ -88,7 +84,7 @@
     <link rel="mask-icon" href="css/++theme++padrao_govbr/++theme++padrao_govbr/favicons/safari-pinned-tab.svg"
         color="#00a300" />
 
-    <meta name="theme-color" content="#071d41"/>
+    <meta name="theme-color" content="#071d41" />
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css"
         integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous" />
 
@@ -97,14 +93,18 @@
 
     <!-- <script defer="defer" src="//www.gov.br/++resource++brasil.gov.tiles/brasilgovtiles-fadba58.js"></script> -->
     <!-- <link rel="stylesheet" href="./css/estilos_gov.br.css"> -->
+    <link rel="stylesheet" href="./css/estilos_pen.gov.br.css">
     <link rel="stylesheet" href="./css/estilos.css">
     <!-- <link rel="stylesheet" href="./css/estilos_gov.br2.css"> -->
 
-   
+    <link rel="stylesheet" href="js/OwlCarousel2-2.3.4/dist/assets/owl.carousel.min.css" />
+    <link rel="stylesheet" href="js/OwlCarousel2-2.3.4/dist/assets/owl.theme.default.min.css" />
+
+
 
     <meta name="msapplication-config" content="++theme++padrao_govbr/favicons/browserconfig.xml" />
     <meta name="msapplication-config" content="./css/browserconfig.xml" />
-    <meta name="theme-color" content="#071d41"/>
+    <meta name="theme-color" content="#071d41" />
     <link rel="shortcut icon" href="./img/favicon.ico" />
     <link rel="manifest" href="./manifest.json" />
 
@@ -163,27 +163,36 @@
                         <li>
                             <a href="#" class="link-contraste"><i class="fas fa-adjust"></i></a>
                         </li>
+                        
                         <li>
                             <a href="http://www.vlibras.gov.br/" class="link-vlibras"><i
                                     class="fas fa-assistive-listening-systems"></i></a>
                         </li>
-
                         <li class="language-selection">
-                            <a href="//www.gov.br/@@multilingual-selector/1001ac8f3c4241339e0792e5c7830739/pt-br?set_language=pt-br"
-                                class="currentLanguage language-pt-br">
-                                <span class="sr-only">Português</span>
-                            </a>
-                            <ul>
-                                <li class="title">Idioma/Language</li>
-
-
-
-                                <li class="currentLanguage language-pt-br">
-                                    <a href="//www.gov.br/@@multilingual-selector/1001ac8f3c4241339e0792e5c7830739/pt-br?set_language=pt-br"
-                                        title="Português (Brasil)">Português (Brasil)</a>
-                                </li>
-                            </ul>
+                                <a href="//www.gov.br/@@multilingual-selector/1001ac8f3c4241339e0792e5c7830739/pt-br?set_language=pt-br"
+                                    class="currentLanguage language-pt-br" style="padding-right:10px">
+                                    <span class="sr-only">Português</span>
+                                </a>
+                                <ul>
+                                    <li class="title">Idioma/Language</li>
+    
+    
+    
+                                    <li class="currentLanguage language-pt-br">
+                                        <a href="//www.gov.br/@@multilingual-selector/1001ac8f3c4241339e0792e5c7830739/pt-br?set_language=pt-br"
+                                            title="Português (Brasil)">Português (Brasil)</a>
+                                    </li>
+                                </ul>
+                            </li>
+                        <li class="language-selection li-login">
+                                <a href="login.html" class=""><i
+                                        class="fas fa-user-circle"></i> Acessar com o <strong>login único</strong></a>
                         </li>
+                        
+
+                        
+
+
                     </ul>
                 </div>
                 <div id="portal-searchbox">
@@ -692,7 +701,7 @@
                 </nav>
             </div>
         </div>
-        <div id="beta"><a href="/sobre">Versão Beta</a></div>
+        <!-- <div id="beta"><a href="/sobre">Hackathon Gov.br</a></div> -->
     </header>
 
 
@@ -763,102 +772,63 @@
 
 
 
-
-                        <div class="row busca-destaque-home">
-
-
-
-
-
-
-
-
-                            <div class="column col-md-12 " data-panel="">
-
-
-
-
-
-
-
-
-
-
-                                <div class="tile tile-default" id="d5e566b0-c8b8-4ad4-90d3-33ca93f2ec48">
-
-
-                                    <div class="cover-list-tile tile-content sortable-tile">
-
-                                        <img src="//www.gov.br/pt-br/pagina-inicial/@@govbr.tile.busca/d5e566b0-c8b8-4ad4-90d3-33ca93f2ec48/@@images/4ef7e2bc-d0bd-460d-bcd5-449060e007bc.png"
-                                            width="1200" height="395">
-
-                                        <div class="title">
-                                            O que você procura?
-
+                        <div class="container-fluid conteudo-destaque">
+                            <div class="conteudo-busca">
+                                <div class="row">
+                                    <div class="col-md-3">
+                                        <img src="img/logo-govbr-old-white_alter.png" style="width:140px">
+                                    </div>
+                                    <div class="col-md-8 input-wrapper mr-2">
+                                        <!-- <form action="https://www.gov.br/pt-br/@@search">
+                                            <input name="SearchableText" type="text" value="" title="O que você está procurando?" placeholder="O que você está procurando?">                                            
+                                            <input type="submit">                    
+                                        </form> -->
+                                        <div class="gem-c-search__item-wrapper">
+                                        <input type="search" value="" id="search-main-5679a3c1" name="q" 
+                                        title="O que você está procurando?" alt="O que você está procurando?" 
+                                        placeholder="O que você está procurando?"
+                                        class="gem-c-search__item gem-c-search__input js-class-toggle"
+                                        >
+                                        <div class="gem-c-search__item gem-c-search__submit-wrapper">
+                                            <button type="submit" class="gem-c-search__submit">
+                                                <i class="fa fa-search"></i>
+                                            </button>
                                         </div>
-                                        <div class="input-wrapper">
-                                            <form action="//www.gov.br/pt-br/@@search">
-                                                <input name="SearchableText" type="text" value="" title="Digita aqui ;)"
-                                                    placeholder="Digita aqui ;)">
-
-                                                <input type="submit">
-                                            </form>
-                                        </div>
-                                        <div class="assuntos-em-alta">
-                                            <div class="tile-header">
-
-                                                <h2>Novos assuntos</h2>
-
-
-                                                <a href="#" class="btn-assuntos-em-alta closed">
-                                                    <i class="fa fa-angle-down" aria-hidden="true"></i>
-                                                    <i class="fa fa-angle-up" aria-hidden="true"></i>
-                                                </a>
-                                            </div>
-                                            <ul>
-                                                <li>
-                                                    <a href="//www.gov.br/pt-br/acesse-sua-conta-gov.br">Acesse sua
-                                                        conta gov.br</a>
-                                                </li>
-                                                <li>
-                                                    <a href="//www.gov.br/pt-br/assuntos-em-alta/ultimas-noticias">Últimas
-                                                        notícias</a>
-                                                </li>
-                                                <li>
-                                                    <a href="//www.gov.br/pt-br/planalto">Acompanhe o Planalto</a>
-                                                </li>
-                                            </ul>
                                         </div>
                                     </div>
-
-
-
                                 </div>
+                            </div>
+                            <div class="row busca-destaque-home1">
+                                <div class="dv-local-usuario titulo-destaque">
+                                    DESTAQUES PARA <strong id="nome-usuario-destaque">Você</strong>
+                                </div>
+                                <div class="owl-carousel" id='owl-items-cards'>
+                                    <!-- <div>
+                                        <div class="card" style="text-align: center">
+                                            <img class="card-img" src="img/enem.png" alt="Card image">
+                                            <div class="card-img-overlay" style="">
+                                                <h4 class="card-title">Cartei</h4>
+                                                <div class="card-text">Acesse o enem 2019 e faça a prova, teste de teste
+                                                    lorem
+                                                    ipsum e teste de alguma.
+                                                </div>
+                                                <p><button class="btn br-button btn-outline-primary"
+                                                        type="button">Acessar</button></p>
+                                            </div>
+                                        </div>
 
-
-
-
-
-
-
-
-
-
-
-
+                                    </div>
+                                    <div><img src="img/carteira_digital.png" /> </div>
+                                    <div> <img src="img/enem.png" /> </div>
+                                    <div><img src="img/carteira_digital.png" /> </div>
+                                    <div> <img src="img/enem.png" /> </div>
+                                    <div> <img src="img/carteira_digital.png" /> </div>
+                                    <div> <img src="img/enem.png" /> </div> -->
+                                </div>
 
                             </div>
 
-
-
-
-
-
-
-
                         </div>
-
-
 
 
 
@@ -2515,8 +2485,8 @@
                                                         e períodos trabalhados.</span>
                                                     <div class="stores">
                                                         <a class="ios"
-                                                            href="https://apps.apple.com/br/app/meu-inss/id1243048358"><i
-                                                                class="fab fa-apple"></i>iOS</a>
+                                                            href="https://apps.apple.com/br/app/meu-inss/id1243048358">
+                                                            </img>iOS</a>
                                                         <a class="android"
                                                             href="https://play.google.com/store/apps/details?id=br.gov.dataprev.meuinss&amp;hl=pt_BR"><i
                                                                 class="fab fa-android"></i>Android</a>
@@ -3274,9 +3244,9 @@
     <!--jQuery JS-->
     <script src="//code.jquery.com/jquery-1.8.3.min.js" integrity="sha256-YcbK69I5IXQftf/mYD8WY0/KmEDCv1asggHpJk1trM8="
         crossorigin="anonymous"></script>
+    <script src="js/OwlCarousel2-2.3.4/dist/owl.carousel.min.js"></script>
 
-    <script type="text/javascript"
-        src="js/govbrtheme.js"></script>
+    <script type="text/javascript" src="js/govbrtheme.js"></script>
     <div id="plone-analytics">Google Tag Manager
 
 
@@ -3300,7 +3270,7 @@
         <script src="./js/fetch.js"></script>
         <script src="./js/app.js"></script>
         <script src="./js/plataform_.js"></script>
-        
+
 
         <script type="text/javascript">
             $(document).ready(function () {
@@ -3310,9 +3280,26 @@
                 // getUltimosAcessosJson(3);
                 // getAcessosSuspeitosJson(3);
                 // getImagemQrCode2Fatores(15);
+                let nome='';
+                let cpf='';
+                let photo='';
+                if(sessionStorage){
+                    nome = sessionStorage.getItem("nome");
+                    cpf = sessionStorage.getItem("cpf");
+                    photo = sessionStorage.getItem("photo");
+                }
+                if(nome!='' && cpf!=''){
+                    txt='<a href="login.html">';
+                    if(photo=='')
+                        txt+='<i class="fas fa-user-circle" style="margin-left:5px"></i>&nbsp;';
+                    else
+                        txt+='<img src="img/'+photo+'" alt="Avatar" class="photo-perfil">&nbsp;';
+                    txt+=nome+' ('+cpf+')</a>';
+                    $(".li-login").html(txt);
+                    $("#nome-usuario-destaque").html(nome);
+                }
 
-
-
+                getCardsTelaPrincipal(4);
 
 
                 //abre mensagem de instalação do aplicativo
