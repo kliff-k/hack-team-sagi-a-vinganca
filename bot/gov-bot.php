@@ -24,4 +24,11 @@ $chat_type  = $update['message']['chat']['type'];
 
 // Main - Treats the input and returns answer plus keyboard layout
 
-file_get_contents($bot."/sendmessage?chat_id=$chat_id&text=teste");
+switch ($text)
+{
+    case '/start':
+        $response = 'Como posso te ajudar? Digite o nome do serviço que deseja encontrar.';
+        break;
+}
+
+file_get_contents($bot."/sendmessage?chat_id=$chat_id&text=$response");
