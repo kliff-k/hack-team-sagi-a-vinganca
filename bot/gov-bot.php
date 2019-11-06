@@ -31,7 +31,7 @@ switch ($text)
         break;
     default:
         $result = json_decode(file_get_contents("http://hs2019st.com:8983/solr/servicos/select?q=*:*&views_i%20desc&fq=palavra_chave_ss:'$text'"),TRUE);
-        $response = $result;
+        $response = $result['response']['docs'][0]['nome_s'];
         break;
 }
 
