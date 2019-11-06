@@ -29,7 +29,7 @@ switch ($text)
         $response = 'Bem vindo à plataforma de serviços do governo brasileiro.';
         file_get_contents($bot."/sendmessage?chat_id=$chat_id&text=$response");
 
-        $result = json_decode(file_get_contents("https://hs2019st.com/govbr/solr-select.php?q=*:*fl=id,nome_s&rows=4"),TRUE);
+        $result = json_decode(file_get_contents("https://hs2019st.com/govbr/solr-select.php?q=*:*&fl=id,nome_s&rows=4"),TRUE);
         $response = 'Esses são os serviços mais acessados ultimamente:';
         file_get_contents($bot."/sendmessage?chat_id=$chat_id&text=$response");
 
@@ -80,9 +80,9 @@ switch ($text)
             $keyboard = "[ [' ".$result['suggest']['nomeSuggester'][$text]['suggestions'][0]['nome_s']." '],
                             [' ".$result['suggest']['nomeSuggester'][$text]['suggestions'][1]['nome_s']." '],
                             [' ".$result['suggest']['nomeSuggester'][$text]['suggestions'][2]['nome_s']." '],
-                            [' ".$result['suggest']['nomeSuggester'][$text]['suggestions'][3]['nome_s']." '],
+                            [' ".$result['suggest']['nomeSuggester'][$text]['suggestions'][3]['nome_s']." ']
             ]";
-            $reply_keyboard = "{'keyboard': $keyboard, 'one_time_keyboard': False, 'resize_keyboard': True}";
+            $reply_keyboard = "{'keyboard': $keyboard, 'one_time_keyboard': True, 'resize_keyboard': True}";
 
             file_get_contents($bot."/sendmessage?chat_id=$chat_id&reply_markup=$reply_keyboard&text=$response");
         }
