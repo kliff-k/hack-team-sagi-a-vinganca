@@ -77,14 +77,16 @@ switch ($text)
 
             $result = json_decode(file_get_contents(urlencode("https://hs2019st.com/govbr/solr-suggest.php?suggest=true&suggest.build=true&suggest.dictionary=nomeSuggester&wt=json&suggest.count=4&suggest.q=$text")),TRUE);
             $response = 'Deseja refinar a sua busca? Tente um dos termos sugeridos:';
-            $keyboard = "[ [' ".$result['suggest']['nomeSuggester'][$text]['suggestions'][0]['term']." '],
-                            [' ".$result['suggest']['nomeSuggester'][$text]['suggestions'][1]['term']." '],
-                            [' ".$result['suggest']['nomeSuggester'][$text]['suggestions'][2]['term']." '],
-                            [' ".$result['suggest']['nomeSuggester'][$text]['suggestions'][3]['term']." ']
-            ]";
-            $reply_keyboard = "{'keyboard': $keyboard, 'one_time_keyboard': True, 'resize_keyboard': True}";
 
-            file_get_contents($bot."/sendmessage?chat_id=$chat_id&reply_markup=$reply_keyboard&text=$response");
+            $keyboard = [
+                [$result['suggest']['nomeSuggester'][$text]['suggestions'][0]['term']],
+                [$result['suggest']['nomeSuggester'][$text]['suggestions'][1]['term']],
+                [$result['suggest']['nomeSuggester'][$text]['suggestions'][2]['term']],
+                [$result['suggest']['nomeSuggester'][$text]['suggestions'][3]['term']],
+                ];
+            $reply_keyboard = ['keyboard' => $keyboard, 'one_time_keyboard' => True, 'resize_keyboard' => True];
+
+            file_get_contents($bot."/sendmessage?chat_id=$chat_id&reply_markup=".json_encode($reply_keyboard)."&text=$response");
         }
 
         break;
