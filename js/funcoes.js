@@ -215,7 +215,9 @@ function getItemsCategorias(){
 
 function getCardsTelaPrincipal(qtd){  
     
-    $("#owl-items-cards").html('<div class="item-carregando"><i class="fa fa-spinner fa-spin"></i>&nbsp;carregando...</div>');
+    //$("#owl-items-cards").html('<div class="item-carregando"><i class="fa fa-spinner fa-spin"></i>&nbsp;carregando...</div>');
+    var str_ant = $(".dv-local-usuario").html();
+    $(".dv-local-usuario").html('<div class="item-carregando1"><i class="fa fa-spinner fa-spin"></i>&nbsp;carregando...</div>');
     
     var url = 'https://hs2019st.com/govbr/rest/api/banner';
 
@@ -258,13 +260,13 @@ function getCardsTelaPrincipal(qtd){
                      }
                      let strcard='<div id="">'+
                                 '    <div class="card" style="text-align: center">'+
-                                '        <img class="card-img" src="img/enem.png" alt="Card image">'+
+                                '        <img class="card-img img-responsive" src="img/enem.png" alt="Card image">'+
                                 '        <div class="card-img-overlay" style="">'+
                                 '            <!-- <h4 class="card-title">'+nome+'</h4> -->'+
                                 '            <div class="card-text">'+nome+
                                 '            </div>'+
                                 '            <p><button class="btn br-button btn-outline-primary"'+
-                                '                    type="button">Acessar</button></p>'+
+                                '                    onclick="self.location=\'https://www.gov.br/pt-br/servicos/'+id+'\';" type="button" >Acessar</button></p>'+
                                 '        </div>'+
                                 '    </div>'+
                                 '</div>';
@@ -276,6 +278,7 @@ function getCardsTelaPrincipal(qtd){
         
 
         if(numFound<=0 && txt!=''){
+            $(".dv-local-usuario").html(str_ant);
             $(".owl-carousel").html('<div style="margin-bottom:15px" class="br-alert is-warning is-inverted mt-3">'+
             '<div class="icon">'+
             '  <i class="fas fa-exclamation-triangle"></i>'+
@@ -293,7 +296,7 @@ function getCardsTelaPrincipal(qtd){
           '</div>');
         }else{
             
-
+            $(".dv-local-usuario").html(str_ant);
             $(".owl-carousel").html(txt);
             setTimeout(function(){
                 $(".owl-carousel").owlCarousel({
@@ -301,19 +304,26 @@ function getCardsTelaPrincipal(qtd){
                     loop: true,
                     margin: 10,
                     nav: true,
+                    autoplay:true,
+                    autoHeight:true,
+                    // responsiveClass:true,
                     responsive: {
                         0: {
                             items: 1,
-                            nav: false
+                            nav: true
+                        },
+                        400: {
+                            items: 2,
+                            nav: true
                         },
                         600: {
                             items: 3,
-                            nav: false
+                            nav: true
                         },
                         1000: {
                             items: 4,
                             nav: true,
-                            loop: false
+                            loop: true
                         }
                     }
                 });
