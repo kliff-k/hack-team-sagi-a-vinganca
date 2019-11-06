@@ -25,7 +25,15 @@ $location   = $update['message']['location'];
 // Main - Treats the input and returns answer plus keyboard layout
 if($location)
 {
-    $result = json_decode(file_get_contents("https://aplicacoes.mds.gov.br/sagi/servicos/equipamentos?q=tipo_equipamento:CRAS&wt=json&fl=nome,georef_location,dist_estimada:geodist()&rows=5&sfield=georef_location&fq={!geofilt}&pt=".urlencode($location['latitude']).",".urlencode($location['longitude'])."&d=20&sort=geodist()%20asc"),TRUE);
+
+    $arrContextOptions=array(
+        "ssl"=>array(
+            "verify_peer"=>false,
+            "verify_peer_name"=>false,
+        ),
+    );
+
+    $result = json_decode(file_get_contents("https://aplicacoes.mds.gov.br/sagi/servicos/equipamentos?q=tipo_equipamento:CRAS&wt=json&fl=nome,georef_location,dist_estimada:geodist()&rows=5&sfield=georef_location&fq={!geofilt}&pt=".urlencode($location['latitude']).",".urlencode($location['longitude'])."&d=20&sort=geodist()%20asc",false,stream_context_create($arrContextOptions)),TRUE);
 
     if(!$result)
     {
@@ -51,7 +59,7 @@ if($location)
 
     file_put_contents(
         '../../bot_logs/log',
-        $result."\n****\n".$bot."/sendLocation?chat_id=$chat_id&reply_markup=$remove_keyboard&latitude=$latitude&longitude=$longitude"."\n-----\n",
+        "https://aplicacoes.mds.gov.br/sagi/servicos/equipamentos?q=tipo_equipamento:CRAS&wt=json&fl=nome,georef_location,dist_estimada:geodist()&rows=5&sfield=georef_location&fq={!geofilt}&pt=".urlencode($location['latitude']).",".urlencode($location['longitude'])."&d=20&sort=geodist()%20asc"."\n-----\n",
         FILE_APPEND);
 
 }
