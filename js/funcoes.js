@@ -1,5 +1,13 @@
 var arr_consulta_fq=[];
-
+function busca_items_segmento(item){
+    if(!item || typeof item=='undefined' || item=='' || item=='null' || item==null)
+        return false;
+    
+    if(localStorage){
+        localStorage.setItem("busca-segmentos",item);
+        self.location.href='consulta.html';
+    }
+}
 function simulaLoginGovBr(){
     
     var cpf = $("#j_username").val();
@@ -974,16 +982,16 @@ function consulta(valor,fq='',obj=null){
         for(var i=0;i<itens.length;i+=2){
             if (itens[i]!='NA'){
                 var fq1='&fq=segmentos_da_sociedade_ss:%22'+itens[i]+'%22';
-                var cls='';
+                var cls='primary';
                 if(arrayContem(arr_consulta_fq,fq1)>-1){
                     //se já existe no array, está selecionado, então destaca
-                    cls='class="destaque-texto"';
+                    cls='warning';
                 }
                 pos=(itens[i]+'(').indexOf('(');
                 // html_cabecalho_resultado+='<li id="'+itens[i]+'" style="float:left;padding: 0px 5px;list-style-type: none;font-weight:bold;">'+
                 //         '                <a onclick="consulta(\''+valor+'\',\''+fq1+'\',this);" '+cls+'>'+itens[i].substring(0,pos)+' <span>('+itens[i+1]+')</span></a>'+
                 //         '            </li>';
-                html_cabecalho_resultado+= '<button onclick="consulta(\''+valor+'\',\''+fq1+'\',this);" type="button" class="btn seg-sociedade-btn btn btn-primary" >'+itens[i].substring(0,pos)+' <span id="" style="color: #333" class="badge badge-light">'+itens[i+1]+'</span></button>';
+                html_cabecalho_resultado+= '<button onclick="consulta(\''+valor+'\',\''+fq1+'\',this);" type="button" class="btn seg-sociedade-btn btn btn-'+cls+'" >'+itens[i].substring(0,pos)+' <span id="" style="color: #333" class="badge badge-light">'+itens[i+1]+'</span></button>';
             }
         }
         $('#div_cabecalho_resultado').html(
@@ -1078,8 +1086,10 @@ function consulta(valor,fq='',obj=null){
     if(arr_consulta_fq.length>0){
        fq_personalizada = arr_consulta_fq.join();
     }
+    var url_per="https://hs2019st.com/govbr/solr-select.php?rows=4&sort=random_"+Math.random()+"%20asc&q="+encodeURIComponent(valor)+fq_personalizada;
+    
     $.ajax({
-        url: "https://hs2019st.com/govbr/solr-select.php?rows=4&sort=random_"+Math.random()+"%20asc&q="+encodeURIComponent(valor)+fq_personalizada,
+        url: url_per,
         async: false
     }).done(function(r) {
         html_resultado='';

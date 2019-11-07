@@ -397,3 +397,10 @@ div.exampleborderradiusf {
 .owl-item .card{
     border:none !important;
 }
+
+.item-click-segmento{
+    cursor: pointer;
+
+}
+
+

@@ -107,7 +107,14 @@
     <meta name="theme-color" content="#071d41" />
     <link rel="shortcut icon" href="./img/favicon.ico" />
     <link rel="manifest" href="./manifest.json" />
-
+    <style>
+    @media (max-width: 601px){
+    
+        .conteudo-busca{
+            margin-bottom: 15px;
+        }
+}
+    </style>
 
 </head>
 
@@ -767,13 +774,37 @@
                         <div id="wrapper" style="padding:10px;">
                             <!-- Columns -->
                             <div id="main">
-                              <main id="main-content" role="main">        
-                          <div class="col-sm-12"><a onclick="$('#div_facets').toggle();" style="cursor:pointer;"><i class="fas fa-filter"></i>&nbsp;Refinar Busca</a></div>
-                      <div id="div_facets">
-                          Carregando facets...
-                      </div>  
+                              <main id="main-content" role="main"> 
+                                <div class="row" style="display:flex;align-items:center;">
+                                    <div class="col-sm-4">
+                                        <a onclick="$('#div_facets').toggle();" style="cursor:pointer;">
+                                        <i class="fas fa-filter"></i>&nbsp;Refinar Busca</a>
+                                    </div>
+                                    <div class="col-sm-8">
+                                            <div class="conteudo-busca" style="margin-top: 0px">
+                                                    <div id="search-wrapper">
+                                                        <form id="search-form" action="consulta.html">
+                                                            <div id="search-input-wrapper" class="d-flex">
+                                                                <input type="search" value="" id="search-input" autocomplete="off" title="O que você está procurando?" alt="O que você está procurando?" placeholder="O que você está procurando?">
+                                                                <input type="submit">                    
+                                                                </div>
+                                                        </form>
+                                                        <div id="search-suggestion-wrapper">
+                                                            <ul id="search-suggestion-list">
+                                                            </ul>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                    </div>
+                                </div>
+                    <div class="row">
+                      <div id="div_facets" class="col-md-12" style="margin-top:15px; background-color: #ececec;padding: 10px 10px 10px 10px">
+                        <div class="item-carregando"><i class="fa fa-spinner fa-spin"></i>&nbsp;carregando os facets...</div>
+                      </div> 
+                    </div>
+
                       <br> 
-                          <div>
+                          <div class="row">
                               <div class="col-md-12" id="div_cabecalho_resultado">
                               </div>
                           </div> 
@@ -1341,8 +1372,32 @@
                                         document.getElementById("searchButton").click();
                                     }
                                 });
-                                var x = localStorage.getItem("termo_busca");
-                                localStorage.removeItem("termo_busca");
+                                var x = '';
+                                if(localStorage){
+                                    x = localStorage.getItem("termo_busca");
+                                    if(typeof x !='undefined' && x!='' && x!=null && x!='null'){
+                                        $("#search-input").val(x);
+                                    }
+                                    localStorage.removeItem("termo_busca");
+
+                                    //vamos verificar se existe o segmento passado
+                                    var item_seg='';
+                                    item_seg = localStorage.getItem("busca-segmentos");
+                                    if(typeof item_seg!='undefined' && item_seg!='' && item_seg!=null && item_seg!='null'){
+                                        if(arr_consulta_fq){
+                                            if(arrayContem(arr_consulta_fq,item_seg)==-1){
+                                                arr_consulta_fq.push('&fq=segmentos_da_sociedade_ss:%22'+item_seg+'%22');
+                                            }
+                                        }
+                                    }
+                                    localStorage.removeItem("busca-segmentos");
+                                    localStorage.removeItem("termo_busca");
+
+                                }
+
+                               
+
+
                                 if (x!=null && x!=''){
                                     consulta(encodeURI(x));
                                     $('#nolivesearchGadget').val(x);
