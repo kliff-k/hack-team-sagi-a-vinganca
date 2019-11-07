@@ -101,7 +101,7 @@ function formataData(dt){
 function getItemsCategorias(){
     var objDvLoc=$("#DESTAQUES-POR-TIPO");
     objDvLoc.html('<div class="item-carregando"><i class="fa fa-spinner fa-spin"></i>&nbsp;carregando...</div>');
-    var url="http://hs2019st.com:8983/solr/servicos/select?facet.limit=4&facet.field=areas_de_interesse_s&facet=on&q=*%3A*&rows=0&indent=on";
+    var url="https://hs2019st.com/govbr/solr-select.php?facet.limit=4&facet.field=areas_de_interesse_s&facet=on&q=*%3A*&rows=0&indent=on";
     fetch(url)
     .then(function(result){
         return result.json();
@@ -143,7 +143,7 @@ function getItemsCategorias(){
         if(arr_cats.length<=0)
             return false;
         var qtd=2;
-        var url_categorias="http://hs2019st.com:8983/solr/servicos/select?rows="+qtd+
+        var url_categorias="https://hs2019st.com/govbr/solr-select.php?rows="+qtd+
         "&q=*:*&views_i%20desc&fq=areas_de_interesse_ss:";
         setTimeout(function(){
 
@@ -840,7 +840,7 @@ function f_icon_fa(valor){
         icon_fa='fas fa-truck'
     }
     if(valor=='Assistência Social'){
-        icon_fa='fas fa-handing-holding-heart'
+        icon_fa='fas fa-hand-holding-heart'
     }
     if(valor=='Trabalho e Previdência'){
         icon_fa='fas fa-business-time'
@@ -903,9 +903,10 @@ function consulta(valor,fq='',obj=null){
         }
     }
     console.log(arr_consulta_fq);
-    
+    url_solr="https://hs2019st.com/govbr/solr-select.php?facet=true&facet.field=orgao_s&facet.field=gratuito_b&facet.field=servico_digital_b&facet.field=areas_de_interesse_ss&facet.limit=10&facet.field=segmentos_da_sociedade_ss&rows=4&group=true&group.field=areas_de_interesse_s&group.limit=4&q="+valor+fq;
+    console.log('URL SOLR='+url_solr);
     $.ajax({
-        url: "https://hs2019st.com/govbr/solr-select.php?facet=true&facet.field=orgao_s&facet.field=gratuito_b&facet.field=servico_digital_b&facet.field=areas_de_interesse_ss&facet.limit=10&facet.field=segmentos_da_sociedade_ss&rows=4&group=true&group.field=areas_de_interesse_s&group.limit=4&q="+encodeURIComponent(valor)+fq,
+        url: url_solr,
         async: false
     }).done(function(r) {
         qtd_total=r.grouped.areas_de_interesse_s.matches;
@@ -1113,7 +1114,7 @@ function consulta(valor,fq='',obj=null){
         html_resultado='<p><span class="titulo"><h4>Recomendado para você ('+r.response.numFound+') </h4></span><div class="row">'+html_group+'</div></p>';
         html_group='';   
 
-        $('#div_resultado').html(html_resultado+$('#div_resultado').html());
+        $('#div_resultado').html($('#div_resultado').html()+html_resultado);
     });
     $.ajax({
         url: "https://hs2019st.com/govbr/solr-select.php?rows=4&sort=random_"+Math.random()+"%20asc&q="+encodeURIComponent(valor)+fq,
@@ -1157,6 +1158,6 @@ function consulta(valor,fq='',obj=null){
         html_resultado='<p><span class="titulo"><h4>Acessados por você ('+r.response.numFound+')</h4></span><div class="row">'+html_group+'</div></p>';
         html_group='';   
 
-        $('#div_resultado').html(html_resultado+$('#div_resultado').html());
+        $('#div_resultado').html($('#div_resultado').html()+html_resultado);
     });
 }
