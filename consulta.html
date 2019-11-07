@@ -75,13 +75,13 @@
 
 
     <link rel="apple-touch-icon" sizes="180x180"
-        href="css/++theme++padrao_govbr/++theme++padrao_govbr/favicons/apple-touch-icon.png" />
+        href="css/++theme++padrao_govbr/favicons/apple-touch-icon.png" />
     <link rel="icon" type="image/png" sizes="32x32"
-        href="css/++theme++padrao_govbr/++theme++padrao_govbr/favicons/favicon-32x32.png" />
+        href="css/++theme++padrao_govbr/favicons/favicon-32x32.png" />
     <link rel="icon" type="image/png" sizes="16x16"
-        href="css/++theme++padrao_govbr/++theme++padrao_govbr/favicons/favicon-16x16.png" />
+        href="css/++theme++padrao_govbr/favicons/favicon-16x16.png" />
 
-    <link rel="mask-icon" href="css/++theme++padrao_govbr/++theme++padrao_govbr/favicons/safari-pinned-tab.svg"
+    <link rel="mask-icon" href="css/++theme++padrao_govbr/favicons/safari-pinned-tab.svg"
         color="#00a300" />
 
     <meta name="theme-color" content="#071d41" />
@@ -188,6 +188,7 @@
                             <a href="login.html" class=""><i class="fas fa-user-circle"></i> Acessar com o <strong>login
                                     único</strong></a>
                         </li>
+                       
 
 
 
@@ -646,6 +647,9 @@
                         <li id="portaltab-acesse-sua-conta-gov.br" class="li-login plain"><a
                                 href="http://solicitacao.servicos.gov.br/" title="" class="plain"><i class="fas fa-user-circle"></i> Acesse sua conta
                                 gov.br</a></li>
+                                <li class="language-selection">
+                                    <button id="btn-install-app" class="btn" onclick="abreMensagemInstalacaoSistema(50)">Instalar APP</button>
+                                </li>
                     </ul>
 
                     <div class="header-accessibility">
@@ -1313,7 +1317,7 @@
                                     cpf = sessionStorage.getItem("cpf");
                                     photo = sessionStorage.getItem("photo");
                                 }
-                                if (nome != '' && cpf != '') {
+                                if (nome != '' && cpf != '' && nome!='null' && nome!=null && typeof nome!='undefined'){
                                     txt = '<a href="login.html">';
                                     if (photo == '')
                                         txt += '<i class="fas fa-user-circle" style="margin-left:5px"></i>&nbsp;';

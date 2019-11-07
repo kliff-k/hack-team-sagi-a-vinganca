@@ -11,7 +11,7 @@ var dominio_relativo='/';
 if(self.location.href.indexOf('localhost')>0){
     dominio_relativo='/'+'hack-team-sagi-a-vinganca/';
 }else{
-    dominio_relativo='/'+'conta/';
+    dominio_relativo='/'+'govbr/';
 }
 var ambiente_app =dominio_relativo;
 
@@ -30,7 +30,7 @@ if('serviceWorker' in navigator){
     navigator.serviceWorker
     .register(ambiente_app+'sw-gov.br.js',{scope: ambiente_app})    
     .then(function(){
-        console.log("Service Worker registered.");
+        console.log("Service Worker registered com sucesso.");
     })
     .catch(function(err){
         console.log("[Service Worker] Falha ao tentar registrar o Service Worker",err);
@@ -42,49 +42,18 @@ if('serviceWorker' in navigator){
 */
 window.addEventListener('beforeinstallprompt',function(event){
     console.log('beforeinstallprompt fired');
-    event.preventDefault;
+    event.preventDefault();
     deferredPrompt = event;
     return false;
 });
 
 
-var promise = new Promise(function(resolve, reject){
-    setTimeout(function(){
-        //reject({code: 500, message: 'An error occurred!'});
-    },3000);
-});
+//var promise = new Promise(function(resolve, reject){
+//    setTimeout(function(){
+//        //reject({code: 500, message: 'An error occurred!'});
+//    },3000);
+//});
 
-
-/*
-//vamos montar o menu da aplicação
-*/
-
-// fetch('menu-superior.html')
-// .then(function(obj){    
-//     return obj.text();
-    
-// })
-// .then(function(txt){    
-//     $('#menu-barra-superior').html(txt);            
-//     $('.sidebarCollapse').on('click',function(){
-//         $('#sidebar').toggleClass('active');
-//     });
-
-//     // $('.navbar,.body-container').on('click',function(){
-//     //     $('#sidebarCollapse').click();
-//     // });
-// });
-
-// fetch('menu.html')
-// .then(function(obj){    
-//     return obj.text();
-// })
-// .then(function(txt){    
-//     $('#sidebar').html(txt);                
-//     $('[data-toggle="tooltip"]').tooltip({
-//         trigger: "hover",
-//     })
-// });
 
 
 function displayConfirmNotification(){
