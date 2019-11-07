@@ -388,3 +388,12 @@ div.exampleborderradiusf {
 .seg-sociedade-btn{
     margin-left: 15px;
 }
+
+
+.owl-item img{
+    border:none !important;
+}
+
+.owl-item .card{
+    border:none !important;
+}
