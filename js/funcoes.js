@@ -834,9 +834,10 @@ function consulta(valor,fq='',obj=null){
         }
     }
     console.log(arr_consulta_fq);
-    
+    url_solr="https://hs2019st.com/govbr/solr-select.php?facet=true&facet.field=orgao_s&facet.field=gratuito_b&facet.field=servico_digital_b&facet.field=areas_de_interesse_ss&facet.limit=10&facet.field=segmentos_da_sociedade_ss&rows=4&group=true&group.field=areas_de_interesse_s&group.limit=4&q="+valor+fq;
+    console.log('URL SOLR='+url_solr);
     $.ajax({
-        url: "https://hs2019st.com/govbr/solr-select.php?facet=true&facet.field=orgao_s&facet.field=gratuito_b&facet.field=servico_digital_b&facet.field=areas_de_interesse_ss&facet.limit=10&facet.field=segmentos_da_sociedade_ss&rows=4&group=true&group.field=areas_de_interesse_s&group.limit=4&q="+encodeURIComponent(valor)+fq,
+        url: url_solr,
         async: false
     }).done(function(r) {
         qtd_total=r.grouped.areas_de_interesse_s.matches;
