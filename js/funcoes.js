@@ -30,7 +30,12 @@ function simulaLoginGovBr(){
     self.location.href = 'index.html';
 
 }
-function abreMensagemInstalacaoSistema(){ 
+function abreMensagemInstalacaoSistema(t){ 
+    
+    var tempo=4000;
+    if(typeof t !='undefined'){
+        tempo=t;
+    }
     setTimeout(function(){
         if (deferredPrompt) {
             console.log('instalar aplicação');
@@ -49,7 +54,7 @@ function abreMensagemInstalacaoSistema(){
         
             deferredPrompt = null;
           }
-    },4000);
+    },tempo);
     
 }
 
@@ -375,8 +380,8 @@ function getCardsTelaPrincipal(qtd){
                     loop: true,
                     margin: 10,
                     nav: true,
-                    // autoplay:true,
-                    // autoHeight:true,
+                    autoplay:true,
+                    autoHeight:true,
                     // responsiveClass:true,
                     responsive: {
                         0: {

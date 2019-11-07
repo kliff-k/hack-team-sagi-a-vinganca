@@ -75,13 +75,13 @@
 
 
     <link rel="apple-touch-icon" sizes="180x180"
-        href="css/++theme++padrao_govbr/++theme++padrao_govbr/favicons/apple-touch-icon.png" />
+        href="css/++theme++padrao_govbr/favicons/apple-touch-icon.png" />
     <link rel="icon" type="image/png" sizes="32x32"
-        href="css/++theme++padrao_govbr/++theme++padrao_govbr/favicons/favicon-32x32.png" />
+        href="css/++theme++padrao_govbr/favicons/favicon-32x32.png" />
     <link rel="icon" type="image/png" sizes="16x16"
-        href="css/++theme++padrao_govbr/++theme++padrao_govbr/favicons/favicon-16x16.png" />
+        href="css/++theme++padrao_govbr/favicons/favicon-16x16.png" />
 
-    <link rel="mask-icon" href="css/++theme++padrao_govbr/++theme++padrao_govbr/favicons/safari-pinned-tab.svg"
+    <link rel="mask-icon" href="css/++theme++padrao_govbr/favicons/safari-pinned-tab.svg"
         color="#00a300" />
 
     <meta name="theme-color" content="#071d41" />
@@ -102,11 +102,11 @@
 
 
 
-    <meta name="msapplication-config" content="++theme++padrao_govbr/favicons/browserconfig.xml" />
-    <meta name="msapplication-config" content="./css/browserconfig.xml" />
+    <!-- <meta name="msapplication-config" content="++theme++padrao_govbr/favicons/browserconfig.xml" />
+    <meta name="msapplication-config" content="./css/browserconfig.xml" /> -->
     <meta name="theme-color" content="#071d41" />
     <link rel="shortcut icon" href="./img/favicon.ico" />
-    <link rel="manifest" href="./manifest.json" />
+    <link rel="manifest" href="manifest.json" />
 
 
 </head>
@@ -120,7 +120,7 @@
             <ul id="menu-barra-temp" style="list-style:none;">
                 <li
                     style="display:inline; float:left;padding-right:10px; margin-right:10px; border-right:1px solid #EDEDED">
-                    <a href="http://brasil.gov.br"
+                    <a href="index.html"
                         style="font-family:sans,sans-serif; text-decoration:none; color:white;">Portal do Governo
                         Brasileiro</a>
                 </li>
@@ -188,6 +188,7 @@
                             <a href="login.html" class=""><i class="fas fa-user-circle"></i> Acessar com o <strong>login
                                     único</strong></a>
                         </li>
+                        
 
 
 
@@ -646,6 +647,9 @@
                         <li id="portaltab-acesse-sua-conta-gov.br" class="li-login plain"><a
                                 href="login.html" title="" class="plain">Acesse sua conta
                                 gov.br</a></li>
+                                <li class="language-selection">
+                                    <button id="btn-install-app" class="btn" onclick="abreMensagemInstalacaoSistema(50)">Instalar APP</button>
+                                </li>
                     </ul>
 
                     <div class="header-accessibility">
@@ -1485,7 +1489,7 @@
                                     cpf = sessionStorage.getItem("cpf");
                                     photo = sessionStorage.getItem("photo");
                                 }
-                                if (nome != '' && cpf != '') {
+                                if (nome != '' && cpf != '' && nome!='null' && nome!=null && typeof nome!='undefined') {
                                     txt = '<a href="login.html">';
                                     if (photo == '')
                                         txt += '<i class="fas fa-user-circle" style="margin-left:5px"></i>&nbsp;';
