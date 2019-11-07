@@ -100,7 +100,7 @@ function formataData(dt){
 function getItemsCategorias(){
     var objDvLoc=$("#DESTAQUES-POR-TIPO");
     objDvLoc.html('<div class="item-carregando"><i class="fa fa-spinner fa-spin"></i>&nbsp;carregando...</div>');
-    var url="http://hs2019st.com:8983/solr/servicos/select?facet.limit=4&facet.field=areas_de_interesse_s&facet=on&q=*%3A*&rows=0&indent=on";
+    var url="https://hs2019st.com/govbr/solr-select.php?facet.limit=4&facet.field=areas_de_interesse_s&facet=on&q=*%3A*&rows=0&indent=on";
     fetch(url)
     .then(function(result){
         return result.json();
@@ -142,7 +142,7 @@ function getItemsCategorias(){
         if(arr_cats.length<=0)
             return false;
         var qtd=2;
-        var url_categorias="http://hs2019st.com:8983/solr/servicos/select?rows="+qtd+
+        var url_categorias="https://hs2019st.com/govbr/solr-select.php?rows="+qtd+
         "&q=*:*&views_i%20desc&fq=areas_de_interesse_ss:";
         setTimeout(function(){
 
