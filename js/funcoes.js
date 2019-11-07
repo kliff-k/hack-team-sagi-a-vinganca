@@ -771,7 +771,7 @@ function f_icon_fa(valor){
         icon_fa='fas fa-truck'
     }
     if(valor=='Assistência Social'){
-        icon_fa='fas fa-handing-holding-heart'
+        icon_fa='fas fa-hand-holding-heart'
     }
     if(valor=='Trabalho e Previdência'){
         icon_fa='fas fa-business-time'
@@ -1044,7 +1044,7 @@ function consulta(valor,fq='',obj=null){
         html_resultado='<p><span class="titulo"><h4>Recomendado para você ('+r.response.numFound+') </h4></span><div class="row">'+html_group+'</div></p>';
         html_group='';   
 
-        $('#div_resultado').html(html_resultado+$('#div_resultado').html());
+        $('#div_resultado').html($('#div_resultado').html()+html_resultado);
     });
     $.ajax({
         url: "https://hs2019st.com/govbr/solr-select.php?rows=4&sort=random_"+Math.random()+"%20asc&q="+encodeURIComponent(valor)+fq,
@@ -1088,6 +1088,6 @@ function consulta(valor,fq='',obj=null){
         html_resultado='<p><span class="titulo"><h4>Acessados por você ('+r.response.numFound+')</h4></span><div class="row">'+html_group+'</div></p>';
         html_group='';   
 
-        $('#div_resultado').html(html_resultado+$('#div_resultado').html());
+        $('#div_resultado').html($('#div_resultado').html()+html_resultado);
     });
 }
