@@ -920,6 +920,9 @@ function consulta(valor,fq='',obj=null){
         html_resultado='';
         html_group='';
         r.grouped.areas_de_interesse_s.groups.forEach(g => {
+            if (g.groupValue=='NA'){
+                return;
+            }
             g.doclist.docs.forEach(d => {
                 icon_fa=f_icon_fa(d.areas_de_interesse_s);
 
@@ -1122,7 +1125,7 @@ function consulta(valor,fq='',obj=null){
         $('#div_resultado').html($('#div_resultado').html()+html_resultado);
     });
     $.ajax({
-        url: "https://hs2019st.com/govbr/solr-select.php?rows=4&sort=random_"+Math.random()+"%20asc&q="+encodeURIComponent(valor)+fq,
+        url: "https://hs2019st.com/govbr/solr-select.php?4&sort=random_"+Math.random()+"%20asc&q="+encodeURIComponent(valor)+fq,
         async: false
     }).done(function(r) {
         html_resultado='';
