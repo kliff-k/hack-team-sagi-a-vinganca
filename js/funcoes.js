@@ -1042,10 +1042,10 @@ function consulta(valor,fq='',obj=null){
                 html_corpo_facet+='<br><a onclick="consulta(\''+valor+'\',\''+fq1+'\',this);" style="cursor:pointer;" '+cls+'>'+itens[i].replace('true','Sim').replace('false','Não')+' <span>('+itens[i+1]+')</span></a>';
             }
         }
-        $('#div_facets').html($('#div_facets').html()+
+        $('#div_facets').html(
         '<br><div><b>Gratuito:</b>'+
                 html_corpo_facet +
-                '</div>'
+                '</div>'+$('#div_facets').html()
             );
 
         itens=r.facet_counts.facet_fields.servico_digital_b;
@@ -1061,10 +1061,10 @@ function consulta(valor,fq='',obj=null){
                 html_corpo_facet+='<br><a onclick="consulta(\''+valor+'\',\''+fq1+'\',this);" style="cursor:pointer;" '+cls+'>'+itens[i].replace('true','Sim').replace('false','Não')+' <span>('+itens[i+1]+')</span></a>';
             }
         }
-        $('#div_facets').html($('#div_facets').html()+
+        $('#div_facets').html(
         '<br><div><b>Digital:</b>'+
                 html_corpo_facet +
-                '</div>'
+                '</div>'+$('#div_facets').html()
             );
     });
 
