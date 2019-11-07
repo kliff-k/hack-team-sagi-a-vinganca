@@ -195,7 +195,6 @@ input[type="search" i] {
     margin-bottom: 18px;
     font-weight: 400 !important;
 }
-
 .card-items_i{
     margin-bottom: 15px;
 }
@@ -204,6 +203,36 @@ input[type="search" i] {
     min-height: 96px !important;
     margin-bottom: 15px !important;
 }
+
+
+.card-items2 {
+    /* Add shadows to create the "card" effect */
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2) !important;
+    transition: 0.3s;
+  }
+  
+  /* On mouse-over, add a deeper shadow */
+.card-items2:hover {
+    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2) !important;
+  }
+  
+.card-items2 .card-subtitle a{
+    color: #333 !important;
+    font-size: 1.1em;
+    height: 48px;
+    min-height: 48px;
+    margin-bottom: 18px;
+    font-weight: 400 !important;
+}
+.card-items2_i{
+    margin-bottom: 15px;
+}
+
+.card-items2_i .card-subtitle{
+    min-height: 73px !important;
+    margin-bottom: 15px !important;
+}
+
 
 .icon-2x-circle {
     text-align: center;
@@ -351,6 +380,11 @@ div.exampleborderradiusf {
 }
 
 
-.negrito  {
-background-color:#ffff00;
+.destaque-texto  {
+    background-color: #ffff00;
+}
+
+
+.seg-sociedade-btn{
+    margin-left: 15px;
 }
