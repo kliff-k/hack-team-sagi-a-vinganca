@@ -643,8 +643,8 @@
                         </li>
                         <li id="portaltab-rss" class="plain"><a href="//www.gov.br/pt-br/rss" title=""
                                 class="plain">RSS</a></li>
-                        <li id="portaltab-acesse-sua-conta-gov.br" class="plain"><a
-                                href="http://solicitacao.servicos.gov.br/" title="" class="plain">Acesse sua conta
+                        <li id="portaltab-acesse-sua-conta-gov.br" class="li-login plain"><a
+                                href="http://solicitacao.servicos.gov.br/" title="" class="plain"><i class="fas fa-user-circle"></i> Acesse sua conta
                                 gov.br</a></li>
                     </ul>
 
@@ -1318,7 +1318,7 @@
                                     if (photo == '')
                                         txt += '<i class="fas fa-user-circle" style="margin-left:5px"></i>&nbsp;';
                                     else
-                                        txt += '<img src="img/' + photo + '" alt="Avatar" class="photo-perfil">&nbsp;';
+                                        txt += '<img src="img/' + photo + '" alt="perfil" class="photo-perfil">&nbsp;';
                                     txt += nome + ' (' + cpf + ')</a>';
                                     $(".li-login").html(txt);
                                     $("#nome-usuario-destaque").html(nome);

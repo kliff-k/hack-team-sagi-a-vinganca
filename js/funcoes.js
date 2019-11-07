@@ -26,6 +26,7 @@ function simulaLoginGovBr(){
         console.log("Navegador não suporta session storage");
         alert("Não foi possível realizar o login - navegador sem suporte a sessionStorage");
     }
+    
     self.location.href = 'index.html';
 
 }
@@ -254,6 +255,74 @@ function getCardsTelaPrincipal(qtd){
                      if(typeof id=='undefined' || !id || id=='null'){
                          continue;
                      }
+                     var nome_imagem='hack_geral.png';
+                     var cls_text='text-dark';
+                     //trata os casos para apresentação
+                    var nome_imagem='hack_geral.png';
+                    var cls_text='dark';    
+                    var cls_outline='primary';  
+                     if(id.indexOf('digitais-do-ministerio-da-saude')>-1){
+                        nome_imagem='hack_saude.png';
+                        cls_text='light';    
+                        cls_outline='light';     
+                     }else if(id.indexOf('sine-aberto')>-1){
+                        nome_imagem='hack_sine.png';
+                        cls_text='dark';    
+                        cls_outline='dark';   
+                     }else if(id.indexOf('da-epsjv')>-1){
+                        nome_imagem='hack_espj.png';
+                        cls_text='light';    
+                        cls_outline='light';   
+                     }else if(id.indexOf('programa-nacional-de-alimentacao-escolar')>-1){
+                        nome_imagem='hack_pnae.png';
+                        cls_text='dark';    
+                        cls_outline='dark';   
+                     }else if(id.indexOf('iphan')>-1){
+                        nome_imagem='hack_iphan.png';
+                        cls_text='light';    
+                        cls_outline='light';   
+                     }else if(id.indexOf('libras-pela-tv-aberta')>-1){
+                        nome_imagem='hack_libras.png';
+                        cls_text='dark';    
+                        cls_outline='dark';   
+                     }else if(id.indexOf('rede-nacional-de-radio')>-1){
+                        nome_imagem='hack_noticias.png';
+                        cls_text='light';    
+                        cls_outline='light';   
+                     }else if(id.indexOf('pelo-progredir')>-1){
+                        nome_imagem='hack_progredir.png';
+                        cls_text='dark';    
+                        cls_outline='dark';   
+                     
+                     }else if(id.indexOf('monitoramento-de-midia')>-1){
+                        nome_imagem='hack_monitoramento.png';
+                        cls_text='light';    
+                        cls_outline='light';   
+                     
+                     }else if(id.indexOf('nformacoes-de-orgaos-publicos')>-1){
+                        nome_imagem='hack_informacao.png';
+                        cls_text='dark';    
+                        cls_outline='dark';   
+                     }else if(id.indexOf('comunicar-se-via-radios-ebc')>-1){
+                        nome_imagem='hack_noticias.png';
+                        cls_text='light';    
+                        cls_outline='light';  
+                     }else if(id.indexOf('caso-de-colapso-da-comunicacao')>-1){
+                        nome_imagem='hack_noticias.png';
+                        cls_text='light';    
+                        cls_outline='light';  
+                     }else if(id.indexOf('fotojornalistico-gratuitamente')>-1){
+                        nome_imagem='hack_jornalismo.png';
+                        cls_text='dark';    
+                        cls_outline='dark';   
+                     }else if(id.indexOf('real-gratuitamente')>-1){
+                        nome_imagem='hack_tempo_real.png';
+                        cls_text='light';    
+                        cls_outline='light';   
+                     }else{
+                        cls_text='dark';    
+                        cls_outline='primary';
+                     }
 
                      var tam_string = nome.length;
                      var maximo=80;
@@ -262,12 +331,12 @@ function getCardsTelaPrincipal(qtd){
                      }
                      let strcard='<div id="">'+
                                 '    <div class="card" style="text-align: center">'+
-                                '        <img class="card-img img-responsive" src="img/enem.png" alt="Card image">'+
+                                '        <img class="card-img img-responsive" src="img/'+nome_imagem+'" alt="Card image">'+
                                 '        <div class="card-img-overlay" style="">'+
                                 '            <!-- <h4 class="card-title">'+nome+'</h4> -->'+
-                                '            <div class="card-text">'+nome+
+                                '            <div class="card-text text-'+cls_text+'">'+nome+
                                 '            </div>'+
-                                '            <p><button class="btn br-button btn-outline-primary"'+
+                                '            <p><button class="btn br-button btn-outline-'+cls_outline+'  '+cls_text+'"'+
                                 '                    onclick="self.location=\'https://www.gov.br/pt-br/servicos/'+id+'\';" type="button" >Acessar</button></p>'+
                                 '        </div>'+
                                 '    </div>'+
@@ -306,8 +375,8 @@ function getCardsTelaPrincipal(qtd){
                     loop: true,
                     margin: 10,
                     nav: true,
-                    autoplay:true,
-                    autoHeight:true,
+                    // autoplay:true,
+                    // autoHeight:true,
                     // responsiveClass:true,
                     responsive: {
                         0: {
