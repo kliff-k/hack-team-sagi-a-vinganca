@@ -7,7 +7,7 @@
 // https://api.telegram.org/bot1017664403:AAFv3yj797EAHdleCSecDDKZuRJxJVUc3kc/getWebhookInfo
 
 // Declare main variables
-$token = "1017664403:AAFv3yj797EAHdleCSecDDKZuRJxJVUc3kc";
+$token = "";
 $bot = "https://api.telegram.org/bot".$token;
 
 // Get request contents and relevant data
